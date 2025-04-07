@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Buylowsellsmart",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "",
-    "text": "This is a Quarto website. Sichong Chen hhkhh.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Topic Chosen: Buy Low / Sell High Strategy\nWhy This Strategy?\n\nA classic and widely used strategy in financial markets.\nSimple yet effective, focusing on identifying undervalued assets.\nWorks well with technical indicators to enhance trade accuracy.\n\nGoal: Optimize entry/exit signals & risk management.\nDomain Name: buylowsellsmart.com"
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,47 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html#strategy-overview",
+    "href": "index.html#strategy-overview",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "",
+    "text": "Topic Chosen: Buy Low / Sell High Strategy\nWhy This Strategy?\n\nA classic and widely used strategy in financial markets.\nSimple yet effective, focusing on identifying undervalued assets.\nWorks well with technical indicators to enhance trade accuracy.\n\nGoal: Optimize entry/exit signals & risk management.\nDomain Name: buylowsellsmart.com"
+  },
+  {
+    "objectID": "index.html#choice-of-assets",
+    "href": "index.html#choice-of-assets",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Choice of Assets",
+    "text": "Choice of Assets\nRationale: - Data acquisition is simple - Moderate volatility - Strong long-term growth potential - Suitable for Buy Low / Sell High strategy"
+  },
+  {
+    "objectID": "index.html#new-features-added",
+    "href": "index.html#new-features-added",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "New Features Added",
+    "text": "New Features Added\n\nMACD Indicator: Identify trend direction & momentum\nRSI (Relative Strength Index): Avoid buying in overbought zones\nBollinger Bands: Detect price volatility and potential reversals\nVolume Analysis: Filter fake breakouts using OBV/VWAP\nATR-Based Entry Signal: Dynamically adjust buy thresholds"
+  },
+  {
+    "objectID": "index.html#optimizing-parameters",
+    "href": "index.html#optimizing-parameters",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Optimizing Parameters",
+    "text": "Optimizing Parameters\n\nEntry Signal: Buy when SMA50 &gt; SMA200 for trend confirmation & RSI &lt; 40 for oversold conditions\nEntry Threshold: Use ATR-based adaptive buy levels, adjusting dynamically with market volatility\nTarget Alpha: Set take-profit levels based on ATR to capture optimal gains while managing risk\nExit Signal: Sell when RSI &gt; 70 to lock in profits\nRisk Management: Adjust position size dynamically based on ATR to mitigate excessive volatility"
+  },
+  {
+    "objectID": "index.html#implementing-stop-loss",
+    "href": "index.html#implementing-stop-loss",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Implementing Stop Loss",
+    "text": "Implementing Stop Loss\n\nFixed Stop Loss: Exit when price drops 5% below entry\nATR-Based Stop Loss: Exit when price falls 2x ATR below entry\nMoving Average Stop Loss: Exit when price falls below SMA50\nTrailing Stop Loss: Adjust stop-loss upward as price increases"
+  },
+  {
+    "objectID": "index.html#data-source-tools",
+    "href": "index.html#data-source-tools",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Data Source & Tools",
+    "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data"
   }
 ]

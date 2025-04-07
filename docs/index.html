@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Buylowsellsmart</title>
+<title>Buy Low / Sell High Strategy Optimization – Buylowsellsmart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,21 +107,38 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#strategy-overview" id="toc-strategy-overview" class="nav-link active" data-scroll-target="#strategy-overview">Strategy Overview</a></li>
+  <li><a href="#choice-of-assets" id="toc-choice-of-assets" class="nav-link" data-scroll-target="#choice-of-assets">Choice of Assets</a></li>
+  <li><a href="#new-features-added" id="toc-new-features-added" class="nav-link" data-scroll-target="#new-features-added">New Features Added</a></li>
+  <li><a href="#optimizing-parameters" id="toc-optimizing-parameters" class="nav-link" data-scroll-target="#optimizing-parameters">Optimizing Parameters</a></li>
+  <li><a href="#implementing-stop-loss" id="toc-implementing-stop-loss" class="nav-link" data-scroll-target="#implementing-stop-loss">Implementing Stop Loss</a></li>
+  <li><a href="#data-source-tools" id="toc-data-source-tools" class="nav-link" data-scroll-target="#data-source-tools">Data Source &amp; Tools</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Buylowsellsmart</h1>
+<h1 class="title">Buy Low / Sell High Strategy Optimization</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sicong Chen, Yuxin Wan </p>
+          </div>
+  </div>
     
   
     
@@ -132,10 +149,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website. Sichong Chen hhkhh.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="strategy-overview" class="level2">
+<h2 class="anchored" data-anchor-id="strategy-overview">Strategy Overview</h2>
+<ul>
+<li><strong>Topic Chosen</strong>: Buy Low / Sell High Strategy</li>
+<li><strong>Why This Strategy?</strong>
+<ul>
+<li>A classic and widely used strategy in financial markets.</li>
+<li>Simple yet effective, focusing on identifying undervalued assets.</li>
+<li>Works well with technical indicators to enhance trade accuracy.</li>
+</ul></li>
+<li><strong>Goal</strong>: Optimize entry/exit signals &amp; risk management.</li>
+<li><strong>Domain Name</strong>: buylowsellsmart.com</li>
+</ul>
+</section>
+<section id="choice-of-assets" class="level2">
+<h2 class="anchored" data-anchor-id="choice-of-assets">Choice of Assets</h2>
+<p><strong>Rationale</strong>: - Data acquisition is simple - Moderate volatility - Strong long-term growth potential - Suitable for Buy Low / Sell High strategy</p>
+</section>
+<section id="new-features-added" class="level2">
+<h2 class="anchored" data-anchor-id="new-features-added">New Features Added</h2>
+<ul>
+<li><strong>MACD Indicator</strong>: Identify trend direction &amp; momentum</li>
+<li><strong>RSI (Relative Strength Index)</strong>: Avoid buying in overbought zones</li>
+<li><strong>Bollinger Bands</strong>: Detect price volatility and potential reversals</li>
+<li><strong>Volume Analysis</strong>: Filter fake breakouts using OBV/VWAP</li>
+<li><strong>ATR-Based Entry Signal</strong>: Dynamically adjust buy thresholds</li>
+</ul>
+</section>
+<section id="optimizing-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="optimizing-parameters">Optimizing Parameters</h2>
+<ul>
+<li><strong>Entry Signal</strong>: Buy when SMA50 &gt; SMA200 for trend confirmation &amp; RSI &lt; 40 for oversold conditions</li>
+<li><strong>Entry Threshold</strong>: Use ATR-based adaptive buy levels, adjusting dynamically with market volatility</li>
+<li><strong>Target Alpha</strong>: Set take-profit levels based on ATR to capture optimal gains while managing risk</li>
+<li><strong>Exit Signal</strong>: Sell when RSI &gt; 70 to lock in profits</li>
+<li><strong>Risk Management</strong>: Adjust position size dynamically based on ATR to mitigate excessive volatility</li>
+</ul>
+</section>
+<section id="implementing-stop-loss" class="level2">
+<h2 class="anchored" data-anchor-id="implementing-stop-loss">Implementing Stop Loss</h2>
+<ul>
+<li><strong>Fixed Stop Loss</strong>: Exit when price drops 5% below entry</li>
+<li><strong>ATR-Based Stop Loss</strong>: Exit when price falls 2x ATR below entry</li>
+<li><strong>Moving Average Stop Loss</strong>: Exit when price falls below SMA50</li>
+<li><strong>Trailing Stop Loss</strong>: Adjust stop-loss upward as price increases</li>
+</ul>
+</section>
+<section id="data-source-tools" class="level2">
+<h2 class="anchored" data-anchor-id="data-source-tools">Data Source &amp; Tools</h2>
+<ul>
+<li><strong>Data</strong>: Yahoo Finance API, Kaggle datasets</li>
+<li><strong>Programming</strong>: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)</li>
+<li><strong>Backtesting</strong>: Compare strategy performance using historical data</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

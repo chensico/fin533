@@ -2,6 +2,58 @@
 title: "Buylowsellsmart"
 ---
 
-This is a Quarto website. Sichong Chen hhkhh.
+---
+title: "Buy Low / Sell High Strategy Optimization"
+authors: "Sicong Chen, Yuxin Wan"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Strategy Overview
+
+- **Topic Chosen**: Buy Low / Sell High Strategy
+- **Why This Strategy?**
+  - A classic and widely used strategy in financial markets.
+  - Simple yet effective, focusing on identifying undervalued assets.
+  - Works well with technical indicators to enhance trade accuracy.
+- **Goal**: Optimize entry/exit signals & risk management.
+- **Domain Name**: buylowsellsmart.com
+
+## Choice of Assets
+
+**Rationale**:
+- Data acquisition is simple
+- Moderate volatility
+- Strong long-term growth potential
+- Suitable for Buy Low / Sell High strategy
+
+## New Features Added
+
+- **MACD Indicator**: Identify trend direction & momentum
+- **RSI (Relative Strength Index)**: Avoid buying in overbought zones
+- **Bollinger Bands**: Detect price volatility and potential reversals
+- **Volume Analysis**: Filter fake breakouts using OBV/VWAP
+- **ATR-Based Entry Signal**: Dynamically adjust buy thresholds
+
+## Optimizing Parameters
+
+- **Entry Signal**: Buy when SMA50 > SMA200 for trend confirmation & RSI < 40 for oversold conditions
+- **Entry Threshold**: Use ATR-based adaptive buy levels, adjusting dynamically with market volatility
+- **Target Alpha**: Set take-profit levels based on ATR to capture optimal gains while managing risk
+- **Exit Signal**: Sell when RSI > 70 to lock in profits
+- **Risk Management**: Adjust position size dynamically based on ATR to mitigate excessive volatility
+
+## Implementing Stop Loss
+
+- **Fixed Stop Loss**: Exit when price drops 5% below entry
+- **ATR-Based Stop Loss**: Exit when price falls 2x ATR below entry
+- **Moving Average Stop Loss**: Exit when price falls below SMA50
+- **Trailing Stop Loss**: Adjust stop-loss upward as price increases
+
+## Data Source & Tools
+
+- **Data**: Yahoo Finance API, Kaggle datasets
+- **Programming**: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)
+- **Backtesting**: Compare strategy performance using historical data
