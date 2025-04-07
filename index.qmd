@@ -2,6 +2,6 @@
 title: "Buylowsellsmart"
 ---
 
-This is a Quarto website. Sichong Chen hhthh.
+This is a Quarto website. Sichong Chen hhkhh.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
