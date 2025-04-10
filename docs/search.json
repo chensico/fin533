@@ -53,6 +53,6 @@
     "href": "index.html#data-source-tools",
     "title": "Buy Low / Sell High Strategy Optimization",
     "section": "Data Source & Tools",
-    "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data"
+    "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data."
   }
 ]
