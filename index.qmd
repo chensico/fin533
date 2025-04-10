@@ -1,8 +1,4 @@
 ---
-title: "Buylowsellsmart"
----
-
----
 title: "Buy Low / Sell High Strategy Optimization"
 authors: "Sicong Chen, Yuxin Wan"
 format:
@@ -11,97 +7,268 @@ format:
     toc-depth: 3
 ---
 
-## Strategy Overview
+## Strategy Overview & Design
 
-- **Topic Chosen**: Buy Low / Sell High Strategy
+- **Topic Chosen**: Buy Low / Sell High Strategy with Robust Parameter Optimization
 - **Why This Strategy?**
-  - A classic and widely used strategy in financial markets.
-  - Simple yet effective, focusing on identifying undervalued assets.
-  - Works well with technical indicators to enhance trade accuracy.
-- **Goal**: Optimize entry/exit signals & risk management.
+  - A proven strategy that combines multiple technical indicators for entry/exit signals
+  - Balanced approach using both trend following and mean reversion principles
+  - Comprehensive parameter optimization to enhance performance across market conditions
+- **Goal**: Optimize entry/exit signals & risk management using advanced statistical techniques
 - **Domain Name**: buylowsellsmart.com
 
-## Choice of Assets
+**Choice of Assets**:
+- Highly liquid assets that respond well to technical analysis (e.g., AAPL)
+- Moderate to high volatility suitable for ATR-based risk management
+- Both trending and range-bound behavior for strategy testing
+- Multiple timeframes to validate strategy robustness
 
-**Rationale**:
-- Data acquisition is simple
-- Moderate volatility
-- Strong long-term growth potential
-- Suitable for Buy Low / Sell High strategy
+**Technical Features**:
+- **Moving Average Trend Confirmation**: Using SMA 50/200 crossovers to establish trend direction
+- **RSI (Relative Strength Index)**: Identifying oversold/overbought conditions with adaptive thresholds
+- **Bollinger Bands**: Detecting price extremes and potential reversal zones
+- **ATR-Based Risk Management**: Dynamic stop-loss and take-profit levels based on current volatility
+- **Detailed Trade Analysis**: Metrics including win rate, profit factor, and consecutive wins/losses
 
-## New Features Added
+## System Architecture & Implementation
 
-- **MACD Indicator**: Identify trend direction & momentum
-- **RSI (Relative Strength Index)**: Avoid buying in overbought zones
-- **Bollinger Bands**: Detect price volatility and potential reversals
-- **Volume Analysis**: Filter fake breakouts using OBV/VWAP
-- **ATR-Based Entry Signal**: Dynamically adjust buy thresholds
+The system follows a modular, component-based design with unified exception handling:
 
-## Optimizing Parameters
+- **Data Acquisition**: Fetching historical data with appropriate error handling
+- **Technical Analysis**: Calculating various indicators using the TA library
+- **Signal Generation**: Creating buy/sell signals based on optimized parameters
+- **Backtesting Engine**: Simulating trades with precise execution logic
+- **Risk Management**: Implementing dynamic stop-loss and take-profit mechanisms
+- **Performance Analysis**: Detailed trade metrics and portfolio statistics
+- **Parameter Optimization**: Grid search with comprehensive evaluation metrics
+- **Visualization System**: Multi-layered charts for strategy assessment
 
-- **Entry Signal**: Buy when SMA50 > SMA200 for trend confirmation & RSI < 40 for oversold conditions
-- **Entry Threshold**: Use ATR-based adaptive buy levels, adjusting dynamically with market volatility
-- **Target Alpha**: Set take-profit levels based on ATR to capture optimal gains while managing risk
-- **Exit Signal**: Sell when RSI > 70 to lock in profits
-- **Risk Management**: Adjust position size dynamically based on ATR to mitigate excessive volatility
+All components utilize a decorator-based exception handling system that ensures robust execution even when encountering unexpected data or market conditions.
 
-## Implementing Stop Loss
+**Data & Tools**:
+- Historical price data using Shinybroker API
+- Python with pandas, numpy, ta, matplotlib
+- Technical indicators: SMA, RSI, Bollinger Bands, ATR, MACD, OBV
+- Multi-panel charts for strategy assessment
+- Decorator-based unified error management
 
-- **Fixed Stop Loss**: Exit when price drops 5% below entry
-- **ATR-Based Stop Loss**: Exit when price falls 2x ATR below entry
-- **Moving Average Stop Loss**: Exit when price falls below SMA50
-- **Trailing Stop Loss**: Adjust stop-loss upward as price increases
+## Trading Logic & Risk Management
 
-## Data Source & Tools
+**Entry Conditions**:
+- Trend confirmation (SMA50 > SMA200)
+- Oversold condition (RSI < optimized threshold, default 40)
+- Price at support (Close at/below lower Bollinger Band)
 
-- **Data**: Yahoo Finance API, Kaggle datasets.
-- **Programming**: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)
-- **Backtesting**: Compare strategy performance using historical data.
+**Risk Parameters**:
+- Stop-loss: ATR-multiplier (optimized, default 2.0)
+- Take-profit: ATR-multiplier (optimized, default 4.0)
+- Position sizing: Fixed percentage of portfolio (default 2%)
 
-## Detailed Trade Example
+**Exit Signals**:
+- Technical exit: RSI > 70 (overbought) or Close < SMA50 (trend reversal)
+- Risk management exit: Stop-loss or take-profit price levels reached
 
-Below is a walkthrough of a single trade using our strategy on AAPL stock:
+**Risk Management Approach**:
+- Dynamic stop-loss based on ATR multiplier to adapt to market volatility
+- Dynamic take-profit targets proportional to risk taken
+- Trend reversal exit when price falls below SMA50
+- Overbought exit when RSI exceeds 70
+- Conservative 2% position sizing to limit exposure
+- Robust exception handling throughout the system
 
-### Entry Criteria
-1. **Confirmed Uptrend**: SMA50 (155.32) > SMA200 (150.78)
-2. **Oversold Condition**: RSI reading of 38.5 (below our 40 threshold)
-3. **Price at Support**: Price touched lower Bollinger Band
-4. **Volume Confirmation**: Increasing OBV during price consolidation
+## Parameter Optimization System
 
-### Trade Execution
-- **Entry Price**: $142.65
-- **Position Size**: 2% of portfolio (adjusted for ATR of 3.45)
-- **Initial Stop Loss**: $135.75 (2× ATR below entry)
-- **Take Profit Target**: $156.45 (4× ATR above entry)
+**Grid Search Implementation**:
+- RSI thresholds: [30, 35, 40, 45]
+- ATR stop-loss multipliers: [1.5, 2.0, 2.5, 3.0]
+- ATR take-profit multipliers: [3.0, 4.0, 5.0]
 
-### Exit Rules
-1. **Primary Exit**: RSI crosses above 70
-2. **Alternative Exit**: Price reaches take-profit target
-3. **Stop Loss**: Price drops below stop loss level
-4. **Time-Based Exit**: 30 trading days without reaching targets
+**Performance Metrics**:
+- Sharpe Ratio (primary optimization metric)
+- Win Rate
+- Maximum Drawdown
+- Annualized Return
+- Profit Factor (total wins / total losses)
 
-### Trade Outcome
-- **Exit Price**: $155.90
-- **Exit Reason**: RSI reached 71.2
-- **Profit/Loss**: +9.3% ($13.25 per share)
-- **Trade Duration**: 18 trading days
+**Optimization Process**:
+- Minimum 5 trades required for parameter evaluation
+- Take-profit multiplier must exceed stop-loss multiplier
+- Parameter combinations evaluated primarily by Sharpe ratio
+- Detailed visualization of optimization results for decision making
 
-## Sample Historical Data
+### Parameter Optimization Results
 
-Below is a table showing recent performance data from our strategy backtests:
+The table below summarizes the key results from our parameter optimization testing, highlighting how different parameter combinations affect performance metrics:
 
-| Month       | Trades | Win % | Avg. Profit | Drawdown |
-|-------------|--------|-------|-------------|----------|
-| January     | 12     | 67%   | 3.8%        | 2.1%     |
-| February    | 9      | 71%   | 4.2%        | 1.7%     |
-| March       | 15     | 65%   | 3.1%        | 2.9%     |
-| April       | 11     | 75%   | 5.3%        | 1.5%     |
-| May         | 13     | 62%   | 2.9%        | 3.2%     |
+| RSI Threshold | ATR Stop | ATR Take | Total Trades | Win Rate | Total Return | Max Drawdown | Sharpe Ratio |
+|---------------|----------|----------|--------------|----------|--------------|--------------|--------------|
+| 30            | 1.5      | 3.0      | 3            | 33.33%   | -0.13%       | -0.14%       | N/A          |
+| 35            | 1.5      | 3.0      | 6            | 50.00%   | -0.13%       | -0.15%       | -0.83        |
+| 35            | 2.0      | 4.0      | 6            | 50.00%   | -0.13%       | -0.15%       | -0.83        |
+| 40            | 1.5      | 3.0      | 9            | 44.44%   | -0.27%       | -0.27%       | -1.55        |
+| 40            | 2.5      | 5.0      | 9            | 44.44%   | -0.27%       | -0.27%       | -1.55        |
+| 45            | 2.0      | 4.0      | 9            | 44.44%   | -0.27%       | -0.27%       | -1.55        |
 
-## Strategy Visualization
+*Best parameter combination: RSI=35, ATR Stop=1.5, ATR Take=3.0*
 
-Below is a visualization of our strategy's trade signals on a sample price chart:
+### Trading Signal Examples
 
-![Trading Strategy Example](img.png)
+Below is a sample of trading signals generated by our system for AAPL stock during the test period:
 
-*Figure 1: Example of trading signals generated by our strategy*
+| Date         | Action | Price  | Reason                   | Outcome | Profit/Loss | Return   |
+|--------------|--------|--------|--------------------------|---------|-------------|----------|
+| 2025-04-03   | BUY    | 203.19 | RSI below threshold      | Loss    | -$145.80    | -7.29%   |
+| 2025-04-04   | SELL   | 188.38 | Stop-loss triggered      |         |             |          |
+| 2025-03-13   | BUY    | 209.68 | RSI below threshold      | Win     | +$36.33     | +1.82%   |
+| 2025-03-14   | SELL   | 213.49 | Close below SMA50        |         |             |          |
+| 2025-03-11   | BUY    | 220.84 | RSI below threshold      | Loss    | -$34.96     | -1.75%   |
+| 2025-03-12   | SELL   | 216.98 | Close below SMA50        |         |             |          |
+| 2025-01-21   | BUY    | 222.64 | RSI below threshold      | Win     | +$10.69     | +0.53%   |
+| 2025-01-22   | SELL   | 223.83 | Close below SMA50        |         |             |          |
+| 2025-01-16   | BUY    | 228.26 | RSI below threshold      | Win     | +$15.07     | +0.75%   |
+| 2025-01-17   | SELL   | 229.98 | Close below SMA50        |         |             |          |
+| 2025-01-13   | BUY    | 234.40 | RSI below threshold      | Loss    | -$9.56      | -0.48%   |
+| 2025-01-14   | SELL   | 233.28 | Close below SMA50        |         |             |          |
+
+*Based on optimal parameters: RSI=35, ATR Stop=1.5, ATR Take=3.0*
+
+### RSI Threshold Performance Comparison
+
+This table compares the performance metrics across different RSI threshold values, holding other parameters constant (ATR Stop=2.0, ATR Take=4.0):
+
+| RSI Threshold | Total Trades | Win Rate | Total Return | Ann. Return | Max Drawdown | Sharpe Ratio | Avg Trade Duration |
+|---------------|--------------|----------|--------------|-------------|--------------|--------------|-------------------|
+| 30            | 3            | 33.33%   | -0.13%       | -0.13%      | -0.14%       | N/A          | 1.0 days          |
+| 35            | 6            | 50.00%   | -0.13%       | -0.13%      | -0.15%       | -0.83        | 1.0 days          |
+| 40            | 9            | 44.44%   | -0.27%       | -0.27%      | -0.27%       | -1.55        | 1.0 days          |
+| 45            | 9            | 44.44%   | -0.27%       | -0.27%      | -0.27%       | -1.55        | 1.0 days          |
+
+## Best Trade Case Analysis
+
+Let's analyze the most profitable trade from our backtest to understand the dynamics of a successful signal:
+
+**AAPL Trade (March 13-14, 2025)**
+
+*Market Context:*
+- AAPL had been in a downtrend, dropping from $227.48 on March 10th to $209.68 on March 13th
+- RSI fell below our threshold, indicating oversold conditions
+- Price approached the lower Bollinger Band, suggesting potential support
+
+*Entry Details:*
+- Date: March 13, 2025
+- Entry Price: $209.68
+- RSI at Entry: 36.9 (below our threshold of 40)
+- Position Size: 2% of portfolio (approximately $2,000)
+- Stop Loss: Set at $205.18 (Entry - 1.5× ATR)
+- Take Profit: Set at $218.68 (Entry + 3.0× ATR)
+
+*Exit Details:*
+- Date: March 14, 2025
+- Exit Price: $213.49
+- Exit Reason: Close below SMA50 (trend reversal signal)
+- Holding Period: 1 day
+
+*Trade Outcome:*
+- Profit: +$36.33
+- Return: +1.82%
+- Risk-Reward: Favorable, exited before reaching take-profit level but captured upside
+
+*Key Success Factors:*
+- Entry at relatively oversold levels
+- Quick price bounce from support level
+- Proper position sizing limiting exposure
+- Disciplined exit when trend signal reversed
+
+This trade demonstrates that even in a challenging overall market environment, the strategy can identify short-term reversal opportunities. The short holding period is typical of the backtest results, where most positions were closed quickly due to SMA crossovers.
+
+## Performance Results & Visualization
+
+### Detailed Trade Analysis
+
+The table below presents the comprehensive analysis of all trades executed during our backtest period with the optimal parameters:
+
+| Category                 | Metric                   | Value                     |
+|--------------------------|--------------------------|---------------------------|
+| **Trade Statistics**     | Total Trades             | 6                         |
+|                          | Win Rate                 | 50.00% (3 wins, 3 losses) |
+|                          | Profit Factor            | 0.33                      |
+|                          | Max Consecutive Wins     | 2                         |
+|                          | Max Consecutive Losses   | 1                         |
+| **Profitability**        | Average Trade Profit     | -$21.37                   |
+|                          | Average Win              | +$20.70                   |
+|                          | Average Loss             | -$63.44                   |
+| **Duration**             | Average Holding Period   | 1.0 days                  |
+|                          | Maximum Duration         | 1 day                     |
+|                          | Minimum Duration         | 1 day                     |
+| **Performance**          | Total Return             | -0.13%                    |
+|                          | Annualized Return        | -0.13%                    |
+|                          | Maximum Drawdown         | -0.15%                    |
+
+*Note: Trade analysis based on optimal parameters (RSI=35, ATR Stop=1.5, ATR Take=3.0)*
+
+### Portfolio Performance Summary
+
+The summary below shows the actual portfolio performance metrics from our backtest period:
+
+| Metric                      | Value                |
+|-----------------------------|----------------------|
+| Testing Period              | 9 months (2024-2025) |
+| Initial Capital             | $100,000            |
+| Final Portfolio Value       | $99,870             |
+| Total Return               | -0.13%               |
+| Annualized Return          | -0.13%               |
+| Sharpe Ratio               | -0.83                |
+| Max Drawdown               | -0.15%               |
+| Win/Loss Ratio             | 1.00 (even)          |
+| Average Daily Return       | -0.001%              |
+| Return Volatility          | 0.16%                |
+| Risk-Adjusted Return       | Negative             |
+
+*The backtest results reflect a challenging market period where most trades were closed due to trend reversals (price falling below SMA50). In practical implementations, additional filters would be applied to improve entry timing.*
+
+### Strategy Visualization
+
+![Trading Strategy Visualization](AAPL_trading_signals.png)
+
+*Figure 1: Trading signals with price and RSI indicators*
+
+![Portfolio Performance](AAPL_portfolio_performance.png)
+
+*Figure 2: Portfolio value, drawdown analysis, and monthly returns heatmap*
+
+![Trade Analysis](AAPL_trade_analysis.png)
+
+*Figure 3: Trade distribution analysis showing profits, returns, and duration*
+
+**Advanced Metrics**:
+
+![Advanced Metrics Analysis](advanced_metrics_analysis.png)
+
+*Figure 4: Advanced risk and return metrics analysis showing daily returns distribution, drawdown distribution, rolling returns and volatility, and rolling Sharpe ratio*
+
+**Parameter Optimization Results**:
+
+![Parameter Optimization Results](parameter_optimization_results.png)
+
+*Figure 5: Analysis of parameter combinations showing Sharpe ratio, risk-return profile, and correlations*
+
+## Conclusions & Future Work
+
+**Strategy Performance Assessment**:
+- The strategy demonstrated consistent signal generation but showed negative returns (-0.13%) during the test period
+- Short holding periods (average 1 day) due to frequent trend reversals
+- Equal win/loss ratio (50%) but larger average losses compared to gains
+- Risk management worked effectively, limiting maximum drawdown to -0.15%
+
+**Strategy Strengths**:
+- Robust signal generation methodology
+- Effective risk management framework
+- Comprehensive analysis capabilities
+- Detailed visualization and analysis tools
+
+**Future Enhancements**:
+1. Machine Learning Integration for parameter optimization
+2. Multi-Asset Portfolio extension for diversification
+3. Adaptive Parameters based on market regimes
+4. Alternative Data incorporation (sentiment analysis, economic indicators)
+5. Real-Time Implementation for live trading
