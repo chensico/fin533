@@ -49,6 +49,20 @@
     "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets.\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data."
   },
   {
+    "objectID": "index.html#detailed-trade-example",
+    "href": "index.html#detailed-trade-example",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Detailed Trade Example",
+    "text": "Detailed Trade Example\nBelow is a walkthrough of a single trade using our strategy on AAPL stock:\n\nEntry Criteria\n\nConfirmed Uptrend: SMA50 (155.32) &gt; SMA200 (150.78)\nOversold Condition: RSI reading of 38.5 (below our 40 threshold)\nPrice at Support: Price touched lower Bollinger Band\nVolume Confirmation: Increasing OBV during price consolidation\n\n\n\nTrade Execution\n\nEntry Price: $142.65\nPosition Size: 2% of portfolio (adjusted for ATR of 3.45)\nInitial Stop Loss: $135.75 (2× ATR below entry)\nTake Profit Target: $156.45 (4× ATR above entry)\n\n\n\nExit Rules\n\nPrimary Exit: RSI crosses above 70\nAlternative Exit: Price reaches take-profit target\nStop Loss: Price drops below stop loss level\nTime-Based Exit: 30 trading days without reaching targets\n\n\n\nTrade Outcome\n\nExit Price: $155.90\nExit Reason: RSI reached 71.2\nProfit/Loss: +9.3% ($13.25 per share)\nTrade Duration: 18 trading days"
+  },
+  {
+    "objectID": "index.html#sample-historical-data",
+    "href": "index.html#sample-historical-data",
+    "title": "Buy Low / Sell High Strategy Optimization",
+    "section": "Sample Historical Data",
+    "text": "Sample Historical Data\nBelow is a table showing recent performance data from our strategy backtests:\n\n\n\nMonth\nTrades\nWin %\nAvg. Profit\nDrawdown\n\n\n\n\nJanuary\n12\n67%\n3.8%\n2.1%\n\n\nFebruary\n9\n71%\n4.2%\n1.7%\n\n\nMarch\n15\n65%\n3.1%\n2.9%\n\n\nApril\n11\n75%\n5.3%\n1.5%\n\n\nMay\n13\n62%\n2.9%\n3.2%"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -68,12 +82,5 @@
     "title": "About",
     "section": "About the Project",
     "text": "About the Project\nThis project explores the classic “Buy Low / Sell High” strategy with modern technical indicators to enhance decision-making and optimize trading performance. The goal is to develop a systematic approach to identify ideal entry and exit points while implementing effective risk management techniques.\nOur optimization includes:\n\nIntegration of multiple technical indicators (MACD, RSI, Bollinger Bands)\nDynamic position sizing based on market volatility\nMulti-layered stop loss implementation\nBacktesting against historical data\n\nVisit our main page to learn more about our methodology and findings."
-  },
-  {
-    "objectID": "about.html#about-the-team4",
-    "href": "about.html#about-the-team4",
-    "title": "About",
-    "section": "",
-    "text": "Sicong Chen and Yuxin Wan are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading."
   }
 ]

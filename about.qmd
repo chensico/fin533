@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-## About the Team4
+## About the Team
 
 **Sicong Chen** and **Yuxin Wan** are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading.
 
