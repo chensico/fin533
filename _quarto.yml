@@ -18,5 +18,6 @@ format:
     css: styles.css
     toc: true
 
-
+execute:
+  python: "D:/PycharmProjects/finalProject/.venv/Scripts/python.exe"
 
