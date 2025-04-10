@@ -54,6 +54,6 @@ format:
 
 ## Data Source & Tools
 
-- **Data**: Yahoo Finance API, Kaggle datasets
+- **Data**: Yahoo Finance API, Kaggle datasets.
 - **Programming**: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)
 - **Backtesting**: Compare strategy performance using historical data.

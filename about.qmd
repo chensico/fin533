@@ -2,4 +2,19 @@
 title: "About"
 ---
 
-About this site
+## About the Team
+
+**Sicong Chen** and **Yuxin Wan** are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading.
+
+## About the Project
+
+This project explores the classic "Buy Low / Sell High" strategy with modern technical indicators to enhance decision-making and optimize trading performance. The goal is to develop a systematic approach to identify ideal entry and exit points while implementing effective risk management techniques.
+
+Our optimization includes:
+
+- Integration of multiple technical indicators (MACD, RSI, Bollinger Bands)
+- Dynamic position sizing based on market volatility
+- Multi-layered stop loss implementation
+- Backtesting against historical data
+
+Visit our main page to learn more about our methodology and findings.

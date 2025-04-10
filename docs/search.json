@@ -7,13 +7,6 @@
     "text": "Topic Chosen: Buy Low / Sell High Strategy\nWhy This Strategy?\n\nA classic and widely used strategy in financial markets.\nSimple yet effective, focusing on identifying undervalued assets.\nWorks well with technical indicators to enhance trade accuracy.\n\nGoal: Optimize entry/exit signals & risk management.\nDomain Name: buylowsellsmart.com"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html#strategy-overview",
     "href": "index.html#strategy-overview",
     "title": "Buy Low / Sell High Strategy Optimization",
@@ -53,6 +46,13 @@
     "href": "index.html#data-source-tools",
     "title": "Buy Low / Sell High Strategy Optimization",
     "section": "Data Source & Tools",
-    "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data."
+    "text": "Data Source & Tools\n\nData: Yahoo Finance API, Kaggle datasets.\nProgramming: Python (yfinance, talib, pandas, Shinnybroker, matplotlib)\nBacktesting: Compare strategy performance using historical data."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]
