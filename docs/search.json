@@ -68,5 +68,12 @@
     "title": "About",
     "section": "About the Project",
     "text": "About the Project\nThis project explores the classic “Buy Low / Sell High” strategy with modern technical indicators to enhance decision-making and optimize trading performance. The goal is to develop a systematic approach to identify ideal entry and exit points while implementing effective risk management techniques.\nOur optimization includes:\n\nIntegration of multiple technical indicators (MACD, RSI, Bollinger Bands)\nDynamic position sizing based on market volatility\nMulti-layered stop loss implementation\nBacktesting against historical data\n\nVisit our main page to learn more about our methodology and findings."
+  },
+  {
+    "objectID": "about.html#about-the-team4",
+    "href": "about.html#about-the-team4",
+    "title": "About",
+    "section": "",
+    "text": "Sicong Chen and Yuxin Wan are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading."
   }
 ]
