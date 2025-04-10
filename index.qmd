@@ -4,7 +4,7 @@ title: "Buylowsellsmart"
 
 ---
 title: "Buy Low / Sell High Strategy Optimization"
-authors: "Sicong Chen123, Yuxin Wan"
+authors: "Sicong Chen1245, Yuxin Wan"
 format:
   html:
     toc: true
