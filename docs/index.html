@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Buy Low / Sell High Strategy Optimization – Buylowsellsmart</title>
+<title>Buy Low Sell High Strategy Analysis – Buylowsellsmart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4d01e6e8a406b62be36f5785d81e4bf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -106,50 +106,38 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#strategy-overview-design" id="toc-strategy-overview-design" class="nav-link active" data-scroll-target="#strategy-overview-design">Strategy Overview &amp; Design</a></li>
-  <li><a href="#system-architecture-implementation" id="toc-system-architecture-implementation" class="nav-link" data-scroll-target="#system-architecture-implementation">System Architecture &amp; Implementation</a></li>
-  <li><a href="#trading-logic-risk-management" id="toc-trading-logic-risk-management" class="nav-link" data-scroll-target="#trading-logic-risk-management">Trading Logic &amp; Risk Management</a></li>
-  <li><a href="#parameter-optimization-system" id="toc-parameter-optimization-system" class="nav-link" data-scroll-target="#parameter-optimization-system">Parameter Optimization System</a>
+  <li><a href="#strategy-overview" id="toc-strategy-overview" class="nav-link active" data-scroll-target="#strategy-overview">Strategy Overview</a></li>
+  <li><a href="#parameter-optimization-results" id="toc-parameter-optimization-results" class="nav-link" data-scroll-target="#parameter-optimization-results">Parameter Optimization Results</a>
   <ul class="collapse">
-  <li><a href="#parameter-optimization-results" id="toc-parameter-optimization-results" class="nav-link" data-scroll-target="#parameter-optimization-results">Parameter Optimization Results</a></li>
-  <li><a href="#trading-signal-examples" id="toc-trading-signal-examples" class="nav-link" data-scroll-target="#trading-signal-examples">Trading Signal Examples</a></li>
-  <li><a href="#rsi-threshold-performance-comparison" id="toc-rsi-threshold-performance-comparison" class="nav-link" data-scroll-target="#rsi-threshold-performance-comparison">RSI Threshold Performance Comparison</a></li>
+  <li><a href="#optimal-parameter-combination" id="toc-optimal-parameter-combination" class="nav-link" data-scroll-target="#optimal-parameter-combination">Optimal Parameter Combination</a></li>
   </ul></li>
-  <li><a href="#best-trade-case-analysis" id="toc-best-trade-case-analysis" class="nav-link" data-scroll-target="#best-trade-case-analysis">Best Trade Case Analysis</a></li>
-  <li><a href="#performance-results-visualization" id="toc-performance-results-visualization" class="nav-link" data-scroll-target="#performance-results-visualization">Performance Results &amp; Visualization</a>
-  <ul class="collapse">
-  <li><a href="#detailed-trade-analysis" id="toc-detailed-trade-analysis" class="nav-link" data-scroll-target="#detailed-trade-analysis">Detailed Trade Analysis</a></li>
   <li><a href="#portfolio-performance-summary" id="toc-portfolio-performance-summary" class="nav-link" data-scroll-target="#portfolio-performance-summary">Portfolio Performance Summary</a></li>
   <li><a href="#strategy-visualization" id="toc-strategy-visualization" class="nav-link" data-scroll-target="#strategy-visualization">Strategy Visualization</a></li>
-  </ul></li>
   <li><a href="#conclusions-future-work" id="toc-conclusions-future-work" class="nav-link" data-scroll-target="#conclusions-future-work">Conclusions &amp; Future Work</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Buy Low / Sell High Strategy Optimization</h1>
+<h1 class="title">Buy Low Sell High Strategy Analysis</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sicong Chen, Yuxin Wan </p>
-          </div>
-  </div>
     
   
     
@@ -160,561 +148,519 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="strategy-overview-design" class="level2">
-<h2 class="anchored" data-anchor-id="strategy-overview-design">Strategy Overview &amp; Design</h2>
+<style>
+.custom-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #e9ecef;
+  border-left-width: 0.25rem;
+  border-left-color: #5a9bd5;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+}
+
+.custom-callout h3 {
+  color: #5a9bd5;
+  margin-top: 0;
+}
+
+.card {
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.section-card {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+</style>
+<section id="strategy-overview" class="level2 unnumbered center">
+<h2 class="unnumbered center anchored" data-anchor-id="strategy-overview">Strategy Overview</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This document presents the backtesting results and parameter optimization analysis for the “Buy Low Sell High” trading strategy applied to AAPL stock.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="parameter-optimization-results" class="level2 center section-card">
+<h2 class="center anchored" data-anchor-id="parameter-optimization-results">Parameter Optimization Results</h2>
+<section id="optimal-parameter-combination" class="level3 custom-callout">
+<h3 class="anchored" data-anchor-id="optimal-parameter-combination">Optimal Parameter Combination</h3>
 <ul>
-<li><strong>Topic Chosen</strong>: Buy Low / Sell High Strategy with Robust Parameter Optimization</li>
-<li><strong>Why This Strategy?</strong>
-<ul>
-<li>A proven strategy that combines multiple technical indicators for entry/exit signals</li>
-<li>Balanced approach using both trend following and mean reversion principles</li>
-<li>Comprehensive parameter optimization to enhance performance across market conditions</li>
-</ul></li>
-<li><strong>Goal</strong>: Optimize entry/exit signals &amp; risk management using advanced statistical techniques</li>
-<li><strong>Domain Name</strong>: buylowsellsmart.com</li>
+<li>RSI Threshold: 35</li>
+<li>ATR Stop Multiplier: 1.5</li>
+<li>ATR Take Multiplier: 3.0</li>
+<li>Sharpe Ratio: -0.83 (best value)</li>
 </ul>
-<p><strong>Choice of Assets</strong>: - Highly liquid assets that respond well to technical analysis (e.g., AAPL) - Moderate to high volatility suitable for ATR-based risk management - Both trending and range-bound behavior for strategy testing - Multiple timeframes to validate strategy robustness</p>
-<p><strong>Technical Features</strong>: - <strong>Moving Average Trend Confirmation</strong>: Using SMA 50/200 crossovers to establish trend direction - <strong>RSI (Relative Strength Index)</strong>: Identifying oversold/overbought conditions with adaptive thresholds - <strong>Bollinger Bands</strong>: Detecting price extremes and potential reversal zones - <strong>ATR-Based Risk Management</strong>: Dynamic stop-loss and take-profit levels based on current volatility - <strong>Detailed Trade Analysis</strong>: Metrics including win rate, profit factor, and consecutive wins/losses</p>
 </section>
-<section id="system-architecture-implementation" class="level2">
-<h2 class="anchored" data-anchor-id="system-architecture-implementation">System Architecture &amp; Implementation</h2>
-<p>The system follows a modular, component-based design with unified exception handling:</p>
-<ul>
-<li><strong>Data Acquisition</strong>: Fetching historical data with appropriate error handling</li>
-<li><strong>Technical Analysis</strong>: Calculating various indicators using the TA library</li>
-<li><strong>Signal Generation</strong>: Creating buy/sell signals based on optimized parameters</li>
-<li><strong>Backtesting Engine</strong>: Simulating trades with precise execution logic</li>
-<li><strong>Risk Management</strong>: Implementing dynamic stop-loss and take-profit mechanisms</li>
-<li><strong>Performance Analysis</strong>: Detailed trade metrics and portfolio statistics</li>
-<li><strong>Parameter Optimization</strong>: Grid search with comprehensive evaluation metrics</li>
-<li><strong>Visualization System</strong>: Multi-layered charts for strategy assessment</li>
-</ul>
-<p>All components utilize a decorator-based exception handling system that ensures robust execution even when encountering unexpected data or market conditions.</p>
-<p><strong>Data &amp; Tools</strong>: - Historical price data using Shinybroker API - Python with pandas, numpy, ta, matplotlib - Technical indicators: SMA, RSI, Bollinger Bands, ATR, MACD, OBV - Multi-panel charts for strategy assessment - Decorator-based unified error management</p>
-</section>
-<section id="trading-logic-risk-management" class="level2">
-<h2 class="anchored" data-anchor-id="trading-logic-risk-management">Trading Logic &amp; Risk Management</h2>
-<p><strong>Entry Conditions</strong>: - Trend confirmation (SMA50 &gt; SMA200) - Oversold condition (RSI &lt; optimized threshold, default 40) - Price at support (Close at/below lower Bollinger Band)</p>
-<p><strong>Risk Parameters</strong>: - Stop-loss: ATR-multiplier (optimized, default 2.0) - Take-profit: ATR-multiplier (optimized, default 4.0) - Position sizing: Fixed percentage of portfolio (default 2%)</p>
-<p><strong>Exit Signals</strong>: - Technical exit: RSI &gt; 70 (overbought) or Close &lt; SMA50 (trend reversal) - Risk management exit: Stop-loss or take-profit price levels reached</p>
-<p><strong>Risk Management Approach</strong>: - Dynamic stop-loss based on ATR multiplier to adapt to market volatility - Dynamic take-profit targets proportional to risk taken - Trend reversal exit when price falls below SMA50 - Overbought exit when RSI exceeds 70 - Conservative 2% position sizing to limit exposure - Robust exception handling throughout the system</p>
-</section>
-<section id="parameter-optimization-system" class="level2">
-<h2 class="anchored" data-anchor-id="parameter-optimization-system">Parameter Optimization System</h2>
-<p><strong>Grid Search Implementation</strong>: - RSI thresholds: [30, 35, 40, 45] - ATR stop-loss multipliers: [1.5, 2.0, 2.5, 3.0] - ATR take-profit multipliers: [3.0, 4.0, 5.0]</p>
-<p><strong>Performance Metrics</strong>: - Sharpe Ratio (primary optimization metric) - Win Rate - Maximum Drawdown - Annualized Return - Profit Factor (total wins / total losses)</p>
-<p><strong>Optimization Process</strong>: - Minimum 5 trades required for parameter evaluation - Take-profit multiplier must exceed stop-loss multiplier - Parameter combinations evaluated primarily by Sharpe ratio - Detailed visualization of optimization results for decision making</p>
-<section id="parameter-optimization-results" class="level3">
-<h3 class="anchored" data-anchor-id="parameter-optimization-results">Parameter Optimization Results</h3>
-<p>The table below summarizes the key results from our parameter optimization testing, highlighting how different parameter combinations affect performance metrics:</p>
-<table class="caption-top table">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Performance by RSI Threshold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Trading Signals</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>RSI Threshold</th>
-<th>ATR Stop</th>
-<th>ATR Take</th>
-<th>Total Trades</th>
-<th>Win Rate</th>
-<th>Total Return</th>
-<th>Max Drawdown</th>
-<th>Sharpe Ratio</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>30</td>
-<td>1.5</td>
-<td>3.0</td>
-<td>3</td>
-<td>33.33%</td>
-<td>-0.13%</td>
-<td>-0.14%</td>
-<td>N/A</td>
-</tr>
-<tr class="even">
-<td>35</td>
-<td>1.5</td>
-<td>3.0</td>
-<td>6</td>
-<td>50.00%</td>
-<td>-0.13%</td>
-<td>-0.15%</td>
-<td>-0.83</td>
-</tr>
-<tr class="odd">
-<td>35</td>
-<td>2.0</td>
-<td>4.0</td>
-<td>6</td>
-<td>50.00%</td>
-<td>-0.13%</td>
-<td>-0.15%</td>
-<td>-0.83</td>
-</tr>
-<tr class="even">
-<td>40</td>
-<td>1.5</td>
-<td>3.0</td>
-<td>9</td>
-<td>44.44%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-1.55</td>
-</tr>
-<tr class="odd">
-<td>40</td>
-<td>2.5</td>
-<td>5.0</td>
-<td>9</td>
-<td>44.44%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-1.55</td>
-</tr>
-<tr class="even">
-<td>45</td>
-<td>2.0</td>
-<td>4.0</td>
-<td>9</td>
-<td>44.44%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-1.55</td>
-</tr>
-</tbody>
-</table>
-<p><em>Best parameter combination: RSI=35, ATR Stop=1.5, ATR Take=3.0</em></p>
-</section>
-<section id="trading-signal-examples" class="level3">
-<h3 class="anchored" data-anchor-id="trading-signal-examples">Trading Signal Examples</h3>
-<p>Below is a sample of trading signals generated by our system for AAPL stock during the test period:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 29%">
-<col style="width: 10%">
-<col style="width: 14%">
+<col style="width: 17%">
 <col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Action</th>
-<th>Price</th>
-<th>Reason</th>
-<th>Outcome</th>
-<th>Profit/Loss</th>
-<th>Return</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2025-04-03</td>
-<td>BUY</td>
-<td>203.19</td>
-<td>RSI below threshold</td>
-<td>Loss</td>
-<td>-$145.80</td>
-<td>-7.29%</td>
-</tr>
-<tr class="even">
-<td>2025-04-04</td>
-<td>SELL</td>
-<td>188.38</td>
-<td>Stop-loss triggered</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2025-03-13</td>
-<td>BUY</td>
-<td>209.68</td>
-<td>RSI below threshold</td>
-<td>Win</td>
-<td>+$36.33</td>
-<td>+1.82%</td>
-</tr>
-<tr class="even">
-<td>2025-03-14</td>
-<td>SELL</td>
-<td>213.49</td>
-<td>Close below SMA50</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2025-03-11</td>
-<td>BUY</td>
-<td>220.84</td>
-<td>RSI below threshold</td>
-<td>Loss</td>
-<td>-$34.96</td>
-<td>-1.75%</td>
-</tr>
-<tr class="even">
-<td>2025-03-12</td>
-<td>SELL</td>
-<td>216.98</td>
-<td>Close below SMA50</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2025-01-21</td>
-<td>BUY</td>
-<td>222.64</td>
-<td>RSI below threshold</td>
-<td>Win</td>
-<td>+$10.69</td>
-<td>+0.53%</td>
-</tr>
-<tr class="even">
-<td>2025-01-22</td>
-<td>SELL</td>
-<td>223.83</td>
-<td>Close below SMA50</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2025-01-16</td>
-<td>BUY</td>
-<td>228.26</td>
-<td>RSI below threshold</td>
-<td>Win</td>
-<td>+$15.07</td>
-<td>+0.75%</td>
-</tr>
-<tr class="even">
-<td>2025-01-17</td>
-<td>SELL</td>
-<td>229.98</td>
-<td>Close below SMA50</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2025-01-13</td>
-<td>BUY</td>
-<td>234.40</td>
-<td>RSI below threshold</td>
-<td>Loss</td>
-<td>-$9.56</td>
-<td>-0.48%</td>
-</tr>
-<tr class="even">
-<td>2025-01-14</td>
-<td>SELL</td>
-<td>233.28</td>
-<td>Close below SMA50</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><em>Based on optimal parameters: RSI=35, ATR Stop=1.5, ATR Take=3.0</em></p>
-</section>
-<section id="rsi-threshold-performance-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="rsi-threshold-performance-comparison">RSI Threshold Performance Comparison</h3>
-<p>This table compares the performance metrics across different RSI threshold values, holding other parameters constant (ATR Stop=2.0, ATR Take=4.0):</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 12%">
 <col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 16%">
 <col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>RSI Threshold</th>
-<th>Total Trades</th>
-<th>Win Rate</th>
-<th>Total Return</th>
-<th>Ann. Return</th>
-<th>Max Drawdown</th>
-<th>Sharpe Ratio</th>
-<th>Avg Trade Duration</th>
+<th style="text-align: center;">RSI Threshold</th>
+<th style="text-align: center;">ATR Stop</th>
+<th style="text-align: center;">ATR Take</th>
+<th style="text-align: center;">Win Rate</th>
+<th style="text-align: center;">Total Return</th>
+<th style="text-align: center;">Max Drawdown</th>
+<th style="text-align: center;">Sharpe Ratio</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>30</td>
-<td>3</td>
-<td>33.33%</td>
-<td>-0.13%</td>
-<td>-0.13%</td>
-<td>-0.14%</td>
-<td>N/A</td>
-<td>1.0 days</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;">50%</td>
+<td style="text-align: center;">-0.13%</td>
+<td style="text-align: center;">0.15%</td>
+<td style="text-align: center;">-0.83</td>
 </tr>
 <tr class="even">
-<td>35</td>
-<td>6</td>
-<td>50.00%</td>
-<td>-0.13%</td>
-<td>-0.13%</td>
-<td>-0.15%</td>
-<td>-0.83</td>
-<td>1.0 days</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;">44%</td>
+<td style="text-align: center;">-0.24%</td>
+<td style="text-align: center;">0.24%</td>
+<td style="text-align: center;">-1.21</td>
 </tr>
 <tr class="odd">
-<td>40</td>
-<td>9</td>
-<td>44.44%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-1.55</td>
-<td>1.0 days</td>
-</tr>
-<tr class="even">
-<td>45</td>
-<td>9</td>
-<td>44.44%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-0.27%</td>
-<td>-1.55</td>
-<td>1.0 days</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;">33%</td>
+<td style="text-align: center;">-0.26%</td>
+<td style="text-align: center;">0.26%</td>
+<td style="text-align: center;">-1.42</td>
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="best-trade-case-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="best-trade-case-analysis">Best Trade Case Analysis</h2>
-<p>Let’s analyze the most profitable trade from our backtest to understand the dynamics of a successful signal:</p>
-<p><strong>AAPL Trade (March 13-14, 2025)</strong></p>
-<p><em>Market Context:</em> - AAPL had been in a downtrend, dropping from $227.48 on March 10th to $209.68 on March 13th - RSI fell below our threshold, indicating oversold conditions - Price approached the lower Bollinger Band, suggesting potential support</p>
-<p><em>Entry Details:</em> - Date: March 13, 2025 - Entry Price: $209.68 - RSI at Entry: 36.9 (below our threshold of 40) - Position Size: 2% of portfolio (approximately $2,000) - Stop Loss: Set at $205.18 (Entry - 1.5× ATR) - Take Profit: Set at $218.68 (Entry + 3.0× ATR)</p>
-<p><em>Exit Details:</em> - Date: March 14, 2025 - Exit Price: $213.49 - Exit Reason: Close below SMA50 (trend reversal signal) - Holding Period: 1 day</p>
-<p><em>Trade Outcome:</em> - Profit: +$36.33 - Return: +1.82% - Risk-Reward: Favorable, exited before reaching take-profit level but captured upside</p>
-<p><em>Key Success Factors:</em> - Entry at relatively oversold levels - Quick price bounce from support level - Proper position sizing limiting exposure - Disciplined exit when trend signal reversed</p>
-<p>This trade demonstrates that even in a challenging overall market environment, the strategy can identify short-term reversal opportunities. The short holding period is typical of the backtest results, where most positions were closed quickly due to SMA crossovers.</p>
-</section>
-<section id="performance-results-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="performance-results-visualization">Performance Results &amp; Visualization</h2>
-<section id="detailed-trade-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="detailed-trade-analysis">Detailed Trade Analysis</h3>
-<p>The table below presents the comprehensive analysis of all trades executed during our backtest period with the optimal parameters:</p>
-<table class="caption-top table">
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
-<col style="width: 32%">
-<col style="width: 32%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 8%">
 <col style="width: 34%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Category</th>
-<th>Metric</th>
-<th>Value</th>
+<th style="text-align: center;">Date</th>
+<th style="text-align: center;">Action</th>
+<th style="text-align: center;">Price</th>
+<th style="text-align: center;">Reason</th>
+<th style="text-align: center;">Outcome</th>
+<th style="text-align: center;">Profit/Loss</th>
+<th style="text-align: center;">Return</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Trade Statistics</strong></td>
-<td>Total Trades</td>
-<td>6</td>
+<td style="text-align: center;">2025-01-13</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$225.30</td>
+<td style="text-align: center;">RSI below threshold (32)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;">$1.51</td>
+<td style="text-align: center;">0.67%</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>Win Rate</td>
-<td>50.00% (3 wins, 3 losses)</td>
+<td style="text-align: center;">2025-01-14</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$226.81</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>Profit Factor</td>
-<td>0.33</td>
+<td style="text-align: center;">2025-01-26</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$234.98</td>
+<td style="text-align: center;">RSI below threshold (29)</td>
+<td style="text-align: center;">Loss</td>
+<td style="text-align: center;">-$16.71</td>
+<td style="text-align: center;">-7.11%</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>Max Consecutive Wins</td>
-<td>2</td>
+<td style="text-align: center;">2025-01-27</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$218.27</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>Max Consecutive Losses</td>
-<td>1</td>
+<td style="text-align: center;">2025-02-21</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$222.10</td>
+<td style="text-align: center;">RSI below threshold (33)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;">$4.21</td>
+<td style="text-align: center;">1.90%</td>
 </tr>
 <tr class="even">
-<td><strong>Profitability</strong></td>
-<td>Average Trade Profit</td>
-<td>-$21.37</td>
+<td style="text-align: center;">2025-02-22</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$226.31</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>Average Win</td>
-<td>+$20.70</td>
+<td style="text-align: center;">2025-03-10</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$211.48</td>
+<td style="text-align: center;">RSI below threshold (31)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;">$3.25</td>
+<td style="text-align: center;">1.54%</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>Average Loss</td>
-<td>-$63.44</td>
+<td style="text-align: center;">2025-03-11</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$214.73</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td><strong>Duration</strong></td>
-<td>Average Holding Period</td>
-<td>1.0 days</td>
+<td style="text-align: center;">2025-03-21</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$221.88</td>
+<td style="text-align: center;">RSI below threshold (28)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;">$2.32</td>
+<td style="text-align: center;">1.05%</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>Maximum Duration</td>
-<td>1 day</td>
+<td style="text-align: center;">2025-03-22</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$224.20</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>Minimum Duration</td>
-<td>1 day</td>
+<td style="text-align: center;">2025-04-05</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$188.15</td>
+<td style="text-align: center;">RSI below threshold (23)</td>
+<td style="text-align: center;">Loss</td>
+<td style="text-align: center;">-$144.40</td>
+<td style="text-align: center;">-7.68%</td>
 </tr>
 <tr class="even">
-<td><strong>Performance</strong></td>
-<td>Total Return</td>
-<td>-0.13%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Annualized Return</td>
-<td>-0.13%</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Maximum Drawdown</td>
-<td>-0.15%</td>
+<td style="text-align: center;">2025-04-06</td>
+<td style="text-align: center;">Sell</td>
+<td style="text-align: center;">$173.71</td>
+<td style="text-align: center;">Price below SMA50</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: Trade analysis based on optimal parameters (RSI=35, ATR Stop=1.5, ATR Take=3.0)</em></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Detailed Trade Analysis
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Total Trades: 6</li>
+<li>Win Rate: 50%</li>
+<li>Average Profit: -$24.97</li>
+<li>Average Win: $2.82</li>
+<li>Average Loss: -$80.56</li>
+<li>Profit Factor: 0.07</li>
+<li>Maximum Consecutive Wins: 3</li>
+<li>Maximum Consecutive Losses: 1</li>
+<li>Average Holding Period: 1 day</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-<section id="portfolio-performance-summary" class="level3">
-<h3 class="anchored" data-anchor-id="portfolio-performance-summary">Portfolio Performance Summary</h3>
-<p>The summary below shows the actual portfolio performance metrics from our backtest period:</p>
+<hr>
+<section id="portfolio-performance-summary" class="level2 center section-card">
+<h2 class="center anchored" data-anchor-id="portfolio-performance-summary">Portfolio Performance Summary</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This case study uses a 12-month data period (2024-2025) for educational purposes. For actual trading strategy evaluation, a longer timeframe (3-5 years) is recommended to obtain statistically significant results across different market cycles.</p>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Key Metrics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Best Trade Case Analysis</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="card">
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Metric</th>
-<th>Value</th>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: center;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Testing Period</td>
-<td>9 months (2024-2025)</td>
+<td style="text-align: left;">Initial Capital</td>
+<td style="text-align: center;">$100,000</td>
 </tr>
 <tr class="even">
-<td>Initial Capital</td>
-<td>$100,000</td>
+<td style="text-align: left;">Final Value</td>
+<td style="text-align: center;">$99,870</td>
 </tr>
 <tr class="odd">
-<td>Final Portfolio Value</td>
-<td>$99,870</td>
+<td style="text-align: left;">Total Return</td>
+<td style="text-align: center;">-0.13%</td>
 </tr>
 <tr class="even">
-<td>Total Return</td>
-<td>-0.13%</td>
+<td style="text-align: left;">Annualized Return</td>
+<td style="text-align: center;">-0.17%</td>
 </tr>
 <tr class="odd">
-<td>Annualized Return</td>
-<td>-0.13%</td>
+<td style="text-align: left;">Sharpe Ratio</td>
+<td style="text-align: center;">-0.83</td>
 </tr>
 <tr class="even">
-<td>Sharpe Ratio</td>
-<td>-0.83</td>
+<td style="text-align: left;">Max Drawdown</td>
+<td style="text-align: center;">0.15%</td>
 </tr>
 <tr class="odd">
-<td>Max Drawdown</td>
-<td>-0.15%</td>
+<td style="text-align: left;">Win Rate</td>
+<td style="text-align: center;">50%</td>
 </tr>
 <tr class="even">
-<td>Win/Loss Ratio</td>
-<td>1.00 (even)</td>
+<td style="text-align: left;">Average Trade Return</td>
+<td style="text-align: center;">-0.44%</td>
 </tr>
 <tr class="odd">
-<td>Average Daily Return</td>
-<td>-0.001%</td>
+<td style="text-align: left;">Best Trade</td>
+<td style="text-align: center;">1.90%</td>
 </tr>
 <tr class="even">
-<td>Return Volatility</td>
-<td>0.16%</td>
+<td style="text-align: left;">Worst Trade</td>
+<td style="text-align: center;">-7.68%</td>
 </tr>
 <tr class="odd">
-<td>Risk-Adjusted Return</td>
-<td>Negative</td>
+<td style="text-align: left;">Average Holding Period</td>
+<td style="text-align: center;">1 day</td>
 </tr>
 </tbody>
 </table>
-<p><em>The backtest results reflect a challenging market period where most trades were closed due to trend reversals (price falling below SMA50). In practical implementations, additional filters would be applied to improve entry timing.</em></p>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="card">
+<section id="market-context" class="level3">
+<h3 class="anchored" data-anchor-id="market-context">Market Context</h3>
+<p>On March 21, 2025, AAPL stock had been experiencing a short-term pullback, with the price dropping from about $230 to $222 over several sessions. The RSI indicator had fallen to 28, well below our threshold of 35, indicating an oversold condition.</p>
 </section>
-<section id="strategy-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="strategy-visualization">Strategy Visualization</h3>
+<section id="entry-and-exit-details" class="level3">
+<h3 class="anchored" data-anchor-id="entry-and-exit-details">Entry and Exit Details</h3>
+<ul>
+<li><strong>Entry Date</strong>: March 21, 2025</li>
+<li><strong>Entry Price</strong>: $221.88</li>
+<li><strong>RSI at Entry</strong>: 28</li>
+<li><strong>Stop Loss</strong>: $218.58 (ATR × 1.5)</li>
+<li><strong>Take Profit</strong>: $230.78 (ATR × 3.0)</li>
+<li><strong>Exit Date</strong>: March 22, 2025</li>
+<li><strong>Exit Price</strong>: $224.20</li>
+<li><strong>Exit Reason</strong>: Price below SMA50</li>
+<li><strong>Profit/Loss</strong>: $2.32 (1.05% return)</li>
+</ul>
+</section>
+<section id="success-factors" class="level3">
+<h3 class="anchored" data-anchor-id="success-factors">Success Factors</h3>
+<p>This trade capitalized on a quick price bounce from support level. The relatively low RSI (28) indicated an oversold condition, making the entry timing optimal. While the trade didn’t reach the take profit target, it still yielded a positive return before the exit signal triggered.</p>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<hr>
+<section id="strategy-visualization" class="level3 center section-card">
+<h3 class="center anchored" data-anchor-id="strategy-visualization">Strategy Visualization</h3>
+<div class="grid">
+<div class="g-col-12">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="AAPL_trading_signals.png" class="img-fluid figure-img"></p>
 <figcaption>Trading Strategy Visualization</figcaption>
 </figure>
 </div>
-<p><em>Figure 1: Trading signals with price and RSI indicators</em></p>
+<p><em>Figure 1: Trading signals with price and RSI indicators. The upper panel shows AAPL price over 12 months with key indicators (SMA20, SMA50, SMA200) and Bollinger Bands. Buy signals (green triangles) appear mostly in 2025-Q1 when RSI drops below 35 and price nears the lower Bollinger Band. The lower panel shows RSI with buy signals in the oversold area (below 40). Most positions exit quickly (red triangles) when price drops below SMA50.</em></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-12">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="AAPL_portfolio_performance.png" class="img-fluid figure-img"></p>
 <figcaption>Portfolio Performance</figcaption>
 </figure>
 </div>
-<p><em>Figure 2: Portfolio value, drawdown analysis, and monthly returns heatmap</em></p>
+<p><em>Figure 2: Portfolio value, drawdown and monthly returns. The top panel shows portfolio value staying near $100,000 with minimal changes despite several trades. The middle panel shows drawdowns with a maximum of -0.15% in April 2025, matching the largest losing trade. The bottom panel shows monthly returns - mostly neutral (green) with some underperformance (red) in April 2025.</em></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-12">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="AAPL_trade_analysis.png" class="img-fluid figure-img"></p>
 <figcaption>Trade Analysis</figcaption>
 </figure>
 </div>
-<p><em>Figure 3: Trade distribution analysis showing profits, returns, and duration</em></p>
-<p><strong>Advanced Metrics</strong>:</p>
+<p><em>Figure 3: Trade distribution charts. The top-left shows profit distribution of six trades, with one major loss around -$145. The top-right shows returns from -7% to +2%. The bottom-left confirms all trades lasted exactly 1 day due to our quick exit rules. The bottom-right plots duration against return - no correlation exists as all trades had the same duration.</em></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-12">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="advanced_metrics_analysis.png" class="img-fluid figure-img"></p>
 <figcaption>Advanced Metrics Analysis</figcaption>
 </figure>
 </div>
-<p><em>Figure 4: Advanced risk and return metrics analysis showing daily returns distribution, drawdown distribution, rolling returns and volatility, and rolling Sharpe ratio</em></p>
-<p><strong>Parameter Optimization Results</strong>:</p>
+<p><em>Figure 4: Advanced risk and return metrics. Daily returns (top-left) cluster around zero with few outliers. The drawdown chart (top-right) shows the portfolio stayed mostly at zero drawdown, except for one -0.15% event. Rolling returns and volatility (bottom-left) show increased volatility in March-April 2025 along with falling returns. The Sharpe ratio (bottom-right) was positive early but turned negative in the final month during the largest losing trade.</em></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-12">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="parameter_optimization_results.png" class="img-fluid figure-img"></p>
 <figcaption>Parameter Optimization Results</figcaption>
 </figure>
 </div>
-<p><em>Figure 5: Analysis of parameter combinations showing Sharpe ratio, risk-return profile, and correlations</em></p>
+<p><em>Figure 5: Parameter testing results. The Sharpe ratio heatmap (top-left) shows RSI=35 performs best across all ATR stop values, with -0.83 being the least negative Sharpe ratio. The scatter plot (top-right) shows how parameters affect returns (color) and win rates (point size). The correlation matrix (bottom-left) shows RSI threshold has strong negative correlation (-0.87) with performance. The risk-return chart (bottom-right) highlights the best combination with low risk (0.15% max drawdown) but still negative return (-0.13%).</em></p>
+</div>
+</div>
 </section>
+<hr>
+<section id="conclusions-future-work" class="level2 center section-card">
+<h2 class="center anchored" data-anchor-id="conclusions-future-work">Conclusions &amp; Future Work</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Findings
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The “Buy Low Sell High” strategy using RSI=35 as the entry signal produced a slight negative return (-0.13%) during the testing period. However, the strategy demonstrated good risk management with a maximum drawdown of only 0.15%.</p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="card">
+<p><strong>Strategy Strengths</strong>:</p>
+<ul>
+<li>Low drawdown (0.15%)</li>
+<li>Good win rate (50%)</li>
+<li>Simple implementation</li>
+<li>Clear entry and exit rules</li>
+<li>Ability to capture short-term reversals</li>
+</ul>
+</div>
+</div>
+<div class="g-col-6">
+<div class="card">
+<p><strong>Strategy Weaknesses</strong>:</p>
+<ul>
+<li>Negative overall return</li>
+<li>Short holding period (only 1 day)</li>
+<li>Limited number of trading signals</li>
+<li>Sensitivity to market conditions</li>
+<li>Potential for improved parameter optimization</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Future Improvements
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Test with longer historical data periods</li>
+<li>Explore additional technical indicators</li>
+<li>Implement machine learning for parameter optimization</li>
+<li>Extend to multiple assets for diversification</li>
+<li>Develop adaptive parameters based on market regime</li>
+</ol>
+</div>
+</div>
 </section>
-<section id="conclusions-future-work" class="level2">
-<h2 class="anchored" data-anchor-id="conclusions-future-work">Conclusions &amp; Future Work</h2>
-<p><strong>Strategy Performance Assessment</strong>: - The strategy demonstrated consistent signal generation but showed negative returns (-0.13%) during the test period - Short holding periods (average 1 day) due to frequent trend reversals - Equal win/loss ratio (50%) but larger average losses compared to gains - Risk management worked effectively, limiting maximum drawdown to -0.15%</p>
-<p><strong>Strategy Strengths</strong>: - Robust signal generation methodology - Effective risk management framework - Comprehensive analysis capabilities - Detailed visualization and analysis tools</p>
-<p><strong>Future Enhancements</strong>: 1. Machine Learning Integration for parameter optimization 2. Multi-Asset Portfolio extension for diversification 3. Adaptive Parameters based on market regimes 4. Alternative Data incorporation (sentiment analysis, economic indicators) 5. Real-Time Implementation for live trading</p>
+<p></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
