@@ -17,6 +17,44 @@ format:
 ::: {.content-visible when-format="html"}
 ```{=html}
 <style>
+/* Base font size increase */
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+
+/* Headers */
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.85rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Tables */
+table {
+  font-size: 0.95rem;
+}
+
+thead th {
+  font-size: 1rem;
+}
+
+/* Formula text */
+.formula-container {
+  font-size: 1.1rem;
+}
+
 .custom-callout {
   padding: 1.25rem;
   margin-top: 1.25rem;
@@ -75,7 +113,7 @@ format:
   border-top: 1px solid #e9ecef;
   font-style: italic;
   color: #495057;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -126,18 +164,114 @@ tbody tr:hover {
   font-weight: 600;
   border-bottom: 2px solid #eaf2f8;
   padding-bottom: 0.5rem;
+  font-size: 1.85rem;
 }
 
 /* Main content width */
 .quarto-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .content-block {
-  padding: 0 3rem;
+  padding: 0 2rem;
+}
+
+/* Formula styling */
+.formula-container {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.formula-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* List styling */
+ul, ol {
+  font-size: 1.05rem;
+  padding-left: 1.5rem;
+}
+
+/* Panel styling */
+.panel-tabset .tab-content {
+  font-size: 1.02rem;
+}
+
+/* Callout text */
+.callout {
+  font-size: 1.05rem;
+}
+
+.callout-body {
+  font-size: 1.02rem;
+}
+
+/* Collapsible callout styling */
+.callout.toggleable {
+  transition: all 0.3s ease;
+}
+
+.callout.toggleable .callout-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.callout.toggleable .callout-header::after {
+  content: "▼";
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.callout.toggleable.collapsed .callout-header::after {
+  transform: rotate(-90deg);
+}
+
+.callout.toggleable .callout-body {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.callout.toggleable.collapsed .callout-body {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Make all callouts toggleable
+  const callouts = document.querySelectorAll('.callout');
+  callouts.forEach(callout => {
+    // Add toggleable class
+    callout.classList.add('toggleable');
+
+    // Get the header
+    const header = callout.querySelector('.callout-header');
+    if (header) {
+      // Add click event
+      header.addEventListener('click', function() {
+        callout.classList.toggle('collapsed');
+      });
+    }
+  });
+});
+</script>
 ```
 :::
 
@@ -147,10 +281,32 @@ tbody tr:hover {
 This document presents the backtesting results and parameter optimization analysis for the "Buy Low Sell High" trading strategy applied to AAPL stock.
 :::
 
+### Key Technical Indicators
+
+::: {.formula-container}
+::: {.formula-title}
+Relative Strength Index (RSI) Calculation
+:::
+$$\text{RSI} = 100 - \frac{100}{1 + \frac{\text{Average Gain}}{\text{Average Loss}}}$$
+
+Where:
+- Average Gain = Average of all up moves in the look-back period
+- Average Loss = Average of all down moves in the look-back period
+:::
+
+::: {.formula-container}
+::: {.formula-title}
+Average True Range (ATR) for Risk Management
+:::
+$$\text{ATR} = \frac{1}{n} \sum_{i=1}^{n} \text{TR}_i$$
+
+$$\text{TR} = \max((\text{High} - \text{Low}), |(\text{High} - \text{Previous Close})|, |(\text{Low} - \text{Previous Close})|)$$
+:::
+
 ---
 
 ::: {.section-card}
-## Parameter Optimization Results {.center}
+## Parameter Optimization Results {.section-title}
 
 ::: {.custom-callout}
 ### Optimal Parameter Combination
@@ -160,42 +316,48 @@ This document presents the backtesting results and parameter optimization analys
 - Sharpe Ratio: -0.83 (best value)
 :::
 
+::: {.formula-container}
+::: {.formula-title}
+Dynamic Stop Loss & Take Profit Calculation
+:::
+$$\text{Stop Loss} = \text{Entry Price} - \text{ATR} \times \text{Stop Multiplier}$$
+$$\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multiplier}$$
+:::
+
 ::: {.panel-tabset}
 ## Performance by RSI Threshold
 
 | RSI Threshold | ATR Stop | ATR Take | Win Rate | Total Return | Max Drawdown | Sharpe Ratio |
 |:-------------:|:--------:|:--------:|:--------:|:------------:|:------------:|:------------:|
-| 35            | 1.5      | 3.0      | 50%      | -0.13%       | 0.15%        | -0.83        |
-| 40            | 1.5      | 3.0      | 44%      | -0.24%       | 0.24%        | -1.21        |
-| 45            | 1.5      | 3.0      | 33%      | -0.26%       | 0.26%        | -1.42        |
-: {.striped .hover}
+| 35            | 1.5      | 3.0      | 50%      | <span class="negative-value">-0.13%</span> | 0.15% | <span class="negative-value">-0.83</span> |
+| 40            | 1.5      | 3.0      | 44%      | <span class="negative-value">-0.24%</span> | 0.24% | <span class="negative-value">-1.21</span> |
+| 45            | 1.5      | 3.0      | 33%      | <span class="negative-value">-0.26%</span> | 0.26% | <span class="negative-value">-1.42</span> |
 
 ## Trading Signals
 
 | Date       | Action | Price  | Reason                        | Outcome | Profit/Loss | Return |
 |:----------:|:------:|:------:|:-----------------------------:|:-------:|:-----------:|:------:|
-| 2025-01-13 | Buy    | $225.30| RSI below threshold (32)      | Win     | $1.51       | 0.67%  |
+| 2025-01-13 | Buy    | $225.30| RSI below threshold (32)      | Win     | <span class="positive-value">$1.51</span> | <span class="positive-value">0.67%</span> |
 | 2025-01-14 | Sell   | $226.81| Price below SMA50             | -       | -           | -      |
-| 2025-01-26 | Buy    | $234.98| RSI below threshold (29)      | Loss    | -$16.71     | -7.11% |
+| 2025-01-26 | Buy    | $234.98| RSI below threshold (29)      | Loss    | <span class="negative-value">-$16.71</span> | <span class="negative-value">-7.11%</span> |
 | 2025-01-27 | Sell   | $218.27| Price below SMA50             | -       | -           | -      |
-| 2025-02-21 | Buy    | $222.10| RSI below threshold (33)      | Win     | $4.21       | 1.90%  |
+| 2025-02-21 | Buy    | $222.10| RSI below threshold (33)      | Win     | <span class="positive-value">$4.21</span> | <span class="positive-value">1.90%</span> |
 | 2025-02-22 | Sell   | $226.31| Price below SMA50             | -       | -           | -      |
-| 2025-03-10 | Buy    | $211.48| RSI below threshold (31)      | Win     | $3.25       | 1.54%  |
+| 2025-03-10 | Buy    | $211.48| RSI below threshold (31)      | Win     | <span class="positive-value">$3.25</span> | <span class="positive-value">1.54%</span> |
 | 2025-03-11 | Sell   | $214.73| Price below SMA50             | -       | -           | -      |
-| 2025-03-21 | Buy    | $221.88| RSI below threshold (28)      | Win     | $2.32       | 1.05%  |
+| 2025-03-21 | Buy    | $221.88| RSI below threshold (28)      | Win     | <span class="positive-value">$2.32</span> | <span class="positive-value">1.05%</span> |
 | 2025-03-22 | Sell   | $224.20| Price below SMA50             | -       | -           | -      |
-| 2025-04-05 | Buy    | $188.15| RSI below threshold (23)      | Loss    | -$144.40    | -7.68% |
+| 2025-04-05 | Buy    | $188.15| RSI below threshold (23)      | Loss    | <span class="negative-value">-$144.40</span> | <span class="negative-value">-7.68%</span> |
 | 2025-04-06 | Sell   | $173.71| Price below SMA50             | -       | -           | -      |
-: {.striped .hover}
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip}
 ## Detailed Trade Analysis
 - Total Trades: 6
 - Win Rate: 50%
-- Average Profit: -$24.97
-- Average Win: $2.82
-- Average Loss: -$80.56
+- Average Profit: <span class="negative-value">-$24.97</span>
+- Average Win: <span class="positive-value">$2.82</span>
+- Average Loss: <span class="negative-value">-$80.56</span>
 - Profit Factor: 0.07
 - Maximum Consecutive Wins: 3
 - Maximum Consecutive Losses: 1
@@ -206,10 +368,33 @@ This document presents the backtesting results and parameter optimization analys
 ---
 
 ::: {.section-card}
-## Portfolio Performance Summary {.center}
+## Portfolio Performance Summary {.section-title}
 
 ::: {.callout-note}
 This case study uses a 12-month data period (2024-2025) for educational purposes. For actual trading strategy evaluation, a longer timeframe (3-5 years) is recommended to obtain statistically significant results across different market cycles.
+:::
+
+::: {.formula-container}
+::: {.formula-title}
+Sharpe Ratio - Primary Optimization Metric
+:::
+$$\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}$$
+
+Where:
+- $R_p$ = Portfolio's annualized return
+- $R_f$ = Risk-free rate of return
+- $\sigma_p$ = Portfolio's standard deviation of returns (volatility)
+:::
+
+::: {.formula-container}
+::: {.formula-title}
+Maximum Drawdown Calculation
+:::
+$$\text{Maximum Drawdown} = \min_{\forall t \in (0,T)} \left( \frac{V_t - \max_{s \in (0,t)} V_s}{\max_{s \in (0,t)} V_s} \right)$$
+
+Where:
+- $V_t$ = Portfolio value at time t
+- $T$ = End of evaluation period
 :::
 
 ::: {.panel-tabset}
@@ -220,14 +405,14 @@ This case study uses a 12-month data period (2024-2025) for educational purposes
 |:----------------------|:--------:|
 | Initial Capital       | $100,000 |
 | Final Value           | $99,870  |
-| Total Return          | -0.13%   |
-| Annualized Return     | -0.17%   |
-| Sharpe Ratio          | -0.83    |
+| Total Return          | <span class="negative-value">-0.13%</span> |
+| Annualized Return     | <span class="negative-value">-0.17%</span> |
+| Sharpe Ratio          | <span class="negative-value">-0.83</span> |
 | Max Drawdown          | 0.15%    |
 | Win Rate              | 50%      |
-| Average Trade Return  | -0.44%   |
-| Best Trade            | 1.90%    |
-| Worst Trade           | -7.68%   |
+| Average Trade Return  | <span class="negative-value">-0.44%</span> |
+| Best Trade            | <span class="positive-value">1.90%</span> |
+| Worst Trade           | <span class="negative-value">-7.68%</span> |
 | Average Holding Period| 1 day    |
 :::
 
@@ -246,7 +431,7 @@ On March 21, 2025, AAPL stock had been experiencing a short-term pullback, with 
 - **Exit Date**: March 22, 2025
 - **Exit Price**: $224.20
 - **Exit Reason**: Price below SMA50
-- **Profit/Loss**: $2.32 (1.05% return)
+- **Profit/Loss**: <span class="positive-value">$2.32 (1.05% return)</span>
 
 ### Success Factors
 This trade capitalized on a quick price bounce from support level. The relatively low RSI (28) indicated an oversold condition, making the entry timing optimal. While the trade didn't reach the take profit target, it still yielded a positive return before the exit signal triggered.
@@ -257,44 +442,44 @@ This trade capitalized on a quick price bounce from support level. The relativel
 ---
 
 ::: {.section-card}
-### Strategy Visualization {.center}
+### Strategy Visualization {.section-title}
 
-::: {.grid}
-::: {.g-col-12}
+::: {.image-container}
 ![Trading Strategy Visualization](AAPL_trading_signals.png)
 
+::: {.image-caption}
 *Figure 1: Trading signals with price and RSI indicators. The upper panel shows AAPL price over 12 months with key indicators (SMA20, SMA50, SMA200) and Bollinger Bands. Buy signals (green triangles) appear mostly in 2025-Q1 when RSI drops below 35 and price nears the lower Bollinger Band. The lower panel shows RSI with buy signals in the oversold area (below 40). Most positions exit quickly (red triangles) when price drops below SMA50.*
 :::
 :::
 
-::: {.grid}
-::: {.g-col-12}
+::: {.image-container}
 ![Portfolio Performance](AAPL_portfolio_performance.png)
 
+::: {.image-caption}
 *Figure 2: Portfolio value, drawdown and monthly returns. The top panel shows portfolio value staying near $100,000 with minimal changes despite several trades. The middle panel shows drawdowns with a maximum of -0.15% in April 2025, matching the largest losing trade. The bottom panel shows monthly returns - mostly neutral (green) with some underperformance (red) in April 2025.*
 :::
 :::
 
-::: {.grid}
-::: {.g-col-12}
+::: {.image-container}
 ![Trade Analysis](AAPL_trade_analysis.png)
 
+::: {.image-caption}
 *Figure 3: Trade distribution charts. The top-left shows profit distribution of six trades, with one major loss around -$145. The top-right shows returns from -7% to +2%. The bottom-left confirms all trades lasted exactly 1 day due to our quick exit rules. The bottom-right plots duration against return - no correlation exists as all trades had the same duration.*
 :::
 :::
 
-::: {.grid}
-::: {.g-col-12}
+::: {.image-container}
 ![Advanced Metrics Analysis](advanced_metrics_analysis.png)
 
+::: {.image-caption}
 *Figure 4: Advanced risk and return metrics. Daily returns (top-left) cluster around zero with few outliers. The drawdown chart (top-right) shows the portfolio stayed mostly at zero drawdown, except for one -0.15% event. Rolling returns and volatility (bottom-left) show increased volatility in March-April 2025 along with falling returns. The Sharpe ratio (bottom-right) was positive early but turned negative in the final month during the largest losing trade.*
 :::
 :::
 
-::: {.grid}
-::: {.g-col-12}
+::: {.image-container}
 ![Parameter Optimization Results](parameter_optimization_results.png)
 
+::: {.image-caption}
 *Figure 5: Parameter testing results. The Sharpe ratio heatmap (top-left) shows RSI=35 performs best across all ATR stop values, with -0.83 being the least negative Sharpe ratio. The scatter plot (top-right) shows how parameters affect returns (color) and win rates (point size). The correlation matrix (bottom-left) shows RSI threshold has strong negative correlation (-0.87) with performance. The risk-return chart (bottom-right) highlights the best combination with low risk (0.15% max drawdown) but still negative return (-0.13%).*
 :::
 :::
@@ -303,7 +488,7 @@ This trade capitalized on a quick price bounce from support level. The relativel
 ---
 
 ::: {.section-card}
-## Conclusions & Future Work {.center}
+## Conclusions & Future Work {.section-title}
 
 ::: {.callout-note}
 ### Key Findings
