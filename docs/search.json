@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Buy Low Sell High Strategy Analysis",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "",
     "text": "This document presents the backtesting results and parameter optimization analysis for the “Buy Low Sell High” trading strategy applied to AAPL stock."
   },
@@ -51,7 +51,7 @@
   {
     "objectID": "index.html#conclusions-future-work",
     "href": "index.html#conclusions-future-work",
-    "title": "Buy Low Sell High Strategy Analysis",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "Conclusions & Future Work",
     "text": "Conclusions & Future Work\n\n\n\n\n\n\nKey Findings\n\n\n\nThe “Buy Low Sell High” strategy using RSI=35 as the entry signal produced a slight negative return (-0.13%) during the testing period. However, the strategy demonstrated good risk management with a maximum drawdown of only 0.15%.\n\n\n\n\n\nStrategy Strengths:\n\nLow drawdown (0.15%)\nGood win rate (50%)\nSimple implementation\nClear entry and exit rules\nAbility to capture short-term reversals\n\n\n\n\n\nStrategy Weaknesses:\n\nNegative overall return\nShort holding period (only 1 day)\nLimited number of trading signals\nSensitivity to market conditions\nPotential for improved parameter optimization\n\n\n\n\n\n\n\n\n\n\nFuture Improvements\n\n\n\n\nTest with longer historical data periods\nExplore additional technical indicators\nImplement machine learning for parameter optimization\nExtend to multiple assets for diversification\nDevelop adaptive parameters based on market regime"
   },
@@ -79,21 +79,21 @@
   {
     "objectID": "index.html#strategy-overview",
     "href": "index.html#strategy-overview",
-    "title": "Buy Low Sell High Strategy Analysis",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "",
     "text": "This document presents the backtesting results and parameter optimization analysis for the “Buy Low Sell High” trading strategy applied to AAPL stock."
   },
   {
     "objectID": "index.html#parameter-optimization-results",
     "href": "index.html#parameter-optimization-results",
-    "title": "Buy Low Sell High Strategy Analysis",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "Parameter Optimization Results",
     "text": "Parameter Optimization Results\n\nOptimal Parameter Combination\n\nRSI Threshold: 35\nATR Stop Multiplier: 1.5\nATR Take Multiplier: 3.0\nSharpe Ratio: -0.83 (best value)\n\n\n\nPerformance by RSI ThresholdTrading Signals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRSI Threshold\nATR Stop\nATR Take\nWin Rate\nTotal Return\nMax Drawdown\nSharpe Ratio\n\n\n\n\n35\n1.5\n3.0\n50%\n-0.13%\n0.15%\n-0.83\n\n\n40\n1.5\n3.0\n44%\n-0.24%\n0.24%\n-1.21\n\n\n45\n1.5\n3.0\n33%\n-0.26%\n0.26%\n-1.42\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDate\nAction\nPrice\nReason\nOutcome\nProfit/Loss\nReturn\n\n\n\n\n2025-01-13\nBuy\n$225.30\nRSI below threshold (32)\nWin\n$1.51\n0.67%\n\n\n2025-01-14\nSell\n$226.81\nPrice below SMA50\n-\n-\n-\n\n\n2025-01-26\nBuy\n$234.98\nRSI below threshold (29)\nLoss\n-$16.71\n-7.11%\n\n\n2025-01-27\nSell\n$218.27\nPrice below SMA50\n-\n-\n-\n\n\n2025-02-21\nBuy\n$222.10\nRSI below threshold (33)\nWin\n$4.21\n1.90%\n\n\n2025-02-22\nSell\n$226.31\nPrice below SMA50\n-\n-\n-\n\n\n2025-03-10\nBuy\n$211.48\nRSI below threshold (31)\nWin\n$3.25\n1.54%\n\n\n2025-03-11\nSell\n$214.73\nPrice below SMA50\n-\n-\n-\n\n\n2025-03-21\nBuy\n$221.88\nRSI below threshold (28)\nWin\n$2.32\n1.05%\n\n\n2025-03-22\nSell\n$224.20\nPrice below SMA50\n-\n-\n-\n\n\n2025-04-05\nBuy\n$188.15\nRSI below threshold (23)\nLoss\n-$144.40\n-7.68%\n\n\n2025-04-06\nSell\n$173.71\nPrice below SMA50\n-\n-\n-\n\n\n\n\n\n\n\n\n\n\n\n\nDetailed Trade Analysis\n\n\n\n\n\n\nTotal Trades: 6\nWin Rate: 50%\nAverage Profit: -$24.97\nAverage Win: $2.82\nAverage Loss: -$80.56\nProfit Factor: 0.07\nMaximum Consecutive Wins: 3\nMaximum Consecutive Losses: 1\nAverage Holding Period: 1 day"
   },
   {
     "objectID": "index.html#portfolio-performance-summary",
     "href": "index.html#portfolio-performance-summary",
-    "title": "Buy Low Sell High Strategy Analysis",
+    "title": "Buy Low / Sell High Strategy Optimization",
     "section": "Portfolio Performance Summary",
     "text": "Portfolio Performance Summary\n\n\n\n\n\n\nNote\n\n\n\nThis case study uses a 12-month data period (2024-2025) for educational purposes. For actual trading strategy evaluation, a longer timeframe (3-5 years) is recommended to obtain statistically significant results across different market cycles.\n\n\n\nKey MetricsBest Trade Case Analysis\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\nInitial Capital\n$100,000\n\n\nFinal Value\n$99,870\n\n\nTotal Return\n-0.13%\n\n\nAnnualized Return\n-0.17%\n\n\nSharpe Ratio\n-0.83\n\n\nMax Drawdown\n0.15%\n\n\nWin Rate\n50%\n\n\nAverage Trade Return\n-0.44%\n\n\nBest Trade\n1.90%\n\n\nWorst Trade\n-7.68%\n\n\nAverage Holding Period\n1 day\n\n\n\n\n\n\n\n\nMarket Context\nOn March 21, 2025, AAPL stock had been experiencing a short-term pullback, with the price dropping from about $230 to $222 over several sessions. The RSI indicator had fallen to 28, well below our threshold of 35, indicating an oversold condition.\n\n\nEntry and Exit Details\n\nEntry Date: March 21, 2025\nEntry Price: $221.88\nRSI at Entry: 28\nStop Loss: $218.58 (ATR × 1.5)\nTake Profit: $230.78 (ATR × 3.0)\nExit Date: March 22, 2025\nExit Price: $224.20\nExit Reason: Price below SMA50\nProfit/Loss: $2.32 (1.05% return)\n\n\n\nSuccess Factors\nThis trade capitalized on a quick price bounce from support level. The relatively low RSI (28) indicated an oversold condition, making the entry timing optimal. While the trade didn’t reach the take profit target, it still yielded a positive return before the exit signal triggered."
   }

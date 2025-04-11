@@ -1,5 +1,6 @@
 ---
-title: "Buy Low Sell High Strategy Analysis"
+title: "Buy Low / Sell High Strategy Optimization"
+authors: "Sicong Chen, Yuxin Wan"
 format:
   html:
     toc: true
@@ -9,6 +10,8 @@ format:
     code-fold: true
     highlight-style: github
     css: styles.css
+    page-layout: full
+    html-math-method: katex
 ---
 
 ::: {.content-visible when-format="html"}
@@ -50,6 +53,89 @@ format:
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced image styling */
+.image-container {
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+}
+
+.image-caption {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  font-style: italic;
+  color: #495057;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Enhanced table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+thead th {
+  background-color: #eaf2f8;
+  color: #2c3e50;
+  font-weight: 600;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #e9f2fb;
+}
+
+.positive-value {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.negative-value {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.neutral-value {
+  color: #6c757d;
+}
+
+/* Section titles */
+.section-title {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #eaf2f8;
+  padding-bottom: 0.5rem;
+}
+
+/* Main content width */
+.quarto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-block {
+  padding: 0 3rem;
 }
 </style>
 ```
