@@ -1,20 +1,104 @@
 ---
-title: "About"
+title: "About Our Strategy"
 ---
+
+## Our Trading Philosophy
+
+Our research is based on a key market principle: **prices typically return to their average after extreme movements**. Our "Buy Low / Sell High" strategy captures these reversion opportunities using a structured, evidence-based approach.
+
+### Market Inefficiencies We Target
+
+Our strategy takes advantage of two common market patterns:
+
+1. **Overreaction to News**: Markets often overreact to short-term negative news, creating buying opportunities in fundamentally strong assets.
+
+2. **Support Level Bounces**: Prices frequently rebound when they reach statistical support levels (such as Bollinger Bands) during uptrends.
+
+## Strategy Framework
+
+Instead of explaining every technical detail (available in our [main analysis](index.html)), we present the core concepts:
+
+### The Three Entry Conditions
+
+Our strategy only enters a position when all three conditions are met:
+
+- **Confirmed Uptrend**: We only buy when the market trend is clearly positive
+- **Oversold Indicators**: We require technical evidence of oversold conditions
+- **Price at Support**: We need confirmation that price has reached a support level
+
+### The Four Exit Signals
+
+Our disciplined exit approach responds to any of these market signals:
+
+- **Target Reached**: The asset has become overbought
+- **Stop Loss Hit**: The price has fallen below our predefined risk level
+- **Take Profit Triggered**: The price has reached our profit target
+- **Trend Reversal**: The short-term trend direction has changed
+
+## Implementation Details
+
+For those interested in the technical aspects, here is a simplified explanation:
+
+### Technical Indicators
+- **Moving Averages**: 50-day and 200-day SMAs confirm trend direction
+- **RSI**: 14-period Relative Strength Index identifies oversold conditions
+- **Bollinger Bands**: 20-period with 2 standard deviations marks statistical extremes
+- **ATR**: 14-period Average True Range enables dynamic risk management
+
+### Entry Logic
+The system generates a BUY signal when ALL these conditions are met:
+```
+IF (SMA50 > SMA200) AND (RSI < 35) AND (Price <= Lower Bollinger Band) THEN BUY
+```
+
+### Exit Logic
+The system generates a SELL signal when ANY of these conditions occur:
+```
+IF (RSI > 70) OR (Price < Stop Loss) OR (Price > Take Profit) OR (Price < SMA50) THEN SELL
+```
+
+### Risk Management
+- Position Size: 2% of portfolio per trade
+- Stop Loss: Entry Price - (1.5 × ATR)
+- Take Profit: Entry Price + (3.0 × ATR)
+
+### Optimization Results
+After extensive testing, our best parameter combination achieved:
+- 50% Win Rate
+- -0.13% Total Return (during test period)
+- 0.15% Maximum Drawdown
+- -0.83 Sharpe Ratio (highest among all tested combinations)
+
+Although the overall return was slightly negative during our test period, the strategy showed excellent risk control with minimal drawdown, providing a solid foundation for further development.
+
+## Best Market Conditions
+
+Our backtesting shows this strategy works best in:
+
+- **Range-bound markets** with definite technical boundaries
+- **Bullish markets** with regular pullbacks
+- **Low-volatility environments** with measured price movements
+
+The strategy adapts to changing market conditions through its ATR-based parameters, automatically adjusting position size and risk levels as volatility changes.
 
 ## About the Team
 
-**Sicong Chen** and **Yuxin Wan** are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading.
+**Sicong Chen** specializes in quantitative strategy development with expertise in technical analysis and market microstructure. His research focuses on mean-reversion strategies and statistical arbitrage.
 
-## About the Project
+**Yuxin Wan** brings expertise in risk modeling and portfolio optimization. Her work focuses on robust backtesting methods and testing parameter stability across different market conditions.
 
-This project explores the classic "Buy Low / Sell High" strategy with modern technical indicators to enhance decision-making and optimize trading performance. The goal is to develop a systematic approach to identify ideal entry and exit points while implementing effective risk management techniques.
+Together, we combine technical analysis with statistical methods to create trading strategies that perform consistently in changing market environments.
 
-Our optimization includes:
+## Beyond the Backtests
 
-- Integration of multiple technical indicators (MACD, RSI, Bollinger Bands)
-- Dynamic position sizing based on market volatility
-- Multi-layered stop loss implementation
-- Backtesting against historical data
+While our [detailed analysis](index.html) provides complete performance metrics, we understand that successful strategy implementation requires more than just good backtest results:
 
-Visit our main page to learn more about our methodology and findings.
+- **Psychological Factors**: The 50% win rate and small drawdowns make this strategy psychologically manageable for most traders.
+
+- **Simple Execution**: With clear rules and typically 1-day holding periods, this strategy is straightforward to implement.
+
+- **Diversification Potential**: This approach can be applied to multiple assets and timeframes for portfolio diversification.
+
+- **Learning Value**: The strategy demonstrates fundamental market principles, making it valuable for education purposes.
+
+For detailed backtesting results, parameter optimization analysis, and technical implementation, please visit our [main strategy page](index.html).

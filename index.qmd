@@ -281,6 +281,90 @@ document.addEventListener('DOMContentLoaded', function() {
 This document presents the backtesting results and parameter optimization analysis for the "Buy Low Sell High" trading strategy applied to AAPL stock.
 :::
 
+### Detailed Strategy Implementation
+
+::: {.section-card}
+::: {.custom-callout}
+#### Core Trading Logic
+The "Buy Low Sell High" strategy is designed to identify temporary price dips in uptrending markets, entering long positions when prices are oversold according to technical indicators, and exiting based on predefined conditions.
+:::
+
+#### Entry Conditions
+For a trade entry signal to be generated, ALL of the following conditions must be met simultaneously:
+
+1. **Confirmed Uptrend**: The 50-day Simple Moving Average must be above the 200-day Simple Moving Average (`SMA50 > SMA200`), indicating an overall bullish market structure.
+
+2. **Oversold Condition**: The 14-period Relative Strength Index (RSI) must fall below the optimized threshold value (35 in our optimal configuration), indicating a temporary oversold condition.
+
+3. **Price at Support**: The closing price must touch or fall below the lower Bollinger Band (20-period, 2 standard deviations), confirming price is at a statistical support level.
+
+When all three conditions are satisfied, the system:
+- Generates a BUY signal
+- Sets entry price at the current closing price
+- Calculates position size at 2% of the portfolio value
+- Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)
+
+```python
+# Entry logic from generate_signals() function
+if (df_signals.iloc[i]['SMA50'] > df_signals.iloc[i]['SMA200'] and
+    df_signals.iloc[i]['RSI'] < rsi_threshold and
+    df_signals.iloc[i]['Close'] <= df_signals.iloc[i]['BB_Lower']):
+    # Generate buy signal and set parameters
+    entry_price = df_signals.iloc[i]['Close']
+    atr_value = df_signals.iloc[i]['ATR']
+    df_signals.iloc[i, df_signals.columns.get_loc('Signal')] = 1
+    df_signals.iloc[i, df_signals.columns.get_loc('Stop_Loss')] = entry_price - atr_stop_multiplier * atr_value
+    df_signals.iloc[i, df_signals.columns.get_loc('Take_Profit')] = entry_price + atr_take_multiplier * atr_value
+```
+
+#### Exit Conditions
+The strategy exits an open position when ANY of the following conditions occur:
+
+1. **RSI Overbought**: If RSI rises above 70, indicating the asset has become overbought.
+
+2. **Stop-Loss Triggered**: If price falls below the calculated stop-loss level (Entry Price - ATR × Stop Multiplier).
+
+3. **Take-Profit Triggered**: If price rises above the calculated take-profit level (Entry Price + ATR × Take Multiplier).
+
+4. **Trend Reversal**: If price closes below the 50-day Simple Moving Average (SMA50), suggesting the shorter-term trend may be reversing.
+
+```python
+# Exit logic from generate_signals() function
+if df_signals.iloc[i]['Signal'] == 1 and df_signals.iloc[i]['RSI'] > 70:
+    df_signals.iloc[i, df_signals.columns.get_loc('Signal')] = 0
+    # Exit: RSI overbought
+elif df_signals.iloc[i]['Signal'] == 1 and df_signals.iloc[i]['Low'] <= df_signals.iloc[i]['Stop_Loss']:
+    df_signals.iloc[i, df_signals.columns.get_loc('Signal')] = 0
+    # Exit: Stop-loss triggered
+elif df_signals.iloc[i]['Signal'] == 1 and df_signals.iloc[i]['High'] >= df_signals.iloc[i]['Take_Profit']:
+    df_signals.iloc[i, df_signals.columns.get_loc('Signal')] = 0
+    # Exit: Take-profit triggered
+elif df_signals.iloc[i]['Signal'] == 1 and df_signals.iloc[i]['Close'] < df_signals.iloc[i]['SMA50']:
+    df_signals.iloc[i, df_signals.columns.get_loc('Signal')] = 0
+    # Exit: Close below SMA50
+```
+
+#### Position Sizing and Risk Management
+- **Fixed Risk Percentage**: Each trade risks 2% of the portfolio value (`Position_Size = 0.02`)
+- **Dynamic Stop-Loss**: Calculated using ATR to adapt to market volatility (`Stop_Loss = Entry_Price - ATR × Stop_Multiplier`)
+- **Asymmetric Reward-Risk Ratio**: Take-profit level is set at a multiple of the stop-loss distance (optimal parameters found: 1.5× ATR for stop-loss, 3.0× ATR for take-profit, resulting in a 2:1 reward-to-risk ratio)
+
+#### Parameter Optimization Process
+The strategy employs grid-search optimization across three key parameters:
+- **RSI Threshold**: Tested values of 30, 35, 40, and 45
+- **ATR Stop Multiplier**: Tested values of 1.5, 2.0, 2.5, and 3.0
+- **ATR Take Multiplier**: Tested values of 3.0, 4.0, and 5.0
+
+Each parameter combination is evaluated based on:
+- Sharpe Ratio (primary optimization metric)
+- Total Return
+- Maximum Drawdown
+- Win Rate
+- Number of Trades
+
+The optimal parameter combination (RSI=35, Stop=1.5×ATR, Take=3.0×ATR) was selected based on maximizing the Sharpe Ratio, which balances return against risk.
+:::
+
 ### Key Technical Indicators
 
 ::: {.formula-container}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Buylowsellsmart</title>
+<title>About Our Strategy – Buylowsellsmart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">About Our Strategy</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -112,8 +112,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-the-team" id="toc-about-the-team" class="nav-link active" data-scroll-target="#about-the-team">About the Team</a></li>
-  <li><a href="#about-the-project" id="toc-about-the-project" class="nav-link" data-scroll-target="#about-the-project">About the Project</a></li>
+  <li><a href="#our-trading-philosophy" id="toc-our-trading-philosophy" class="nav-link active" data-scroll-target="#our-trading-philosophy">Our Trading Philosophy</a>
+  <ul class="collapse">
+  <li><a href="#market-inefficiencies-we-target" id="toc-market-inefficiencies-we-target" class="nav-link" data-scroll-target="#market-inefficiencies-we-target">Market Inefficiencies We Target</a></li>
+  </ul></li>
+  <li><a href="#strategy-framework" id="toc-strategy-framework" class="nav-link" data-scroll-target="#strategy-framework">Strategy Framework</a>
+  <ul class="collapse">
+  <li><a href="#the-three-entry-conditions" id="toc-the-three-entry-conditions" class="nav-link" data-scroll-target="#the-three-entry-conditions">The Three Entry Conditions</a></li>
+  <li><a href="#the-four-exit-signals" id="toc-the-four-exit-signals" class="nav-link" data-scroll-target="#the-four-exit-signals">The Four Exit Signals</a></li>
+  </ul></li>
+  <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details">Implementation Details</a>
+  <ul class="collapse">
+  <li><a href="#technical-indicators" id="toc-technical-indicators" class="nav-link" data-scroll-target="#technical-indicators">Technical Indicators</a></li>
+  <li><a href="#entry-logic" id="toc-entry-logic" class="nav-link" data-scroll-target="#entry-logic">Entry Logic</a></li>
+  <li><a href="#exit-logic" id="toc-exit-logic" class="nav-link" data-scroll-target="#exit-logic">Exit Logic</a></li>
+  <li><a href="#risk-management" id="toc-risk-management" class="nav-link" data-scroll-target="#risk-management">Risk Management</a></li>
+  <li><a href="#optimization-results" id="toc-optimization-results" class="nav-link" data-scroll-target="#optimization-results">Optimization Results</a></li>
+  </ul></li>
+  <li><a href="#best-market-conditions" id="toc-best-market-conditions" class="nav-link" data-scroll-target="#best-market-conditions">Best Market Conditions</a></li>
+  <li><a href="#about-the-team" id="toc-about-the-team" class="nav-link" data-scroll-target="#about-the-team">About the Team</a></li>
+  <li><a href="#beyond-the-backtests" id="toc-beyond-the-backtests" class="nav-link" data-scroll-target="#beyond-the-backtests">Beyond the Backtests</a></li>
   </ul>
 </nav>
     </div>
@@ -122,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">About Our Strategy</h1>
 </div>
 
 
@@ -139,21 +157,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="our-trading-philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="our-trading-philosophy">Our Trading Philosophy</h2>
+<p>Our research is based on a key market principle: <strong>prices typically return to their average after extreme movements</strong>. Our “Buy Low / Sell High” strategy captures these reversion opportunities using a structured, evidence-based approach.</p>
+<section id="market-inefficiencies-we-target" class="level3">
+<h3 class="anchored" data-anchor-id="market-inefficiencies-we-target">Market Inefficiencies We Target</h3>
+<p>Our strategy takes advantage of two common market patterns:</p>
+<ol type="1">
+<li><p><strong>Overreaction to News</strong>: Markets often overreact to short-term negative news, creating buying opportunities in fundamentally strong assets.</p></li>
+<li><p><strong>Support Level Bounces</strong>: Prices frequently rebound when they reach statistical support levels (such as Bollinger Bands) during uptrends.</p></li>
+</ol>
+</section>
+</section>
+<section id="strategy-framework" class="level2">
+<h2 class="anchored" data-anchor-id="strategy-framework">Strategy Framework</h2>
+<p>Instead of explaining every technical detail (available in our <a href="index.html">main analysis</a>), we present the core concepts:</p>
+<section id="the-three-entry-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="the-three-entry-conditions">The Three Entry Conditions</h3>
+<p>Our strategy only enters a position when all three conditions are met:</p>
+<ul>
+<li><strong>Confirmed Uptrend</strong>: We only buy when the market trend is clearly positive</li>
+<li><strong>Oversold Indicators</strong>: We require technical evidence of oversold conditions</li>
+<li><strong>Price at Support</strong>: We need confirmation that price has reached a support level</li>
+</ul>
+</section>
+<section id="the-four-exit-signals" class="level3">
+<h3 class="anchored" data-anchor-id="the-four-exit-signals">The Four Exit Signals</h3>
+<p>Our disciplined exit approach responds to any of these market signals:</p>
+<ul>
+<li><strong>Target Reached</strong>: The asset has become overbought</li>
+<li><strong>Stop Loss Hit</strong>: The price has fallen below our predefined risk level</li>
+<li><strong>Take Profit Triggered</strong>: The price has reached our profit target</li>
+<li><strong>Trend Reversal</strong>: The short-term trend direction has changed</li>
+</ul>
+</section>
+</section>
+<section id="implementation-details" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-details">Implementation Details</h2>
+<p>For those interested in the technical aspects, here is a simplified explanation:</p>
+<section id="technical-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="technical-indicators">Technical Indicators</h3>
+<ul>
+<li><strong>Moving Averages</strong>: 50-day and 200-day SMAs confirm trend direction</li>
+<li><strong>RSI</strong>: 14-period Relative Strength Index identifies oversold conditions</li>
+<li><strong>Bollinger Bands</strong>: 20-period with 2 standard deviations marks statistical extremes</li>
+<li><strong>ATR</strong>: 14-period Average True Range enables dynamic risk management</li>
+</ul>
+</section>
+<section id="entry-logic" class="level3">
+<h3 class="anchored" data-anchor-id="entry-logic">Entry Logic</h3>
+<p>The system generates a BUY signal when ALL these conditions are met:</p>
+<pre><code>IF (SMA50 &gt; SMA200) AND (RSI &lt; 35) AND (Price &lt;= Lower Bollinger Band) THEN BUY</code></pre>
+</section>
+<section id="exit-logic" class="level3">
+<h3 class="anchored" data-anchor-id="exit-logic">Exit Logic</h3>
+<p>The system generates a SELL signal when ANY of these conditions occur:</p>
+<pre><code>IF (RSI &gt; 70) OR (Price &lt; Stop Loss) OR (Price &gt; Take Profit) OR (Price &lt; SMA50) THEN SELL</code></pre>
+</section>
+<section id="risk-management" class="level3">
+<h3 class="anchored" data-anchor-id="risk-management">Risk Management</h3>
+<ul>
+<li>Position Size: 2% of portfolio per trade</li>
+<li>Stop Loss: Entry Price - (1.5 × ATR)</li>
+<li>Take Profit: Entry Price + (3.0 × ATR)</li>
+</ul>
+</section>
+<section id="optimization-results" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-results">Optimization Results</h3>
+<p>After extensive testing, our best parameter combination achieved: - 50% Win Rate - -0.13% Total Return (during test period) - 0.15% Maximum Drawdown - -0.83 Sharpe Ratio (highest among all tested combinations)</p>
+<p>Although the overall return was slightly negative during our test period, the strategy showed excellent risk control with minimal drawdown, providing a solid foundation for further development.</p>
+</section>
+</section>
+<section id="best-market-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="best-market-conditions">Best Market Conditions</h2>
+<p>Our backtesting shows this strategy works best in:</p>
+<ul>
+<li><strong>Range-bound markets</strong> with definite technical boundaries</li>
+<li><strong>Bullish markets</strong> with regular pullbacks</li>
+<li><strong>Low-volatility environments</strong> with measured price movements</li>
+</ul>
+<p>The strategy adapts to changing market conditions through its ATR-based parameters, automatically adjusting position size and risk levels as volatility changes.</p>
+</section>
 <section id="about-the-team" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-team">About the Team</h2>
-<p><strong>Sicong Chen</strong> and <strong>Yuxin Wan</strong> are researchers focused on financial strategy optimization with expertise in technical analysis and algorithmic trading.</p>
+<p><strong>Sicong Chen</strong> specializes in quantitative strategy development with expertise in technical analysis and market microstructure. His research focuses on mean-reversion strategies and statistical arbitrage.</p>
+<p><strong>Yuxin Wan</strong> brings expertise in risk modeling and portfolio optimization. Her work focuses on robust backtesting methods and testing parameter stability across different market conditions.</p>
+<p>Together, we combine technical analysis with statistical methods to create trading strategies that perform consistently in changing market environments.</p>
 </section>
-<section id="about-the-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-project">About the Project</h2>
-<p>This project explores the classic “Buy Low / Sell High” strategy with modern technical indicators to enhance decision-making and optimize trading performance. The goal is to develop a systematic approach to identify ideal entry and exit points while implementing effective risk management techniques.</p>
-<p>Our optimization includes:</p>
+<section id="beyond-the-backtests" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-backtests">Beyond the Backtests</h2>
+<p>While our <a href="index.html">detailed analysis</a> provides complete performance metrics, we understand that successful strategy implementation requires more than just good backtest results:</p>
 <ul>
-<li>Integration of multiple technical indicators (MACD, RSI, Bollinger Bands)</li>
-<li>Dynamic position sizing based on market volatility</li>
-<li>Multi-layered stop loss implementation</li>
-<li>Backtesting against historical data</li>
+<li><p><strong>Psychological Factors</strong>: The 50% win rate and small drawdowns make this strategy psychologically manageable for most traders.</p></li>
+<li><p><strong>Simple Execution</strong>: With clear rules and typically 1-day holding periods, this strategy is straightforward to implement.</p></li>
+<li><p><strong>Diversification Potential</strong>: This approach can be applied to multiple assets and timeframes for portfolio diversification.</p></li>
+<li><p><strong>Learning Value</strong>: The strategy demonstrates fundamental market principles, making it valuable for education purposes.</p></li>
 </ul>
-<p>Visit our main page to learn more about our methodology and findings.</p>
+<p>For detailed backtesting results, parameter optimization analysis, and technical implementation, please visit our <a href="index.html">main strategy page</a>.</p>
 
 
 </section>
