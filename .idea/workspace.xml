@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e95a2c0-9463-4bbb-aeb6-044a984a4b35" name="更改" comment="Merge remote-tracking branch 'origin/main'">
+      <change afterPath="$PROJECT_DIR$/AAPL_backtest_results_20250420_173953.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AAPL_portfolio_performance.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_portfolio_performance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AAPL_trade_analysis.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_trade_analysis.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AAPL_trading_signals.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_trading_signals.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/about.qmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/AAPL_portfolio_performance.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_portfolio_performance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/AAPL_trade_analysis.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_trade_analysis.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/AAPL_trading_signals.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_trading_signals.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search.json" afterDir="false" />
@@ -41,20 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Michael Chen/PycharmProjects/PythonProject15",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Michael Chen/PycharmProjects/PythonProject15&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Michael Chen\PycharmProjects\PythonProject15" />
@@ -86,7 +93,10 @@
       <workItem from="1744307217058" duration="5529000" />
       <workItem from="1744315424282" duration="4049000" />
       <workItem from="1744350942074" duration="5743000" />
-      <workItem from="1744399678603" duration="8394000" />
+      <workItem from="1744399678603" duration="8866000" />
+      <workItem from="1745167600140" duration="11631000" />
+      <workItem from="1745184496987" duration="11361000" />
+      <workItem from="1745201034609" duration="1496000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -264,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744415439172</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1744417506682</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1744417506682</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

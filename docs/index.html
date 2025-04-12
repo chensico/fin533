@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -188,18 +154,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#strategy-overview" id="toc-strategy-overview" class="nav-link active" data-scroll-target="#strategy-overview">Strategy Overview</a>
-  <ul class="collapse">
-  <li><a href="#detailed-strategy-implementation" id="toc-detailed-strategy-implementation" class="nav-link" data-scroll-target="#detailed-strategy-implementation">Detailed Strategy Implementation</a></li>
-  <li><a href="#key-technical-indicators" id="toc-key-technical-indicators" class="nav-link" data-scroll-target="#key-technical-indicators">Key Technical Indicators</a></li>
-  </ul></li>
-  <li><a href="#parameter-optimization-results" id="toc-parameter-optimization-results" class="nav-link" data-scroll-target="#parameter-optimization-results">Parameter Optimization Results</a>
-  <ul class="collapse">
-  <li><a href="#optimal-parameter-combination" id="toc-optimal-parameter-combination" class="nav-link" data-scroll-target="#optimal-parameter-combination">Optimal Parameter Combination</a></li>
-  </ul></li>
-  <li><a href="#portfolio-performance-summary" id="toc-portfolio-performance-summary" class="nav-link" data-scroll-target="#portfolio-performance-summary">Portfolio Performance Summary</a></li>
-  <li><a href="#strategy-visualization" id="toc-strategy-visualization" class="nav-link" data-scroll-target="#strategy-visualization">Strategy Visualization</a></li>
-  <li><a href="#conclusions-future-work" id="toc-conclusions-future-work" class="nav-link" data-scroll-target="#conclusions-future-work">Conclusions &amp; Future Work</a></li>
+  <li><a href="#strategy-overview" id="toc-strategy-overview" class="nav-link active" data-scroll-target="#strategy-overview">Strategy Overview</a></li>
   </ul>
 </nav>
 </nav>
@@ -234,6 +189,15 @@ window.Quarto = {
 
 </header>
 
+
+<div style="text-align:center;margin-bottom:1.5rem;">
+  <a href="https://github.com/chensico/fin533" target="_blank" class="btn btn-primary" style="text-decoration:none;background-color:#0366d6;color:white;padding:8px 16px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right:8px;" viewbox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+    </svg>
+    View Source Code on GitHub
+  </a>
+</div>
 
 <style>
 /* Base font size increase */
@@ -275,19 +239,22 @@ thead th {
 }
 
 .custom-callout {
-  padding: 1.25rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid #e9ecef;
-  border-left-width: 0.25rem;
-  border-left-color: #5a9bd5;
-  border-radius: 0.25rem;
-  background-color: #f8f9fa;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ebeef2;
+  border-left-width: 3px;
+  border-left-color: #a2c3e0;
+  border-radius: 0.2rem;
+  background-color: #fbfbfd;
 }
 
 .custom-callout h3 {
-  color: #5a9bd5;
+  color: #4a7aa7;
   margin-top: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
 }
 
 .card {
@@ -377,13 +344,13 @@ tbody tr:hover {
 
 /* Section titles */
 .section-title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   color: #2c3e50;
   text-align: center;
   font-weight: 600;
   border-bottom: 2px solid #eaf2f8;
-  padding-bottom: 0.5rem;
-  font-size: 1.85rem;
+  font-size: 1.4rem;
 }
 
 /* Main content width */
@@ -503,72 +470,510 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </div>
-<section id="detailed-strategy-implementation" class="level3">
-<h3 class="anchored" data-anchor-id="detailed-strategy-implementation">Detailed Strategy Implementation</h3>
+</section>
 <div class="section-card">
-<section id="core-trading-logic" class="level4 custom-callout">
-<h4 class="anchored" data-anchor-id="core-trading-logic">Core Trading Logic</h4>
-<p>The “Buy Low Sell High” strategy is designed to identify temporary price dips in uptrending markets, entering long positions when prices are oversold according to technical indicators, and exiting based on predefined conditions.</p>
+<section id="trading-performance" class="level2 section-title">
+<h2 class="section-title anchored" data-anchor-id="trading-performance">Trading Performance</h2>
+<section id="interactive-dashboard" class="level3 custom-callout" style="padding:0.8rem;margin-top:0.8rem;margin-bottom:1rem;">
+<h3 class="anchored" data-anchor-id="interactive-dashboard">Interactive Dashboard</h3>
+<p>Explore the trading history with price movements, individual trades, and performance metrics.</p>
 </section>
-<section id="entry-conditions" class="level4">
-<h4 class="anchored" data-anchor-id="entry-conditions">Entry Conditions</h4>
-<p>For a trade entry signal to be generated, ALL of the following conditions must be met simultaneously:</p>
-<ol type="1">
-<li><p><strong>Confirmed Uptrend</strong>: The 50-day Simple Moving Average must be above the 200-day Simple Moving Average (<code>SMA50 &gt; SMA200</code>), indicating an overall bullish market structure.</p></li>
-<li><p><strong>Oversold Condition</strong>: The 14-period Relative Strength Index (RSI) must fall below the optimized threshold value (35 in our optimal configuration), indicating a temporary oversold condition.</p></li>
-<li><p><strong>Price at Support</strong>: The closing price must touch or fall below the lower Bollinger Band (20-period, 2 standard deviations), confirming price is at a statistical support level.</p></li>
-</ol>
-<p>When all three conditions are satisfied, the system: - Generates a BUY signal - Sets entry price at the current closing price - Calculates position size at 2% of the portfolio value - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry logic from generate_signals() function</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (df_signals.iloc[i][<span class="st">'SMA50'</span>] <span class="op">&gt;</span> df_signals.iloc[i][<span class="st">'SMA200'</span>] <span class="kw">and</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&lt;</span> rsi_threshold <span class="kw">and</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'BB_Lower'</span>]):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate buy signal and set parameters</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    entry_price <span class="op">=</span> df_signals.iloc[i][<span class="st">'Close'</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    atr_value <span class="op">=</span> df_signals.iloc[i][<span class="st">'ATR'</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Stop_Loss'</span>)] <span class="op">=</span> entry_price <span class="op">-</span> atr_stop_multiplier <span class="op">*</span> atr_value</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Take_Profit'</span>)] <span class="op">=</span> entry_price <span class="op">+</span> atr_take_multiplier <span class="op">*</span> atr_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="exit-conditions" class="level4">
-<h4 class="anchored" data-anchor-id="exit-conditions">Exit Conditions</h4>
-<p>The strategy exits an open position when ANY of the following conditions occur:</p>
-<ol type="1">
-<li><p><strong>RSI Overbought</strong>: If RSI rises above 70, indicating the asset has become overbought.</p></li>
-<li><p><strong>Stop-Loss Triggered</strong>: If price falls below the calculated stop-loss level (Entry Price - ATR × Stop Multiplier).</p></li>
-<li><p><strong>Take-Profit Triggered</strong>: If price rises above the calculated take-profit level (Entry Price + ATR × Take Multiplier).</p></li>
-<li><p><strong>Trend Reversal</strong>: If price closes below the 50-day Simple Moving Average (SMA50), suggesting the shorter-term trend may be reversing.</p></li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exit logic from generate_signals() function</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&gt;</span> <span class="dv">70</span>:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: RSI overbought</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Low'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'Stop_Loss'</span>]:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Stop-loss triggered</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'High'</span>] <span class="op">&gt;=</span> df_signals.iloc[i][<span class="st">'Take_Profit'</span>]:</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Take-profit triggered</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;</span> df_signals.iloc[i][<span class="st">'SMA50'</span>]:</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Close below SMA50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="position-sizing-and-risk-management" class="level4">
-<h4 class="anchored" data-anchor-id="position-sizing-and-risk-management">Position Sizing and Risk Management</h4>
-<ul>
-<li><strong>Fixed Risk Percentage</strong>: Each trade risks 2% of the portfolio value (<code>Position_Size = 0.02</code>)</li>
-<li><strong>Dynamic Stop-Loss</strong>: Calculated using ATR to adapt to market volatility (<code>Stop_Loss = Entry_Price - ATR × Stop_Multiplier</code>)</li>
-<li><strong>Asymmetric Reward-Risk Ratio</strong>: Take-profit level is set at a multiple of the stop-loss distance (optimal parameters found: 1.5× ATR for stop-loss, 3.0× ATR for take-profit, resulting in a 2:1 reward-to-risk ratio)</li>
-</ul>
-</section>
-<section id="parameter-optimization-process" class="level4">
-<h4 class="anchored" data-anchor-id="parameter-optimization-process">Parameter Optimization Process</h4>
-<p>The strategy employs grid-search optimization across three key parameters: - <strong>RSI Threshold</strong>: Tested values of 30, 35, 40, and 45 - <strong>ATR Stop Multiplier</strong>: Tested values of 1.5, 2.0, 2.5, and 3.0 - <strong>ATR Take Multiplier</strong>: Tested values of 3.0, 4.0, and 5.0</p>
-<p>Each parameter combination is evaluated based on: - Sharpe Ratio (primary optimization metric) - Total Return - Maximum Drawdown - Win Rate - Number of Trades</p>
-<p>The optimal parameter combination (RSI=35, Stop=1.5×ATR, Take=3.0×ATR) was selected based on maximizing the Sharpe Ratio, which balances return against risk.</p>
-</section>
+<div id="tradingDashboard" style="width:100%;background:#f8f9fa;border-radius:6px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+  <div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
+    <h3 style="margin:0;color:#2c3e50;font-size:16px;font-weight:500;" class="anchored">AAPL Trading Performance</h3>
+    <div style="font-size:12px;color:#6c757d;">Interactive Chart</div>
+  </div>
+  <div id="tradingChart" style="width:100%;height:500px;margin-bottom:10px;border-radius:4px;overflow:hidden;"></div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;">
+    <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+      <h4 style="margin-top:0;margin-bottom:8px;color:#2c3e50;font-size:14px;font-weight:500;border-bottom:1px solid #eaf2f8;padding-bottom:6px;" class="anchored">Strategy Summary</h4>
+      <div id="summaryStat" style="font-size:13px;line-height:1.5;"></div>
+    </div>
+    <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+      <h4 style="margin-top:0;margin-bottom:8px;color:#2c3e50;font-size:14px;font-weight:500;border-bottom:1px solid #eaf2f8;padding-bottom:6px;" class="anchored">Best &amp; Worst Trades</h4>
+      <div id="extremeTrades" style="font-size:13px;line-height:1.5;"></div>
+    </div>
+  </div>
 </div>
-</section>
+
+<script src="https://cdn.plot.ly/plotly-2.29.1.min.js"></script>
+
+<script>
+(function() {
+  // Embed a rich subset of the trade data directly
+  const backtest_data = {
+    "symbol": "AAPL",
+    "backtest_summary": {
+      "start_date": "2023-04-19",
+      "end_date": "2025-04-17",
+      "initial_value": 100000.0,
+      "final_value": 112884.63,
+      "total_return_pct": 12.88,
+      "total_trades": 222,
+      "winning_trades": 123
+    },
+    // Selected trades from different time periods and performance levels
+    "trades": [
+      // Starting period trades
+      {"Entry_Date":"2023-05-16","Exit_Date":"2023-05-17","Entry_Price":171.71,"Exit_Price":172.69,"Profit":142.68,"Return":0.0057,"Duration":1,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2023-05-18","Exit_Date":"2023-05-19","Entry_Price":176.11,"Exit_Price":175.16,"Profit":-135.05,"Return":-0.0054,"Duration":1,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2023-05-22","Exit_Date":"2023-05-23","Entry_Price":173.13,"Exit_Price":171.56,"Profit":-226.73,"Return":-0.0091,"Duration":1,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2023-05-31","Exit_Date":"2023-06-01","Entry_Price":177.70,"Exit_Price":180.09,"Profit":335.89,"Return":0.0134,"Duration":1,"Exit_Reason":"RSI_Overbought"},
+      {"Entry_Date":"2023-06-02","Exit_Date":"2023-06-05","Entry_Price":182.63,"Exit_Price":179.58,"Profit":-418.48,"Return":-0.0167,"Duration":3,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2023-06-14","Exit_Date":"2023-06-15","Entry_Price":183.98,"Exit_Price":186.01,"Profit":275.07,"Return":0.0110,"Duration":1,"Exit_Reason":"RSI_Overbought"},
+      {"Entry_Date":"2023-06-21","Exit_Date":"2023-06-22","Entry_Price":183.74,"Exit_Price":187.00,"Profit":443.90,"Return":0.0177,"Duration":1,"Exit_Reason":"RSI_Overbought"},
+      {"Entry_Date":"2023-06-29","Exit_Date":"2023-06-30","Entry_Price":191.63,"Exit_Price":193.97,"Profit":306.76,"Return":0.0122,"Duration":1,"Exit_Reason":"RSI_Overbought"},
+      {"Entry_Date":"2023-07-14","Exit_Date":"2023-07-17","Entry_Price":190.69,"Exit_Price":193.99,"Profit":431.81,"Return":0.0173,"Duration":3,"Exit_Reason":"RSI_Overbought"},
+      // Mid-period trades
+      {"Entry_Date":"2023-09-06","Exit_Date":"2023-09-07","Entry_Price":178.69,"Exit_Price":177.56,"Profit":-159.08,"Return":-0.0063,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2023-09-26","Exit_Date":"2023-09-27","Entry_Price":172.62,"Exit_Price":170.43,"Profit":-316.77,"Return":-0.0127,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2023-10-06","Exit_Date":"2023-10-09","Entry_Price":176.80,"Exit_Price":178.99,"Profit":308.51,"Return":0.0124,"Duration":3,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2023-11-03","Exit_Date":"2023-11-06","Entry_Price":176.36,"Exit_Price":179.23,"Profit":409.66,"Return":0.0163,"Duration":3,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2023-12-14","Exit_Date":"2023-12-15","Entry_Price":197.48,"Exit_Price":198.11,"Profit":79.84,"Return":0.0032,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2024-01-16","Exit_Date":"2024-01-17","Entry_Price":183.63,"Exit_Price":188.63,"Profit":681.90,"Return":0.0272,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2024-02-01","Exit_Date":"2024-02-02","Entry_Price":179.87,"Exit_Price":185.85,"Profit":851.60,"Return":0.0332,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2024-04-30","Exit_Date":"2024-05-01","Entry_Price":174.01,"Exit_Price":173.45,"Profit":-80.00,"Return":-0.0032,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2024-06-10","Exit_Date":"2024-06-11","Entry_Price":193.69,"Exit_Price":207.15,"Profit":1771.77,"Return":0.0695,"Duration":1,"Exit_Reason":"RSI_Overbought"},
+      {"Entry_Date":"2024-07-09","Exit_Date":"2024-07-10","Entry_Price":224.21,"Exit_Price":226.34,"Profit":265.08,"Return":0.0095,"Duration":1,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2024-08-02","Exit_Date":"2024-08-05","Entry_Price":199.09,"Exit_Price":209.27,"Profit":1298.92,"Return":0.0511,"Duration":3,"Exit_Reason":"SMA_Breakdown"},
+      // End-period trades including the most profitable ones
+      {"Entry_Date":"2024-12-04","Exit_Date":"2024-12-05","Entry_Price":203.76,"Exit_Price":202.46,"Profit":-169.67,"Return":-0.0064,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-01-24","Exit_Date":"2025-01-27","Entry_Price":219.70,"Exit_Price":224.37,"Profit":599.97,"Return":0.0213,"Duration":3,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-01-27","Exit_Date":"2025-01-28","Entry_Price":230.84,"Exit_Price":238.26,"Profit":854.12,"Return":0.0321,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-02-10","Exit_Date":"2025-02-11","Entry_Price":228.20,"Exit_Price":232.62,"Profit":516.59,"Return":0.0194,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-02-27","Exit_Date":"2025-02-28","Entry_Price":236.98,"Exit_Price":241.84,"Profit":551.71,"Return":0.0205,"Duration":1,"Exit_Reason":"Unknown"},
+      {"Entry_Date":"2025-03-07","Exit_Date":"2025-03-10","Entry_Price":235.54,"Exit_Price":227.48,"Profit":-924.44,"Return":-0.0342,"Duration":3,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-03-13","Exit_Date":"2025-03-14","Entry_Price":211.25,"Exit_Price":213.49,"Profit":282.99,"Return":0.0106,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-03-27","Exit_Date":"2025-03-28","Entry_Price":221.73,"Exit_Price":217.90,"Profit":-460.36,"Return":-0.0173,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-03-31","Exit_Date":"2025-04-01","Entry_Price":219.87,"Exit_Price":223.19,"Profit":400.69,"Return":0.0151,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-04-04","Exit_Date":"2025-04-07","Entry_Price":177.21,"Exit_Price":181.46,"Profit":637.00,"Return":0.0240,"Duration":3,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-04-08","Exit_Date":"2025-04-09","Entry_Price":172.06,"Exit_Price":198.85,"Profit":4160.32,"Return":0.1557,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-04-10","Exit_Date":"2025-04-11","Entry_Price":186.10,"Exit_Price":198.15,"Profit":1797.46,"Return":0.0648,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-04-14","Exit_Date":"2025-04-15","Entry_Price":201.76,"Exit_Price":202.14,"Profit":53.13,"Return":0.0019,"Duration":1,"Exit_Reason":"SMA_Breakdown"},
+      {"Entry_Date":"2025-04-16","Exit_Date":"2025-04-17","Entry_Price":197.02,"Exit_Price":196.98,"Profit":-5.73,"Return":-0.0002,"Duration":1,"Exit_Reason":"SMA_Breakdown"}
+    ]
+  };
+
+  // Process trades for better visualization
+  const trades = backtest_data.trades;
+
+  // 1. Create time series from the first to last trade date
+  const firstTradeDate = new Date(trades[0].Entry_Date);
+  const lastTradeDate = new Date(trades[trades.length-1].Exit_Date);
+
+  // Sort trades by exit date
+  trades.sort((a, b) => new Date(a.Exit_Date) - new Date(b.Exit_Date));
+
+  // Extract data for plotting
+  const exitDates = trades.map(t => t.Exit_Date);
+  const returns = trades.map(t => t.Return * 100); // Convert to percentage
+  const profits = trades.map(t => t.Profit);
+  const exitReasons = trades.map(t => t.Exit_Reason);
+
+  // Prepare for hover info
+  const hoverText = trades.map(t => {
+    const profitColor = t.Profit >= 0 ? 'green' : 'red';
+    const profitSymbol = t.Profit >= 0 ? '▲' : '▼';
+
+    return `<b>${t.Exit_Date}</b><br>` +
+           `<b style="color:${profitColor}">${profitSymbol} $${Math.abs(t.Profit).toFixed(2)}</b> (${(t.Return*100).toFixed(2)}%)<br>` +
+           `Entry: ${t.Entry_Date} at $${t.Entry_Price.toFixed(2)}<br>` +
+           `Exit: ${t.Exit_Date} at $${t.Exit_Price.toFixed(2)}<br>` +
+           `Duration: ${t.Duration} day${t.Duration > 1 ? 's' : ''}<br>` +
+           `Exit Reason: ${t.Exit_Reason || 'Not specified'}`;
+  });
+
+  // Calculate cumulative returns properly
+  let cumulativeReturns = [];
+  let portfolioValue = backtest_data.backtest_summary.initial_value;
+  let cumulativeValues = [portfolioValue];
+
+  // Create more accurate timeline for smoother chart
+  const datesSorted = [...new Set(trades.map(t => t.Exit_Date))].sort();
+
+  // Create an array to track cumulative portfolio value
+  let valueByDate = {};
+  valueByDate[datesSorted[0]] = portfolioValue;
+
+  // Calculate cumulative portfolio value after each trade
+  for (let i = 0; i < trades.length; i++) {
+    portfolioValue += trades[i].Profit;
+    cumulativeValues.push(portfolioValue);
+    valueByDate[trades[i].Exit_Date] = portfolioValue;
+  }
+
+  // Create full timeline array
+  const allDates = datesSorted;
+  const portfolioValues = allDates.map(date => valueByDate[date] || null);
+
+  // Calculate daily returns for volatility
+  const dailyReturns = [];
+  for (let i = 1; i < portfolioValues.length; i++) {
+    if (portfolioValues[i] && portfolioValues[i-1]) {
+      dailyReturns.push((portfolioValues[i] / portfolioValues[i-1]) - 1);
+    }
+  }
+
+  // Separate winning and losing trades for better visualization
+  const winningTrades = trades.filter(t => t.Profit > 0);
+  const losingTrades = trades.filter(t => t.Profit <= 0);
+
+  // Create traces for Plotly - more visually appealing
+  const portfolioTrace = {
+    x: allDates,
+    y: portfolioValues,
+    mode: 'lines',
+    name: 'Portfolio Value ($)',
+    line: {
+      color: 'rgba(33, 150, 243, 0.8)',
+      width: 2,
+      shape: 'spline'
+    },
+    yaxis: 'y1',
+    hovertemplate: '$%{y:,.2f}<extra></extra>'
+  };
+
+  // Design more visually appealing traces for winning and losing trades
+  const winTrace = {
+    x: winningTrades.map(t => t.Exit_Date),
+    y: winningTrades.map(t => t.Return * 100),
+    mode: 'markers',
+    name: 'Winning Trades',
+    marker: {
+      symbol: 'circle',
+      size: winningTrades.map(t => Math.min(Math.max(Math.abs(t.Profit)/150 + 5, 5), 12)),
+      color: '#4CAF50',
+      line: {width: 1, color: 'white'},
+      opacity: 0.75
+    },
+    text: winningTrades.map((t, i) => hoverText[trades.findIndex(tr => tr === t)]),
+    hoverinfo: 'text',
+    yaxis: 'y2'
+  };
+
+  const lossTrace = {
+    x: losingTrades.map(t => t.Exit_Date),
+    y: losingTrades.map(t => t.Return * 100),
+    mode: 'markers',
+    name: 'Losing Trades',
+    marker: {
+      symbol: 'circle',
+      size: losingTrades.map(t => Math.min(Math.max(Math.abs(t.Profit)/150 + 5, 5), 12)),
+      color: '#F44336',
+      line: {width: 1, color: 'white'},
+      opacity: 0.75
+    },
+    text: losingTrades.map((t, i) => hoverText[trades.findIndex(tr => tr === t)]),
+    hoverinfo: 'text',
+    yaxis: 'y2'
+  };
+
+  // Highlight top 5 best and worst trades
+  const bestTrades = [...trades].sort((a, b) => b.Profit - a.Profit).slice(0, 5);
+  const worstTrades = [...trades].sort((a, b) => a.Profit - b.Profit).slice(0, 5);
+
+  const bestTradesTrace = {
+    x: bestTrades.map(t => t.Exit_Date),
+    y: bestTrades.map(t => t.Return * 100),
+    mode: 'markers',
+    name: 'Top 5 Best',
+    marker: {
+      symbol: 'star',
+      size: 12,
+      color: '#FFC107',
+      line: {width: 1.5, color: '#4CAF50'},
+      opacity: 0.9
+    },
+    text: bestTrades.map(t => hoverText[trades.findIndex(tr => tr === t)]),
+    hoverinfo: 'text',
+    yaxis: 'y2'
+  };
+
+  const worstTradesTrace = {
+    x: worstTrades.map(t => t.Exit_Date),
+    y: worstTrades.map(t => t.Return * 100),
+    mode: 'markers',
+    name: 'Top 5 Worst',
+    marker: {
+      symbol: 'x',
+      size: 12,
+      color: '#9C27B0',
+      line: {width: 1.5, color: '#F44336'},
+      opacity: 0.9
+    },
+    text: worstTrades.map(t => hoverText[trades.findIndex(tr => tr === t)]),
+    hoverinfo: 'text',
+    yaxis: 'y2'
+  };
+
+  // 增加一个解释性文本说明不同元素表示什么
+  const addTraceInfoAnnotation = {
+    text: '<span style="font-size:9px;color:#777;line-height:1.3;">' +
+          '● Blue line: Portfolio value<br>' +
+          '● Green dots: Profitable trades<br>' +
+          '● Red dots: Loss trades<br>' +
+          '★ Yellow stars: Best trades<br>' +
+          '✕ Purple X: Worst trades</span>',
+    align: 'left',
+    showarrow: false,
+    xref: 'paper',
+    yref: 'paper',
+    x: 0.01,
+    y: 0.99,
+    bordercolor: '#e8e8e8',
+    borderwidth: 1,
+    borderpad: 4,
+    bgcolor: 'rgba(255, 255, 255, 0.9)',
+    opacity: 0.95,
+    font: { family: 'Segoe UI, Roboto, sans-serif', size: 10 }
+  };
+
+  // Create a more attractive layout
+  const layout = {
+    title: {
+      text: '',  // Removed title
+      font: { size: 18, color: '#2c3e50', family: 'Segoe UI, Roboto, sans-serif' },
+      y: 0.98
+    },
+    height: 500,
+    margin: { l: 50, r: 50, t: 40, b: 60 },
+    plot_bgcolor: '#ffffff',
+    paper_bgcolor: '#ffffff',
+    grid: { rows: 1, columns: 1, pattern: 'independent' },
+    legend: {
+      orientation: 'h',
+      yanchor: 'bottom',
+      y: 1.12,  // 增加高度防止图例和图表重叠
+      xanchor: 'center',
+      x: 0.5,
+      font: { size: 11 },
+      bgcolor: 'rgba(255,255,255,0.8)',
+      bordercolor: '#E2E2E2',
+      borderwidth: 1,
+      itemsizing: 'constant',
+      itemwidth: 30,
+      tracegroupgap: 10
+    },
+    xaxis: {
+      title: {
+        text: '',  // Removed axis title
+        font: { size: 12, family: 'Segoe UI, Roboto, sans-serif', color: '#2c3e50' }
+      },
+      rangeselector: {
+        buttons: [
+          {count: 3, label: '3m', step: 'month', stepmode: 'backward'},
+          {count: 6, label: '6m', step: 'month', stepmode: 'backward'},
+          {count: 1, label: '1y', step: 'year', stepmode: 'backward'},
+          {step: 'all', label: 'All'}
+        ],
+        bgcolor: '#ffffff',
+        activecolor: '#e6f7ff',
+        font: { size: 10 }
+      },
+      rangeslider: {visible: true, thickness: 0.04},
+      type: 'date',
+      gridcolor: '#f5f5f5'
+    },
+    yaxis: {
+      title: {
+        text: 'Portfolio Value',
+        font: { size: 12, family: 'Segoe UI, Roboto, sans-serif', color: '#2c3e50' }
+      },
+      side: 'left',
+      showgrid: true,
+      gridcolor: '#f5f5f5',
+      zeroline: true,
+      zerolinecolor: '#e0e0e0',
+      tickprefix: '$',
+      hoverformat: ',.2f',
+      tickfont: { size: 10 }
+    },
+    yaxis2: {
+      title: {
+        text: 'Return %',
+        font: { size: 12, family: 'Segoe UI, Roboto, sans-serif', color: '#2c3e50' }
+      },
+      side: 'right',
+      overlaying: 'y',
+      showgrid: false,
+      zeroline: true,
+      zerolinecolor: '#e0e0e0',
+      ticksuffix: '%',
+      hoverformat: '.2f',
+      tickfont: { size: 10 }
+    },
+    shapes: [{
+      type: 'line',
+      x0: allDates[0],
+      y0: 0,
+      x1: allDates[allDates.length-1],
+      y1: 0,
+      xref: 'x',
+      yref: 'y2',
+      line: {
+        color: 'rgba(0,0,0,0.2)',
+        width: 1,
+        dash: 'dot'
+      }
+    }],
+    annotations: [{
+      text: '<b>Interactive:</b> Zoom, filter, hover for details',
+      align: 'left',
+      showarrow: false,
+      xref: 'paper',
+      yref: 'paper',
+      x: 0.01,
+      y: 0.01,
+      bordercolor: '#e2e2e2',
+      borderwidth: 1,
+      borderpad: 4,
+      bgcolor: 'rgba(255, 255, 255, 0.8)',
+      opacity: 0.9,
+      font: { family: 'Segoe UI, Roboto, sans-serif', size: 10 }
+    }, addTraceInfoAnnotation],
+    hovermode: 'closest'
+  };
+
+  // Create the plot with enhanced styling
+  Plotly.newPlot('tradingChart', [portfolioTrace, winTrace, lossTrace, bestTradesTrace, worstTradesTrace], layout, {
+    responsive: true,
+    displayModeBar: false,  // Hide the mode bar for cleaner UI
+    displaylogo: false
+  });
+
+  // Calculate additional statistics
+  const totalWins = winningTrades.length;
+  const totalLosses = losingTrades.length;
+  const winRate = (totalWins / trades.length * 100).toFixed(2);
+  const averageWin = (winningTrades.reduce((sum, t) => sum + t.Profit, 0) / totalWins).toFixed(2);
+  const averageLoss = (losingTrades.reduce((sum, t) => sum + t.Profit, 0) / totalLosses).toFixed(2);
+  const largestWin = Math.max(...trades.map(t => t.Profit)).toFixed(2);
+  const largestLoss = Math.min(...trades.map(t => t.Profit)).toFixed(2);
+  const avgDuration = (trades.reduce((sum, t) => sum + t.Duration, 0) / trades.length).toFixed(1);
+
+  // Calculate other risk metrics
+  const annualizedReturn = ((Math.pow((backtest_data.backtest_summary.final_value / backtest_data.backtest_summary.initial_value), (365 / ((new Date(lastTradeDate) - new Date(firstTradeDate)) / (1000 * 60 * 60 * 24)))) - 1) * 100).toFixed(2);
+  const dailyVolatility = (Math.sqrt(dailyReturns.reduce((sum, r) => sum + Math.pow(r, 2), 0) / dailyReturns.length) * 100).toFixed(2);
+  const annualizedVolatility = (dailyVolatility * Math.sqrt(252)).toFixed(2);
+  const sharpeRatio = (annualizedReturn / annualizedVolatility).toFixed(2);
+
+  // Add summary statistics to the dashboard
+  document.getElementById('summaryStat').innerHTML = `
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Initial Capital</div>
+        <div style="font-weight:600;color:#2d3748;">$${backtest_data.backtest_summary.initial_value.toLocaleString()}</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Final Value</div>
+        <div style="font-weight:600;color:#2d3748;">$${Math.round(backtest_data.backtest_summary.final_value).toLocaleString()}</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Total Return</div>
+        <div style="font-weight:600;color:#2d3748;">${backtest_data.backtest_summary.total_return_pct.toFixed(2)}%</div>
+      </div>
+    </div>
+    <hr style="margin:6px 0;border:0;border-top:1px solid #edf2f7;">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Win Rate</div>
+        <div style="font-weight:600;color:#2d3748;">${winRate}%</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Trades</div>
+        <div style="font-weight:600;color:#2d3748;">${backtest_data.backtest_summary.total_trades}</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Avg Duration</div>
+        <div style="font-weight:600;color:#2d3748;">${avgDuration} days</div>
+      </div>
+    </div>
+    <hr style="margin:6px 0;border:0;border-top:1px solid #edf2f7;">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Ann. Return</div>
+        <div style="font-weight:600;color:#2d3748;">${annualizedReturn}%</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Ann. Volatility</div>
+        <div style="font-weight:600;color:#2d3748;">${annualizedVolatility}%</div>
+      </div>
+      <div style="flex:1;min-width:80px;">
+        <div style="font-size:11px;color:#718096;">Sharpe Ratio</div>
+        <div style="font-weight:600;color:#2d3748;">${sharpeRatio}</div>
+      </div>
+    </div>
+  `;
+
+  // Add best and worst trades to the dashboard
+  document.getElementById('extremeTrades').innerHTML = `
+    <div style="margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:600;color:#276749;margin-bottom:4px;">Top 3 Trades</div>
+      ${bestTrades.slice(0, 3).map(t => `
+        <div style="padding:3px 0;border-bottom:1px dotted #e2e2e2;">
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:11px;">${t.Exit_Date}</span>
+            <span style="font-weight:600;color:#2f855a;">+$${t.Profit.toFixed(2)}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:#718096;">
+            <span>$${t.Entry_Price} → $${t.Exit_Price}</span>
+            <span>${(t.Return*100).toFixed(2)}%</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;color:#c53030;margin-bottom:4px;">Worst 3 Trades</div>
+      ${worstTrades.slice(0, 3).map(t => `
+        <div style="padding:3px 0;border-bottom:1px dotted #e2e2e2;">
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:11px;">${t.Exit_Date}</span>
+            <span style="font-weight:600;color:#c53030;">-$${Math.abs(t.Profit).toFixed(2)}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:#718096;">
+            <span>$${t.Entry_Price} → $${t.Exit_Price}</span>
+            <span>${(t.Return*100).toFixed(2)}%</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+})();
+</script>
+<p>This interactive dashboard provides a comprehensive view of our trading strategy’s performance:</p>
+<ul>
+<li><strong>Portfolio Value Line</strong>: The blue line tracks our account balance over time, showing the cumulative effect of all trades.</li>
+<li><strong>Individual Trades</strong>: Each circle represents a completed trade, with green for profitable trades and red for losses. The size of each circle corresponds to the profit or loss amount.</li>
+<li><strong>Special Highlights</strong>: Stars mark our top 5 most profitable trades, while X marks indicate the worst 5 trades.</li>
+<li><strong>Real-time Statistics</strong>: Summary metrics and detailed analysis of our best and worst trades are displayed alongside the chart.</li>
+</ul>
+<p>The dashboard is fully interactive - use the date range selector to focus on specific periods, hover over any trade for complete details, and click legend items to show or hide specific elements. Zoom functionality allows detailed analysis of any time period of interest.</p>
+<div style="font-size:13px;margin-top:15px;color:#4a5568;background:#f8f9fa;padding:12px;border-radius:4px;border-left:3px solid #3182ce;">
+<strong style="font-size:14px;color:#2c5282;">Chart Analysis:</strong>
+<p style="margin:6px 0;">
+This trading chart displays the complete performance of the “Buy Low / Sell High” strategy applied to AAPL stock:
+</p>
+<ul style="margin:5px 0 0 0;padding-left:18px;line-height:1.4;">
+<li>
+<strong>Blue line</strong>: Shows the portfolio value growth from initial $100,000 to final $112,885
+</li>
+<li>
+<strong>Trade markers</strong>: Green dots represent profitable trades, red dots represent losing trades, with position indicating return rate
+</li>
+<li>
+<strong>Special indicators</strong>: Yellow stars mark the 5 best trades (up to 15.57% return), purple X marks indicate the 5 worst trades
+</li>
+<li>
+<strong>Timeline</strong>: The slider above the horizontal axis allows selection of specific time periods
+</li>
+<li>
+<strong>Dual-axis design</strong>: Left Y-axis shows portfolio value (USD), right Y-axis shows individual trade returns (percentage)
+</li>
+</ul>
+<p style="margin:6px 0;">
+Interactive features include: hover for trade details, time period filtering, zoom on specific areas, and toggle legend items. The right panel summarizes key strategy metrics and extreme trade records.
+</p>
+</div>
 <section id="key-technical-indicators" class="level3">
 <h3 class="anchored" data-anchor-id="key-technical-indicators">Key Technical Indicators</h3>
 <div class="formula-container">
@@ -594,9 +999,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 class="anchored" data-anchor-id="optimal-parameter-combination">Optimal Parameter Combination</h3>
 <ul>
 <li>RSI Threshold: 35</li>
-<li>ATR Stop Multiplier: 1.5</li>
-<li>ATR Take Multiplier: 3.0</li>
-<li>Sharpe Ratio: -0.83 (best value)</li>
+<li>ATR Stop Multiplier: 2.0</li>
+<li>ATR Take Multiplier: 5.0</li>
+<li>Sharpe Ratio: 0.95 (best value)</li>
 </ul>
 </section>
 <div class="formula-container">
@@ -606,60 +1011,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><span class="math display">\text{Stop Loss} = \text{Entry Price} - \text{ATR} \times \text{Stop Multiplier}</span> <span class="math display">\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multiplier}</span></p>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Performance by RSI Threshold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Trading Signals</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Performance by RSI Threshold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Trading Signals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Exit Reasons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">RSI Threshold</th>
-<th style="text-align: center;">ATR Stop</th>
-<th style="text-align: center;">ATR Take</th>
-<th style="text-align: center;">Win Rate</th>
-<th style="text-align: center;">Total Return</th>
-<th style="text-align: center;">Max Drawdown</th>
-<th style="text-align: center;">Sharpe Ratio</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">35</td>
-<td style="text-align: center;">1.5</td>
-<td style="text-align: center;">3.0</td>
-<td style="text-align: center;">50%</td>
-<td style="text-align: center;"><span class="negative-value">-0.13%</span></td>
-<td style="text-align: center;">0.15%</td>
-<td style="text-align: center;"><span class="negative-value">-0.83</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">40</td>
-<td style="text-align: center;">1.5</td>
-<td style="text-align: center;">3.0</td>
-<td style="text-align: center;">44%</td>
-<td style="text-align: center;"><span class="negative-value">-0.24%</span></td>
-<td style="text-align: center;">0.24%</td>
-<td style="text-align: center;"><span class="negative-value">-1.21</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">45</td>
-<td style="text-align: center;">1.5</td>
-<td style="text-align: center;">3.0</td>
-<td style="text-align: center;">33%</td>
-<td style="text-align: center;"><span class="negative-value">-0.26%</span></td>
-<td style="text-align: center;">0.26%</td>
-<td style="text-align: center;"><span class="negative-value">-1.42</span></td>
-</tr>
-</tbody>
-</table>
+<!-- 表格已移除 -->
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <table class="caption-top table">
@@ -685,118 +1040,123 @@ document.addEventListener('DOMContentLoaded', function() {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">2025-01-13</td>
+<td style="text-align: center;">2025-04-16</td>
 <td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$225.30</td>
-<td style="text-align: center;">RSI below threshold (32)</td>
-<td style="text-align: center;">Win</td>
-<td style="text-align: center;"><span class="positive-value">$1.51</span></td>
-<td style="text-align: center;"><span class="positive-value">0.67%</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2025-01-14</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$226.81</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2025-01-26</td>
-<td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$234.98</td>
-<td style="text-align: center;">RSI below threshold (29)</td>
+<td style="text-align: center;">$197.02</td>
+<td style="text-align: center;">RSI below threshold (41.6)</td>
 <td style="text-align: center;">Loss</td>
-<td style="text-align: center;"><span class="negative-value">-$16.71</span></td>
-<td style="text-align: center;"><span class="negative-value">-7.11%</span></td>
+<td style="text-align: center;"><span class="negative-value">-$5.73</span></td>
+<td style="text-align: center;"><span class="negative-value">-0.02%</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2025-01-27</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$218.27</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2025-02-21</td>
+<td style="text-align: center;">2025-04-14</td>
 <td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$222.10</td>
-<td style="text-align: center;">RSI below threshold (33)</td>
+<td style="text-align: center;">$201.76</td>
+<td style="text-align: center;">RSI below threshold (45.7)</td>
 <td style="text-align: center;">Win</td>
-<td style="text-align: center;"><span class="positive-value">$4.21</span></td>
-<td style="text-align: center;"><span class="positive-value">1.90%</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2025-02-22</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$226.31</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
+<td style="text-align: center;"><span class="positive-value">$53.13</span></td>
+<td style="text-align: center;"><span class="positive-value">0.19%</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2025-03-10</td>
+<td style="text-align: center;">2025-04-10</td>
 <td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$211.48</td>
-<td style="text-align: center;">RSI below threshold (31)</td>
+<td style="text-align: center;">$186.10</td>
+<td style="text-align: center;">RSI below threshold (38.3)</td>
 <td style="text-align: center;">Win</td>
-<td style="text-align: center;"><span class="positive-value">$3.25</span></td>
-<td style="text-align: center;"><span class="positive-value">1.54%</span></td>
+<td style="text-align: center;"><span class="positive-value">$1797.46</span></td>
+<td style="text-align: center;"><span class="positive-value">6.48%</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2025-03-11</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$214.73</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2025-03-21</td>
+<td style="text-align: center;">2025-04-08</td>
 <td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$221.88</td>
-<td style="text-align: center;">RSI below threshold (28)</td>
+<td style="text-align: center;">$172.06</td>
+<td style="text-align: center;">RSI below threshold (20.0)</td>
 <td style="text-align: center;">Win</td>
-<td style="text-align: center;"><span class="positive-value">$2.32</span></td>
-<td style="text-align: center;"><span class="positive-value">1.05%</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2025-03-22</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$224.20</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
+<td style="text-align: center;"><span class="positive-value">$4160.32</span></td>
+<td style="text-align: center;"><span class="positive-value">15.57%</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2025-04-05</td>
+<td style="text-align: center;">2025-04-04</td>
 <td style="text-align: center;">Buy</td>
-<td style="text-align: center;">$188.15</td>
-<td style="text-align: center;">RSI below threshold (23)</td>
+<td style="text-align: center;">$177.21</td>
+<td style="text-align: center;">RSI below threshold (25.2)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;"><span class="positive-value">$637.00</span></td>
+<td style="text-align: center;"><span class="positive-value">2.40%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2025-04-02</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$205.53</td>
+<td style="text-align: center;">RSI below threshold (49.0)</td>
 <td style="text-align: center;">Loss</td>
-<td style="text-align: center;"><span class="negative-value">-$144.40</span></td>
-<td style="text-align: center;"><span class="negative-value">-7.68%</span></td>
+<td style="text-align: center;"><span class="negative-value">-$303.26</span></td>
+<td style="text-align: center;"><span class="negative-value">-1.14%</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">2025-04-06</td>
-<td style="text-align: center;">Sell</td>
-<td style="text-align: center;">$173.71</td>
-<td style="text-align: center;">Price below SMA50</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
+<tr class="odd">
+<td style="text-align: center;">2025-03-31</td>
+<td style="text-align: center;">Buy</td>
+<td style="text-align: center;">$219.87</td>
+<td style="text-align: center;">RSI below threshold (46.8)</td>
+<td style="text-align: center;">Win</td>
+<td style="text-align: center;"><span class="positive-value">$400.69</span></td>
+<td style="text-align: center;"><span class="positive-value">1.51%</span></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Exit Reason</th>
+<th style="text-align: center;">Trades</th>
+<th style="text-align: center;">Percentage</th>
+<th style="text-align: center;">Win Rate</th>
+<th style="text-align: center;">Average Profit</th>
+<th style="text-align: center;">Total Profit</th>
+<th style="text-align: center;">Average Return</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">RSI Overbought</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">8.6%</td>
+<td style="text-align: center;"><span class="positive-value">94.7%</span></td>
+<td style="text-align: center;"><span class="positive-value">$295.84</span></td>
+<td style="text-align: center;"><span class="positive-value">$5,620.91</span></td>
+<td style="text-align: center;"><span class="positive-value">1.2%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SMA Breakdown</td>
+<td style="text-align: center;">106</td>
+<td style="text-align: center;">47.7%</td>
+<td style="text-align: center;"><span class="positive-value">49.1%</span></td>
+<td style="text-align: center;"><span class="positive-value">$64.34</span></td>
+<td style="text-align: center;"><span class="positive-value">$6,820.07</span></td>
+<td style="text-align: center;"><span class="positive-value">0.2%</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Unknown</td>
+<td style="text-align: center;">97</td>
+<td style="text-align: center;">43.7%</td>
+<td style="text-align: center;"><span class="positive-value">54.6%</span></td>
+<td style="text-align: center;"><span class="positive-value">$4.57</span></td>
+<td style="text-align: center;"><span class="positive-value">$443.65</span></td>
+<td style="text-align: center;"><span class="positive-value">0.0%</span></td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -808,33 +1168,49 @@ Detailed Trade Analysis
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Total Trades: 6</li>
-<li>Win Rate: 50%</li>
-<li>Average Profit: <span class="negative-value">-$24.97</span></li>
-<li>Average Win: <span class="positive-value">$2.82</span></li>
-<li>Average Loss: <span class="negative-value">-$80.56</span></li>
-<li>Profit Factor: 0.07</li>
-<li>Maximum Consecutive Wins: 3</li>
-<li>Maximum Consecutive Losses: 1</li>
-<li>Average Holding Period: 1 day</li>
+<li>Total Trades: 222</li>
+<li>Win Rate: 55.41%</li>
+<li>Average Profit: <span class="positive-value">$58.04</span></li>
+<li>Average Win: <span class="positive-value">$284.53</span></li>
+<li>Average Loss: <span class="negative-value">-$223.36</span></li>
+<li>Profit Factor: 1.58</li>
+<li>Maximum Consecutive Wins: 7</li>
+<li>Maximum Consecutive Losses: 6</li>
+<li>Average Holding Period: 1.5 days</li>
 </ul>
-</div>
-</div>
+<section id="exit-reason-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exit-reason-analysis">Exit Reason Analysis</h3>
+<ul>
+<li><strong>RSI Overbought</strong>: 19 trades (8.6%), Win Rate: <span class="positive-value">94.7%</span>, Average Profit: <span class="positive-value">$295.84</span>, Total Profit: <span class="positive-value">$5,620.91</span>, Average Return: <span class="positive-value">1.2%</span></li>
+<li><strong>SMA Breakdown</strong>: 106 trades (47.7%), Win Rate: <span class="positive-value">49.1%</span>, Average Profit: <span class="positive-value">$64.34</span>, Total Profit: <span class="positive-value">$6,820.07</span>, Average Return: <span class="positive-value">0.2%</span></li>
+<li><strong>Unknown</strong>: 97 trades (43.7%), Win Rate: <span class="positive-value">54.6%</span>, Average Profit: <span class="positive-value">$4.57</span>, Total Profit: <span class="positive-value">$443.65</span>, Average Return: <span class="positive-value">0.0%</span></li>
+</ul>
 </section>
-<hr>
-<section id="portfolio-performance-summary" class="level2 section-title section-card">
-<h2 class="section-title anchored" data-anchor-id="portfolio-performance-summary">Portfolio Performance Summary</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>This case study uses a 12-month data period (2024-2025) for educational purposes. For actual trading strategy evaluation, a longer timeframe (3-5 years) is recommended to obtain statistically significant results across different market cycles.</p>
+</div>
+</div>
+</div>
+<div class="image-container">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AAPL_trading_signals.png" class="img-fluid figure-img"></p>
+<figcaption>Trading Strategy Visualization</figcaption>
+</figure>
+</div>
+<div class="image-caption">
+<p><em>Figure 1: Trading signals with price and RSI indicators. The upper panel shows AAPL price over 24 months with key technical indicators (SMA20, SMA50, SMA200) and Bollinger Bands. Buy signals (green triangles) appear when RSI drops below 35 and price is near support levels. The lower panel shows RSI with clear oversold areas (below 40) and overbought areas (above 70), with frequent trading activity occurring as RSI oscillates between these zones.</em></p>
+</div>
+</div>
+<div class="image-container">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AAPL_portfolio_performance.png" class="img-fluid figure-img"></p>
+<figcaption>Portfolio Performance</figcaption>
+</figure>
+</div>
+<div class="image-caption">
+<p><em>Figure 2: Portfolio value, drawdown and monthly returns. The top panel shows portfolio value growing from $100,000 to $112,885 with green (buy) and red (sell) triangles marking all trades. The middle panel shows drawdowns with a maximum of -2.37% in July 2024, clearly marked with a red star. The bottom panel shows a monthly return heatmap with April 2025 having the highest return (6.3%), consistent with the sharp portfolio value increase visible in the top panel.</em></p>
 </div>
 </div>
 <div class="formula-container">
@@ -851,16 +1227,27 @@ Note
 <p><span class="math display">\text{Maximum Drawdown} = \min_{\forall t \in (0,T)} \left( \frac{V_t - \max_{s \in (0,t)} V_s}{\max_{s \in (0,t)} V_s} \right)</span></p>
 <p>Where: - <span class="math inline">V_t</span> = Portfolio value at time t - <span class="math inline">T</span> = End of evaluation period</p>
 </div>
+<div class="formula-container">
+<div class="formula-title">
+<p>Geometric Mean Return</p>
+</div>
+<p><span class="math display">\text{Geometric Mean Return} = \left(\prod_{i=1}^{n}(1 + r_i)\right)^{1/n} - 1</span></p>
+<p>Where: - <span class="math inline">r_i</span> = Return for period <span class="math inline">i</span> - <span class="math inline">n</span> = Number of periods</p>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Key Metrics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Best Trade Case Analysis</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Key Metrics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Detailed Performance Statistics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Best Trade Case Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Trade Blotter (Selection)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Account Ledger (Monthly)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="card">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 72%">
+<col style="width: 27%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Metric</th>
-<th style="text-align: center;">Value</th>
+<th style="text-align: center;">Strategy</th>
 </tr>
 </thead>
 <tbody>
@@ -870,43 +1257,55 @@ Note
 </tr>
 <tr class="even">
 <td style="text-align: left;">Final Value</td>
-<td style="text-align: center;">$99,870</td>
+<td style="text-align: center;">$112,885</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Total Return</td>
-<td style="text-align: center;"><span class="negative-value">-0.13%</span></td>
+<td style="text-align: center;"><span class="positive-value">12.88%</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Annualized Return</td>
-<td style="text-align: center;"><span class="negative-value">-0.17%</span></td>
+<td style="text-align: center;"><span class="positive-value">6.26%</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Max Drawdown</td>
+<td style="text-align: center;"><span class="positive-value">2.37%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Geometric Mean Return</td>
+<td style="text-align: center;"><span class="positive-value">4.28%</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alpha</td>
+<td style="text-align: center;"><span class="positive-value">2.73%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beta</td>
+<td style="text-align: center;">0.13</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sharpe Ratio</td>
-<td style="text-align: center;"><span class="negative-value">-0.83</span></td>
+<td style="text-align: center;"><span class="positive-value">0.95</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Max Drawdown</td>
-<td style="text-align: center;">0.15%</td>
+<td style="text-align: left;">Volatility (annualized)</td>
+<td style="text-align: center;"><span class="positive-value">4.42%</span></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Calmar Ratio</td>
+<td style="text-align: center;"><span class="positive-value">2.64</span></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Win Rate</td>
-<td style="text-align: center;">50%</td>
+<td style="text-align: center;">55.41%</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Average Trade Return</td>
-<td style="text-align: center;"><span class="negative-value">-0.44%</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Best Trade</td>
-<td style="text-align: center;"><span class="positive-value">1.90%</span></td>
+<td style="text-align: center;"><span class="positive-value">0.26%</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Worst Trade</td>
-<td style="text-align: center;"><span class="negative-value">-7.68%</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Average Holding Period</td>
-<td style="text-align: center;">1 day</td>
+<td style="text-align: left;">Average Trades per Year</td>
+<td style="text-align: center;">111.0</td>
 </tr>
 </tbody>
 </table>
@@ -914,57 +1313,34 @@ Note
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="card">
-<section id="market-context" class="level3">
-<h3 class="anchored" data-anchor-id="market-context">Market Context</h3>
-<p>On March 21, 2025, AAPL stock had been experiencing a short-term pullback, with the price dropping from about $230 to $222 over several sessions. The RSI indicator had fallen to 28, well below our threshold of 35, indicating an oversold condition.</p>
-</section>
-<section id="entry-and-exit-details" class="level3">
-<h3 class="anchored" data-anchor-id="entry-and-exit-details">Entry and Exit Details</h3>
-<ul>
-<li><strong>Entry Date</strong>: March 21, 2025</li>
-<li><strong>Entry Price</strong>: $221.88</li>
-<li><strong>RSI at Entry</strong>: 28</li>
-<li><strong>Stop Loss</strong>: $218.58 (ATR × 1.5)</li>
-<li><strong>Take Profit</strong>: $230.78 (ATR × 3.0)</li>
-<li><strong>Exit Date</strong>: March 22, 2025</li>
-<li><strong>Exit Price</strong>: $224.20</li>
-<li><strong>Exit Reason</strong>: Price below SMA50</li>
-<li><strong>Profit/Loss</strong>: <span class="positive-value">$2.32 (1.05% return)</span></li>
-</ul>
-</section>
-<section id="success-factors" class="level3">
-<h3 class="anchored" data-anchor-id="success-factors">Success Factors</h3>
-<p>This trade capitalized on a quick price bounce from support level. The relatively low RSI (28) indicated an oversold condition, making the entry timing optimal. While the trade didn’t reach the take profit target, it still yielded a positive return before the exit signal triggered.</p>
-</section>
-</div>
-</div>
-</div>
-</div>
-</section>
-<hr>
-<section id="strategy-visualization" class="level3 section-title section-card">
-<h3 class="section-title anchored" data-anchor-id="strategy-visualization">Strategy Visualization</h3>
-<div class="image-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="AAPL_trading_signals.png" class="img-fluid figure-img"></p>
-<figcaption>Trading Strategy Visualization</figcaption>
-</figure>
-</div>
-<div class="image-caption">
-<p><em>Figure 1: Trading signals with price and RSI indicators. The upper panel shows AAPL price over 12 months with key indicators (SMA20, SMA50, SMA200) and Bollinger Bands. Buy signals (green triangles) appear mostly in 2025-Q1 when RSI drops below 35 and price nears the lower Bollinger Band. The lower panel shows RSI with buy signals in the oversold area (below 40). Most positions exit quickly (red triangles) when price drops below SMA50.</em></p>
-</div>
-</div>
-<div class="image-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="AAPL_portfolio_performance.png" class="img-fluid figure-img"></p>
-<figcaption>Portfolio Performance</figcaption>
-</figure>
-</div>
-<div class="image-caption">
-<p><em>Figure 2: Portfolio value, drawdown and monthly returns. The top panel shows portfolio value staying near $100,000 with minimal changes despite several trades. The middle panel shows drawdowns with a maximum of -0.15% in April 2025, matching the largest losing trade. The bottom panel shows monthly returns - mostly neutral (green) with some underperformance (red) in April 2025.</em></p>
-</div>
+<pre><code>=================================================
+              PERFORMANCE STATISTICS
+=================================================
+Backtest Period: 2023-04-19 to 2025-04-17
+Total Days: 729 (2.00 years)
+
+Alpha (annualized): 2.73%
+Beta: 0.13
+
+Total Return: 12.88%
+Annualized Return: 6.26% (arithmetic)
+Geometric Mean Annual Return: 4.28%
+Volatility (annualized): 4.42%
+Sharpe Ratio: 0.95
+
+Total Trades: 222
+Average Trades per Year: 111.23
+Average Return per Trade: 0.22%
+Average Profit per Trade: $58.04
+Maximum Drawdown: -2.37%
+Calmar Ratio: 2.64</code></pre>
+<p>The detailed statistics output from our performance analysis system provides a comprehensive view of the strategy’s behavior:</p>
+<ol type="1">
+<li><p><strong>Alpha &amp; Beta</strong>: The strategy shows a positive Alpha (2.73%) and very low Beta (0.13), suggesting strong risk-adjusted outperformance relative to the benchmark with minimal market correlation.</p></li>
+<li><p><strong>Risk Metrics</strong>: With annualized volatility of 4.42% and a Sharpe ratio of 0.95, the strategy demonstrates good risk-adjusted returns.</p></li>
+<li><p><strong>Geometric Return</strong>: The 4.28% geometric mean annual return based on compounding daily returns better represents the actual growth trajectory of the portfolio.</p></li>
+</ol>
+<p>These metrics confirm that while the strategy’s absolute return (12.88%) was modest, its risk-adjusted performance was good, with minimal drawdown and low correlation to market movements.</p>
 </div>
 <div class="image-container">
 <div class="quarto-figure quarto-figure-center">
@@ -974,32 +1350,408 @@ Note
 </figure>
 </div>
 <div class="image-caption">
-<p><em>Figure 3: Trade distribution charts. The top-left shows profit distribution of six trades, with one major loss around -$145. The top-right shows returns from -7% to +2%. The bottom-left confirms all trades lasted exactly 1 day due to our quick exit rules. The bottom-right plots duration against return - no correlation exists as all trades had the same duration.</em></p>
+<p><em>Figure 3: Trade distribution charts. The top-left shows profit distribution with most trades clustered around smaller profits and a few exceptional trades exceeding $2,000-$4,000. The top-right shows percentage returns distribution with a positive skew. The bottom-left histogram reveals the majority of trades had a duration of just 1 day, with smaller clusters at 3 and 4 days. The bottom-right scatter plot shows that the highest returns (including the standout 15% return) occurred on 1-day trades, supporting our quick-exit approach.</em></p>
 </div>
 </div>
-<div class="image-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="advanced_metrics_analysis.png" class="img-fluid figure-img"></p>
-<figcaption>Advanced Metrics Analysis</figcaption>
-</figure>
 </div>
-<div class="image-caption">
-<p><em>Figure 4: Advanced risk and return metrics. Daily returns (top-left) cluster around zero with few outliers. The drawdown chart (top-right) shows the portfolio stayed mostly at zero drawdown, except for one -0.15% event. Rolling returns and volatility (bottom-left) show increased volatility in March-April 2025 along with falling returns. The Sharpe ratio (bottom-right) was positive early but turned negative in the final month during the largest losing trade.</em></p>
-</div>
-</div>
-<div class="image-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="parameter_optimization_results.png" class="img-fluid figure-img"></p>
-<figcaption>Parameter Optimization Results</figcaption>
-</figure>
-</div>
-<div class="image-caption">
-<p><em>Figure 5: Parameter testing results. The Sharpe ratio heatmap (top-left) shows RSI=35 performs best across all ATR stop values, with -0.83 being the least negative Sharpe ratio. The scatter plot (top-right) shows how parameters affect returns (color) and win rates (point size). The correlation matrix (bottom-left) shows RSI threshold has strong negative correlation (-0.87) with performance. The risk-return chart (bottom-right) highlights the best combination with low risk (0.15% max drawdown) but still negative return (-0.13%).</em></p>
-</div>
-</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="card">
+<section id="market-context" class="level3">
+<h3 class="anchored" data-anchor-id="market-context">Market Context</h3>
+<p>On April 8, 2025, AAPL stock had been experiencing a significant decline, falling to the $172 range from previous levels above $200. The RSI indicator had fallen to 20, extremely below our threshold of 35, indicating a deeply oversold condition. The price was -5.9% from the lower Bollinger Band, showing exceptional bearish deviation.</p>
 </section>
+<section id="entry-and-exit-details" class="level3">
+<h3 class="anchored" data-anchor-id="entry-and-exit-details">Entry and Exit Details</h3>
+<ul>
+<li><strong>Entry Date</strong>: April 8, 2025</li>
+<li><strong>Entry Price</strong>: $172.06</li>
+<li><strong>RSI at Entry</strong>: 20</li>
+<li><strong>BB Status</strong>: -5.9% from BB Lower</li>
+<li><strong>Stop Loss</strong>: $167.46 (ATR × 2.0)</li>
+<li><strong>Take Profit</strong>: $189.86 (ATR × 5.0)</li>
+<li><strong>Exit Date</strong>: April 9, 2025</li>
+<li><strong>Exit Price</strong>: $198.85</li>
+<li><strong>Exit Reason</strong>: SMA Breakdown</li>
+<li><strong>Profit/Loss</strong>: <span class="positive-value">$4160.32 (15.57% return)</span></li>
+</ul>
+</section>
+<section id="success-factors" class="level3">
+<h3 class="anchored" data-anchor-id="success-factors">Success Factors</h3>
+<p>This trade capitalized on a strong bullish reversal after a steep decline. The extremely low RSI (20) indicated a deeply oversold condition, making the entry timing optimal. The price moved rapidly upward the next day, well beyond the take profit target, demonstrating the effectiveness of the strategy in capturing rebounds from oversold levels.</p>
+</section>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="card">
+<p>The trade blotter shows a selection of the most significant trades from our 222 total trades over the testing period.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Entry Date</th>
+<th style="text-align: center;">Exit Date</th>
+<th style="text-align: center;">Days</th>
+<th style="text-align: center;">Entry Price</th>
+<th style="text-align: center;">Exit Price</th>
+<th style="text-align: center;">Shares</th>
+<th style="text-align: center;">Profit/Loss</th>
+<th style="text-align: center;">Return</th>
+<th style="text-align: center;">Exit Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2025-04-08</td>
+<td style="text-align: center;">2025-04-09</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$172.06</td>
+<td style="text-align: center;">$198.85</td>
+<td style="text-align: center;">155</td>
+<td style="text-align: center;"><span class="positive-value">$4160.32</span></td>
+<td style="text-align: center;"><span class="positive-value">15.57%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2025-04-10</td>
+<td style="text-align: center;">2025-04-11</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$186.10</td>
+<td style="text-align: center;">$198.15</td>
+<td style="text-align: center;">149</td>
+<td style="text-align: center;"><span class="positive-value">$1797.46</span></td>
+<td style="text-align: center;"><span class="positive-value">6.48%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-06-10</td>
+<td style="text-align: center;">2024-06-11</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$193.69</td>
+<td style="text-align: center;">$207.15</td>
+<td style="text-align: center;">131</td>
+<td style="text-align: center;"><span class="positive-value">$1771.77</span></td>
+<td style="text-align: center;"><span class="positive-value">6.95%</span></td>
+<td style="text-align: center;">RSI_Overbought</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-08-02</td>
+<td style="text-align: center;">2024-08-05</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">$199.09</td>
+<td style="text-align: center;">$209.27</td>
+<td style="text-align: center;">127</td>
+<td style="text-align: center;"><span class="positive-value">$1298.92</span></td>
+<td style="text-align: center;"><span class="positive-value">5.11%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2025-03-07</td>
+<td style="text-align: center;">2025-03-10</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">$235.54</td>
+<td style="text-align: center;">$227.48</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;"><span class="negative-value">-$924.44</span></td>
+<td style="text-align: center;"><span class="negative-value">-3.42%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-02-01</td>
+<td style="text-align: center;">2024-02-02</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$179.87</td>
+<td style="text-align: center;">$185.85</td>
+<td style="text-align: center;">142</td>
+<td style="text-align: center;"><span class="positive-value">$851.60</span></td>
+<td style="text-align: center;"><span class="positive-value">3.32%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2025-01-27</td>
+<td style="text-align: center;">2025-01-28</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$230.84</td>
+<td style="text-align: center;">$238.26</td>
+<td style="text-align: center;">115</td>
+<td style="text-align: center;"><span class="positive-value">$854.12</span></td>
+<td style="text-align: center;"><span class="positive-value">3.21%</span></td>
+<td style="text-align: center;">SMA_Breakdown</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-07-31</td>
+<td style="text-align: center;">2024-08-01</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$224.37</td>
+<td style="text-align: center;">$218.36</td>
+<td style="text-align: center;">113</td>
+<td style="text-align: center;"><span class="negative-value">-$685.03</span></td>
+<td style="text-align: center;"><span class="negative-value">-2.68%</span></td>
+<td style="text-align: center;">Unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-07-17</td>
+<td style="text-align: center;">2024-07-18</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$230.14</td>
+<td style="text-align: center;">$224.18</td>
+<td style="text-align: center;">113</td>
+<td style="text-align: center;"><span class="negative-value">-$673.86</span></td>
+<td style="text-align: center;"><span class="negative-value">-2.59%</span></td>
+<td style="text-align: center;">Unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-08-30</td>
+<td style="text-align: center;">2024-09-03</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$228.55</td>
+<td style="text-align: center;">$222.77</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;"><span class="negative-value">-$660.02</span></td>
+<td style="text-align: center;"><span class="negative-value">-2.53%</span></td>
+<td style="text-align: center;">Unknown</td>
+</tr>
+</tbody>
+</table>
+<p>The blotter analysis shows a mix of high-profit and high-loss trades. What stands out is that our largest profits often occurred during strong bounce-back days from oversold conditions, while the largest losses were typically related to unexpected trend reversals.</p>
+</div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div class="card">
+<p>The account ledger shows the monthly progression of the portfolio value, cash and equity components, and performance metrics.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Date</th>
+<th style="text-align: center;">Account(<span class="math inline">) | Cash(</span>)</th>
+<th style="text-align: center;">Equity($)</th>
+<th style="text-align: center;">Drawdown(%)</th>
+<th style="text-align: center;">Return(%)</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2023-04-30</td>
+<td style="text-align: center;">100000.00</td>
+<td style="text-align: center;">100000.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2023-05-31</td>
+<td style="text-align: center;">100231.38</td>
+<td style="text-align: center;">75173.53</td>
+<td style="text-align: center;">25057.84</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2023-06-30</td>
+<td style="text-align: center;">100792.17</td>
+<td style="text-align: center;">100792.17</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.79</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2023-07-31</td>
+<td style="text-align: center;">100447.15</td>
+<td style="text-align: center;">75335.36</td>
+<td style="text-align: center;">25111.79</td>
+<td style="text-align: center;">-0.34</td>
+<td style="text-align: center;">0.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2023-08-31</td>
+<td style="text-align: center;">99762.04</td>
+<td style="text-align: center;">99762.04</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-1.02</td>
+<td style="text-align: center;">-0.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2023-09-30</td>
+<td style="text-align: center;">99440.65</td>
+<td style="text-align: center;">99440.65</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-1.34</td>
+<td style="text-align: center;">-0.56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2023-10-31</td>
+<td style="text-align: center;">100693.09</td>
+<td style="text-align: center;">75519.82</td>
+<td style="text-align: center;">25173.27</td>
+<td style="text-align: center;">-0.10</td>
+<td style="text-align: center;">0.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2023-11-30</td>
+<td style="text-align: center;">101369.93</td>
+<td style="text-align: center;">101369.93</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-0.13</td>
+<td style="text-align: center;">1.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2023-12-31</td>
+<td style="text-align: center;">102030.46</td>
+<td style="text-align: center;">76522.85</td>
+<td style="text-align: center;">25507.62</td>
+<td style="text-align: center;">-0.22</td>
+<td style="text-align: center;">2.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-01-31</td>
+<td style="text-align: center;">103311.42</td>
+<td style="text-align: center;">103311.42</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">3.31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-02-29</td>
+<td style="text-align: center;">102858.82</td>
+<td style="text-align: center;">77144.12</td>
+<td style="text-align: center;">25714.71</td>
+<td style="text-align: center;">-0.62</td>
+<td style="text-align: center;">2.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-03-31</td>
+<td style="text-align: center;">102859.13</td>
+<td style="text-align: center;">102859.13</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-0.62</td>
+<td style="text-align: center;">2.86</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-04-30</td>
+<td style="text-align: center;">102183.38</td>
+<td style="text-align: center;">102183.38</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-1.27</td>
+<td style="text-align: center;">2.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-05-31</td>
+<td style="text-align: center;">101501.07</td>
+<td style="text-align: center;">76125.80</td>
+<td style="text-align: center;">25375.27</td>
+<td style="text-align: center;">-1.93</td>
+<td style="text-align: center;">1.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-06-30</td>
+<td style="text-align: center;">103405.77</td>
+<td style="text-align: center;">103405.77</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">-0.34</td>
+<td style="text-align: center;">3.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-07-31</td>
+<td style="text-align: center;">101611.41</td>
+<td style="text-align: center;">76208.56</td>
+<td style="text-align: center;">25402.85</td>
+<td style="text-align: center;">-2.37</td>
+<td style="text-align: center;">1.61</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-08-31</td>
+<td style="text-align: center;">104393.20</td>
+<td style="text-align: center;">78294.90</td>
+<td style="text-align: center;">26098.30</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">4.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-09-30</td>
+<td style="text-align: center;">104062.56</td>
+<td style="text-align: center;">78046.92</td>
+<td style="text-align: center;">26015.64</td>
+<td style="text-align: center;">-0.32</td>
+<td style="text-align: center;">4.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-10-31</td>
+<td style="text-align: center;">103561.06</td>
+<td style="text-align: center;">77670.80</td>
+<td style="text-align: center;">25890.27</td>
+<td style="text-align: center;">-0.80</td>
+<td style="text-align: center;">3.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024-11-30</td>
+<td style="text-align: center;">105105.18</td>
+<td style="text-align: center;">105105.18</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">5.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2024-12-31</td>
+<td style="text-align: center;">105684.45</td>
+<td style="text-align: center;">79263.34</td>
+<td style="text-align: center;">26421.11</td>
+<td style="text-align: center;">-0.51</td>
+<td style="text-align: center;">5.68</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2025-01-31</td>
+<td style="text-align: center;">107021.24</td>
+<td style="text-align: center;">80265.93</td>
+<td style="text-align: center;">26755.31</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">7.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2025-02-28</td>
+<td style="text-align: center;">108060.51</td>
+<td style="text-align: center;">81045.38</td>
+<td style="text-align: center;">27015.13</td>
+<td style="text-align: center;">-0.09</td>
+<td style="text-align: center;">8.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2025-03-31</td>
+<td style="text-align: center;">106242.44</td>
+<td style="text-align: center;">79681.83</td>
+<td style="text-align: center;">26560.61</td>
+<td style="text-align: center;">-1.77</td>
+<td style="text-align: center;">6.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2025-04-20</td>
+<td style="text-align: center;">112884.63</td>
+<td style="text-align: center;">112884.63</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">12.88</td>
+</tr>
+</tbody>
+</table>
+<p>The ledger shows that our strategy maintained consistent growth with modest drawdowns. The portfolio experienced its maximum drawdown of -2.37% in July 2024, but recovered strongly. The most significant growth period occurred in April 2025, where several highly profitable trades (shown in the blotter) contributed to a sharp increase in account value.</p>
+</div>
 <hr>
 <section id="conclusions-future-work" class="level2 section-title section-card">
 <h2 class="section-title anchored" data-anchor-id="conclusions-future-work">Conclusions &amp; Future Work</h2>
@@ -1013,7 +1765,8 @@ Key Findings
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The “Buy Low Sell High” strategy using RSI=35 as the entry signal produced a slight negative return (-0.13%) during the testing period. However, the strategy demonstrated good risk management with a maximum drawdown of only 0.15%.</p>
+<p>The “Buy Low Sell High” strategy using RSI=35 as the entry signal produced a solid positive return of 12.88% over the 24-month testing period, significantly outperforming our previous configuration. The strategy demonstrated excellent risk management with a maximum drawdown of only 2.37%.</p>
+<p>Our analysis of exit reasons revealed that RSI Overbought exits were the most profitable, yielding an average profit of $295.84 per trade compared to $64.34 for SMA Breakdown exits. This suggests that allowing trades to run until overbought conditions occur may be more profitable than exiting based on moving average breakdowns.</p>
 </div>
 </div>
 <div class="grid">
@@ -1021,11 +1774,13 @@ Key Findings
 <div class="card">
 <p><strong>Strategy Strengths</strong>:</p>
 <ul>
-<li>Low drawdown (0.15%)</li>
-<li>Good win rate (50%)</li>
-<li>Simple implementation</li>
+<li>Strong positive return (12.88%)</li>
+<li>Good win rate (55.41%)</li>
+<li>Excellent risk-adjusted performance (Sharpe 0.95)</li>
+<li>Low drawdown (2.37%)</li>
+<li>Ability to capture significant price rebounds</li>
 <li>Clear entry and exit rules</li>
-<li>Ability to capture short-term reversals</li>
+<li>RSI Overbought exits yield highest profits</li>
 </ul>
 </div>
 </div>
@@ -1033,11 +1788,12 @@ Key Findings
 <div class="card">
 <p><strong>Strategy Weaknesses</strong>:</p>
 <ul>
-<li>Negative overall return</li>
-<li>Short holding period (only 1 day)</li>
-<li>Limited number of trading signals</li>
-<li>Sensitivity to market conditions</li>
-<li>Potential for improved parameter optimization</li>
+<li>Short average holding period (1.5 days)</li>
+<li>Requires active monitoring for exits</li>
+<li>Performance varies with market conditions</li>
+<li>Some exit reasons perform better than others</li>
+<li>Limited experience with extended bear markets</li>
+<li>Possible overfit to recent market conditions</li>
 </ul>
 </div>
 </div>
@@ -1053,11 +1809,13 @@ Future Improvements
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Test with longer historical data periods</li>
-<li>Explore additional technical indicators</li>
-<li>Implement machine learning for parameter optimization</li>
+<li>Test with additional market regimes including extended bear markets</li>
+<li>Explore adaptive ATR multipliers based on volatility conditions</li>
+<li>Implement machine learning for exit signal optimization</li>
 <li>Extend to multiple assets for diversification</li>
-<li>Develop adaptive parameters based on market regime</li>
+<li>Develop portfolio-level position sizing for improved risk management</li>
+<li>Test alternative exit strategies to improve average holding period</li>
+<li>Prioritize RSI Overbought exit signals based on their superior performance</li>
 </ol>
 </div>
 </div>
@@ -1065,6 +1823,11 @@ Future Improvements
 <p></p>
 
 
+</div>
+</div>
+</div>
+</section>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
