@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e95a2c0-9463-4bbb-aeb6-044a984a4b35" name="更改" comment="Merge remote-tracking branch 'origin/main'">
-      <change afterPath="$PROJECT_DIR$/AAPL_backtest_results_20250420_173953.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_portfolio_performance.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_portfolio_performance.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_trade_analysis.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_trade_analysis.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL_trading_signals.png" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL_trading_signals.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/about.qmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AAPL_portfolio_performance.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_portfolio_performance.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AAPL_trade_analysis.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_trade_analysis.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AAPL_trading_signals.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AAPL_trading_signals.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.qmd" afterDir="false" />
@@ -96,7 +87,9 @@
       <workItem from="1744399678603" duration="8866000" />
       <workItem from="1745167600140" duration="11631000" />
       <workItem from="1745184496987" duration="11361000" />
-      <workItem from="1745201034609" duration="1496000" />
+      <workItem from="1745201034609" duration="2641000" />
+      <workItem from="1745948356757" duration="1843000" />
+      <workItem from="1745950479666" duration="5518000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -282,7 +275,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744417506682</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1745202874813</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1745202874813</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1745202895767</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1745202895767</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

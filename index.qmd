@@ -824,7 +824,8 @@ $$\text{TR} = \max((\text{High} - \text{Low}), |(\text{High} - \text{Previous Cl
 - RSI Threshold: 35
 - ATR Stop Multiplier: 2.0
 - ATR Take Multiplier: 5.0
-- Sharpe Ratio: 0.95 (best value)
+- **Optimization Sharpe: 1.42**  *(sample estimate; not directly comparable to the final back-test Sharpe 0.95)*
+
 :::
 
 ::: {.formula-container}
@@ -836,10 +837,6 @@ $$\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multipl
 :::
 
 ::: {.panel-tabset}
-## Performance by RSI Threshold
-
-<!-- 表格已移除 -->
-
 ## Trading Signals
 
 | Date       | Action | Price  | Reason                        | Outcome | Profit/Loss | Return |
@@ -930,9 +927,11 @@ Where:
 :::
 
 ::: {.panel-tabset}
-## Key Metrics
 
-::: {.card}
+
+
+
+## Key Metrics
 | Metric                   | Strategy |
 |:-------------------------|:--------:|
 | Initial Capital          | $100,000  |
@@ -949,7 +948,7 @@ Where:
 | Win Rate                 | 55.41%    |
 | Average Trade Return     | <span class="positive-value">0.26%</span> |
 | Average Trades per Year  | 111.0     |
-:::
+
 
 ## Detailed Performance Statistics
 
@@ -958,6 +957,9 @@ Where:
 =================================================
               PERFORMANCE STATISTICS
 =================================================
+
+
+
 Backtest Period: 2023-04-19 to 2025-04-17
 Total Days: 729 (2.00 years)
 
@@ -996,6 +998,10 @@ These metrics confirm that while the strategy's absolute return (12.88%) was mod
 *Figure 3: Trade distribution charts. The top-left shows profit distribution with most trades clustered around smaller profits and a few exceptional trades exceeding $2,000-$4,000. The top-right shows percentage returns distribution with a positive skew. The bottom-left histogram reveals the majority of trades had a duration of just 1 day, with smaller clusters at 3 and 4 days. The bottom-right scatter plot shows that the highest returns (including the standout 15% return) occurred on 1-day trades, supporting our quick-exit approach.*
 :::
 :::
+
+
+
+
 
 ## Best Trade Case Analysis
 
@@ -1079,6 +1085,7 @@ The ledger shows that our strategy maintained consistent growth with modest draw
 ---
 
 ::: {.section-card}
+
 ## Conclusions & Future Work {.section-title}
 
 ::: {.callout-note}
@@ -1088,9 +1095,7 @@ The "Buy Low Sell High" strategy using RSI=35 as the entry signal produced a sol
 Our analysis of exit reasons revealed that RSI Overbought exits were the most profitable, yielding an average profit of $295.84 per trade compared to $64.34 for SMA Breakdown exits. This suggests that allowing trades to run until overbought conditions occur may be more profitable than exiting based on moving average breakdowns.
 :::
 
-::: {.grid}
-::: {.g-col-6}
-::: {.card}
+
 **Strategy Strengths**:
 
 - Strong positive return (12.88%)
@@ -1100,32 +1105,7 @@ Our analysis of exit reasons revealed that RSI Overbought exits were the most pr
 - Ability to capture significant price rebounds
 - Clear entry and exit rules
 - RSI Overbought exits yield highest profits
-:::
-:::
 
-::: {.g-col-6}
-::: {.card}
-**Strategy Weaknesses**:
 
-- Short average holding period (1.5 days)
-- Requires active monitoring for exits
-- Performance varies with market conditions
-- Some exit reasons perform better than others
-- Limited experience with extended bear markets
-- Possible overfit to recent market conditions
-:::
-:::
-:::
-
-::: {.callout-tip}
-### Future Improvements
-1. Test with additional market regimes including extended bear markets
-2. Explore adaptive ATR multipliers based on volatility conditions
-3. Implement machine learning for exit signal optimization
-4. Extend to multiple assets for diversification
-5. Develop portfolio-level position sizing for improved risk management
-6. Test alternative exit strategies to improve average holding period
-7. Prioritize RSI Overbought exit signals based on their superior performance
-:::
 :::
 </rewritten_file>

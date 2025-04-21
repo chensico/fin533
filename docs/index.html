@@ -1001,7 +1001,7 @@ Interactive features include: hover for trade details, time period filtering, zo
 <li>RSI Threshold: 35</li>
 <li>ATR Stop Multiplier: 2.0</li>
 <li>ATR Take Multiplier: 5.0</li>
-<li>Sharpe Ratio: 0.95 (best value)</li>
+<li><strong>Optimization Sharpe: 1.42</strong> <em>(sample estimate; not directly comparable to the final back-test Sharpe 0.95)</em></li>
 </ul>
 </section>
 <div class="formula-container">
@@ -1011,12 +1011,9 @@ Interactive features include: hover for trade details, time period filtering, zo
 <p><span class="math display">\text{Stop Loss} = \text{Entry Price} - \text{ATR} \times \text{Stop Multiplier}</span> <span class="math display">\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multiplier}</span></p>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Performance by RSI Threshold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Trading Signals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Exit Reasons</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Trading Signals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Exit Reasons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<!-- 表格已移除 -->
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -1105,7 +1102,7 @@ Interactive features include: hover for trade details, time period filtering, zo
 </tbody>
 </table>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -1238,7 +1235,6 @@ Detailed Trade Analysis
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Key Metrics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Detailed Performance Statistics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Best Trade Case Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Trade Blotter (Selection)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Account Ledger (Monthly)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="card">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 72%">
@@ -1310,12 +1306,14 @@ Detailed Trade Analysis
 </tbody>
 </table>
 </div>
-</div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="card">
 <pre><code>=================================================
               PERFORMANCE STATISTICS
 =================================================
+
+
+
 Backtest Period: 2023-04-19 to 2025-04-17
 Total Days: 729 (2.00 years)
 
@@ -1769,9 +1767,6 @@ Key Findings
 <p>Our analysis of exit reasons revealed that RSI Overbought exits were the most profitable, yielding an average profit of $295.84 per trade compared to $64.34 for SMA Breakdown exits. This suggests that allowing trades to run until overbought conditions occur may be more profitable than exiting based on moving average breakdowns.</p>
 </div>
 </div>
-<div class="grid">
-<div class="g-col-6">
-<div class="card">
 <p><strong>Strategy Strengths</strong>:</p>
 <ul>
 <li>Strong positive return (12.88%)</li>
@@ -1782,43 +1777,6 @@ Key Findings
 <li>Clear entry and exit rules</li>
 <li>RSI Overbought exits yield highest profits</li>
 </ul>
-</div>
-</div>
-<div class="g-col-6">
-<div class="card">
-<p><strong>Strategy Weaknesses</strong>:</p>
-<ul>
-<li>Short average holding period (1.5 days)</li>
-<li>Requires active monitoring for exits</li>
-<li>Performance varies with market conditions</li>
-<li>Some exit reasons perform better than others</li>
-<li>Limited experience with extended bear markets</li>
-<li>Possible overfit to recent market conditions</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Future Improvements
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Test with additional market regimes including extended bear markets</li>
-<li>Explore adaptive ATR multipliers based on volatility conditions</li>
-<li>Implement machine learning for exit signal optimization</li>
-<li>Extend to multiple assets for diversification</li>
-<li>Develop portfolio-level position sizing for improved risk management</li>
-<li>Test alternative exit strategies to improve average holding period</li>
-<li>Prioritize RSI Overbought exit signals based on their superior performance</li>
-</ol>
-</div>
-</div>
 </section>
 <p></p>
 

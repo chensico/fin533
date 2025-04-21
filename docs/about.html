@@ -101,49 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -257,6 +214,9 @@ window.Quarto = {
   font-size: 1.1rem;
 }
 </style>
+<div style="text-align:center;margin-bottom:1.5rem;">
+<p><a href="https://github.com/chensico/fin533" target="_blank" class="btn btn-primary" style="text-decoration:none;background-color:#0366d6;color:white;padding:8px 16px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right:8px;" viewbox="0 0 16 16"> <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path> </svg> View Source Code on GitHub </a></p>
+</div>
 <section id="our-trading-philosophy" class="level2">
 <h2 class="anchored" data-anchor-id="our-trading-philosophy">Our Trading Philosophy</h2>
 <p>Our research is based on a key market principle: <strong>prices typically return to their average after extreme movements</strong>. Our “Buy Low / Sell High” strategy captures these reversion opportunities using a structured, evidence-based approach.</p>
@@ -307,7 +267,7 @@ window.Quarto = {
 <section id="entry-logic" class="level3">
 <h3 class="anchored" data-anchor-id="entry-logic">Entry Logic</h3>
 <p>The system generates a BUY signal when ALL these conditions are met:</p>
-<pre><code>IF (SMA50 &gt; SMA200) AND (RSI &lt; 35) AND (Price &lt;= Lower Bollinger Band) THEN BUY</code></pre>
+<pre><code>IF (RSI &lt; 35) AND (Price &lt;= Lower Bollinger Band) THEN BUY</code></pre>
 </section>
 <section id="exit-logic" class="level3">
 <h3 class="anchored" data-anchor-id="exit-logic">Exit Logic</h3>
@@ -357,26 +317,6 @@ window.Quarto = {
 </section>
 <section id="key-formula-explanations" class="level2">
 <h2 class="anchored" data-anchor-id="key-formula-explanations">Key Formula Explanations</h2>
-<div class="formula-container">
-<div class="formula-title">
-<p>Relative Strength Index (RSI) Calculation</p>
-</div>
-<p><span class="math display">\text{RSI} = 100 - \frac{100}{1 + \frac{\text{Average Gain}}{\text{Average Loss}}}</span></p>
-<p>Where: - Average Gain = Average of all up moves in the look-back period - Average Loss = Average of all down moves in the look-back period</p>
-</div>
-<div class="formula-container">
-<div class="formula-title">
-<p>Average True Range (ATR) for Risk Management</p>
-</div>
-<p><span class="math display">\text{ATR} = \frac{1}{n} \sum_{i=1}^{n} \text{TR}_i</span></p>
-<p><span class="math display">\text{TR} = \max((\text{High} - \text{Low}), |(\text{High} - \text{Previous Close})|, |(\text{Low} - \text{Previous Close})|)</span></p>
-</div>
-<div class="formula-container">
-<div class="formula-title">
-<p>Dynamic Stop Loss &amp; Take Profit Calculation</p>
-</div>
-<p><span class="math display">\text{Stop Loss} = \text{Entry Price} - \text{ATR} \times \text{Stop Multiplier}</span> <span class="math display">\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multiplier}</span></p>
-</div>
 </section>
 <section id="detailed-strategy-implementation" class="level2">
 <h2 class="anchored" data-anchor-id="detailed-strategy-implementation">Detailed Strategy Implementation</h2>
@@ -387,21 +327,19 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="entry-conditions">Entry Conditions</h4>
 <p>For a trade entry signal to be generated, ALL of the following conditions must be met simultaneously:</p>
 <ol type="1">
-<li><p><strong>Confirmed Uptrend</strong>: The 50-day Simple Moving Average must be above the 200-day Simple Moving Average (<code>SMA50 &gt; SMA200</code>), indicating an overall bullish market structure.</p></li>
 <li><p><strong>Oversold Condition</strong>: The 14-period Relative Strength Index (RSI) must fall below the optimized threshold value (35 in our optimal configuration), indicating a temporary oversold condition.</p></li>
 <li><p><strong>Price at Support</strong>: The closing price must touch or fall below the lower Bollinger Band (20-period, 2 standard deviations), confirming price is at a statistical support level.</p></li>
 </ol>
-<p>When all three conditions are satisfied, the system: - Generates a BUY signal - Sets entry price at the current closing price - Calculates position size at 2% of the portfolio value - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)</p>
+<p>When all conditions are satisfied, the system: - Generates a BUY signal - Sets entry price at the current closing price - Calculates position size at 2% of the portfolio value - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry logic from generate_signals() function</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (df_signals.iloc[i][<span class="st">'SMA50'</span>] <span class="op">&gt;</span> df_signals.iloc[i][<span class="st">'SMA200'</span>] <span class="kw">and</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&lt;</span> rsi_threshold <span class="kw">and</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'BB_Lower'</span>]):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate buy signal and set parameters</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    entry_price <span class="op">=</span> df_signals.iloc[i][<span class="st">'Close'</span>]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    atr_value <span class="op">=</span> df_signals.iloc[i][<span class="st">'ATR'</span>]</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Stop_Loss'</span>)] <span class="op">=</span> entry_price <span class="op">-</span> <span class="fl">2.0</span> <span class="op">*</span> atr_value</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Take_Profit'</span>)] <span class="op">=</span> entry_price <span class="op">+</span> <span class="fl">5.0</span> <span class="op">*</span> atr_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&lt;</span> rsi_threshold <span class="kw">and</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'BB_Lower'</span>]):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate buy signal and set parameters</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    entry_price <span class="op">=</span> df_signals.iloc[i][<span class="st">'Close'</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    atr_value <span class="op">=</span> df_signals.iloc[i][<span class="st">'ATR'</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Stop_Loss'</span>)] <span class="op">=</span> entry_price <span class="op">-</span> <span class="fl">2.0</span> <span class="op">*</span> atr_value</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Take_Profit'</span>)] <span class="op">=</span> entry_price <span class="op">+</span> <span class="fl">5.0</span> <span class="op">*</span> atr_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exit-conditions" class="level4">
 <h4 class="anchored" data-anchor-id="exit-conditions">Exit Conditions</h4>
@@ -429,7 +367,7 @@ window.Quarto = {
 <section id="position-sizing-and-risk-management" class="level4">
 <h4 class="anchored" data-anchor-id="position-sizing-and-risk-management">Position Sizing and Risk Management</h4>
 <ul>
-<li><strong>Fixed Risk Percentage</strong>: Each trade risks 2% of the portfolio value (<code>Position_Size = 0.02</code>)</li>
+<li><strong>Fixed Risk Percentage</strong>: Each trade risks 1.2% of the portfolio value (<code>Position_Size = 0.012</code>)</li>
 <li><strong>Dynamic Stop-Loss</strong>: Calculated using ATR to adapt to market volatility (<code>Stop_Loss = Entry_Price - ATR × Stop_Multiplier</code>)</li>
 <li><strong>Asymmetric Reward-Risk Ratio</strong>: Take-profit level is set at a multiple of the stop-loss distance (optimal parameters found: 2.0× ATR for stop-loss, 5.0× ATR for take-profit, resulting in a 2.5:1 reward-to-risk ratio)</li>
 </ul>
