@@ -50,13 +50,17 @@ Our strategy takes advantage of two common market patterns:
 
 Instead of explaining every technical detail (available in our [main analysis](index.html)), we present the core concepts:
 
-### The Three Entry Conditions
+### The Four Entry Conditions
 
-Our strategy only enters a position when all three conditions are met:
+Our strategy enters a position when any of the following four conditions is met:
 
-- **Confirmed Uptrend**: We only buy when the market trend is clearly positive
-- **Oversold Indicators**: We require technical evidence of oversold conditions
-- **Price at Support**: We need confirmation that price has reached a support level
+- **lower‑band oversold: rsi < rsi_threshold and close ≤ lower bollinger band ×1.05
+- **middle‑band pullback: close ≤ middle bollinger band ×1.05
+- **extreme rsi oversold: rsi < 30
+- **sma20 pullback: close ≤ sma20 ×0.98
+
+
+
 
 ### The Four Exit Signals
 
@@ -77,11 +81,6 @@ For those interested in the technical aspects, here is a simplified explanation:
 - **Bollinger Bands**: 20-period with 2 standard deviations marks statistical extremes
 - **ATR**: 14-period Average True Range enables dynamic risk management
 
-### Entry Logic
-The system generates a BUY signal when ALL these conditions are met:
-```
-IF (RSI < 35) AND (Price <= Lower Bollinger Band) THEN BUY
-```
 
 ### Exit Logic
 The system generates a SELL signal when ANY of these conditions occur:
@@ -90,9 +89,10 @@ IF (RSI > 70) OR (Price < Stop Loss) OR (Price > Take Profit) OR (Price < SMA50)
 ```
 
 ### Risk Management
-- Position Size: 2% of portfolio per trade
+- Position Size: dynamic 10 %-25 % (risk = 1.2 % of equity, sized by ATR-based stop-distance and clamped 10-25 %)
 - Stop Loss: Entry Price - (2.0 × ATR)
 - Take Profit: Entry Price + (5.0 × ATR)
+- Stop‑loss will trail to breakeven and +1×ATR as the trade moves in favour.
 
 ### Optimization Results
 After extensive testing, our best parameter combination achieved:
@@ -143,16 +143,17 @@ For detailed backtesting results, parameter optimization analysis, and technical
 The "Buy Low Sell High" strategy is designed to identify temporary price dips in uptrending markets, entering long positions when prices are oversold according to technical indicators, and exiting based on predefined conditions.
 
 #### Entry Conditions
-For a trade entry signal to be generated, ALL of the following conditions must be met simultaneously:
+A buy signal is generated when **any** of the following four conditions is satisfied:
 
-1. **Oversold Condition**: The 14-period Relative Strength Index (RSI) must fall below the optimized threshold value (35 in our optimal configuration), indicating a temporary oversold condition.
+1. lower‑band oversold: RSI < rsi_threshold and close ≤ lower Bollinger Band × 1.05
+2. middle‑band pullback: close ≤ middle Bollinger Band × 1.05
+3. extreme RSI oversold: RSI < 30
+4. SMA20 pullback: close ≤ SMA20 ×0.98
 
-2. **Price at Support**: The closing price must touch or fall below the lower Bollinger Band (20-period, 2 standard deviations), confirming price is at a statistical support level.
-
-When all conditions are satisfied, the system:
+When any conditions are satisfied, the system:
 - Generates a BUY signal
 - Sets entry price at the current closing price
-- Calculates position size at 2% of the portfolio value
+- Risks 1.2% of equity (position size clamps to 10‑25% based on ATR distance)
 - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)
 
 ```python
@@ -201,8 +202,8 @@ elif df_signals.iloc[i]['Signal'] == 1 and df_signals.iloc[i]['Close'] < df_sign
 
 #### Parameter Optimization Process
 The strategy employs grid-search optimization across three key parameters:
-- **RSI Threshold**: Tested values of 30, 35, 40, and 45
-- **ATR Stop Multiplier**: Tested values of 1.5, 2.0, 2.5, and 3.0
+- **RSI Threshold**:  Tested values of 35,40,45,50,55
+- **ATR Stop Multiplier**: Tested values of 1.5, 2.0,and  2.5
 - **ATR Take Multiplier**: Tested values of 3.0, 4.0, and 5.0
 
 Each parameter combination is evaluated based on:

@@ -152,13 +152,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#strategy-framework" id="toc-strategy-framework" class="nav-link" data-scroll-target="#strategy-framework">Strategy Framework</a>
   <ul class="collapse">
-  <li><a href="#the-three-entry-conditions" id="toc-the-three-entry-conditions" class="nav-link" data-scroll-target="#the-three-entry-conditions">The Three Entry Conditions</a></li>
+  <li><a href="#the-four-entry-conditions" id="toc-the-four-entry-conditions" class="nav-link" data-scroll-target="#the-four-entry-conditions">The Four Entry Conditions</a></li>
   <li><a href="#the-four-exit-signals" id="toc-the-four-exit-signals" class="nav-link" data-scroll-target="#the-four-exit-signals">The Four Exit Signals</a></li>
   </ul></li>
   <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details">Implementation Details</a>
   <ul class="collapse">
   <li><a href="#technical-indicators" id="toc-technical-indicators" class="nav-link" data-scroll-target="#technical-indicators">Technical Indicators</a></li>
-  <li><a href="#entry-logic" id="toc-entry-logic" class="nav-link" data-scroll-target="#entry-logic">Entry Logic</a></li>
   <li><a href="#exit-logic" id="toc-exit-logic" class="nav-link" data-scroll-target="#exit-logic">Exit Logic</a></li>
   <li><a href="#risk-management" id="toc-risk-management" class="nav-link" data-scroll-target="#risk-management">Risk Management</a></li>
   <li><a href="#optimization-results" id="toc-optimization-results" class="nav-link" data-scroll-target="#optimization-results">Optimization Results</a></li>
@@ -232,13 +231,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="strategy-framework" class="level2">
 <h2 class="anchored" data-anchor-id="strategy-framework">Strategy Framework</h2>
 <p>Instead of explaining every technical detail (available in our <a href="index.html">main analysis</a>), we present the core concepts:</p>
-<section id="the-three-entry-conditions" class="level3">
-<h3 class="anchored" data-anchor-id="the-three-entry-conditions">The Three Entry Conditions</h3>
-<p>Our strategy only enters a position when all three conditions are met:</p>
+<section id="the-four-entry-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="the-four-entry-conditions">The Four Entry Conditions</h3>
+<p>Our strategy enters a position when any of the following four conditions is met:</p>
 <ul>
-<li><strong>Confirmed Uptrend</strong>: We only buy when the market trend is clearly positive</li>
-<li><strong>Oversold Indicators</strong>: We require technical evidence of oversold conditions</li>
-<li><strong>Price at Support</strong>: We need confirmation that price has reached a support level</li>
+<li>**lower‑band oversold: rsi &lt; rsi_threshold and close ≤ lower bollinger band ×1.05</li>
+<li>**middle‑band pullback: close ≤ middle bollinger band ×1.05</li>
+<li>**extreme rsi oversold: rsi &lt; 30</li>
+<li>**sma20 pullback: close ≤ sma20 ×0.98</li>
 </ul>
 </section>
 <section id="the-four-exit-signals" class="level3">
@@ -264,11 +264,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ATR</strong>: 14-period Average True Range enables dynamic risk management</li>
 </ul>
 </section>
-<section id="entry-logic" class="level3">
-<h3 class="anchored" data-anchor-id="entry-logic">Entry Logic</h3>
-<p>The system generates a BUY signal when ALL these conditions are met:</p>
-<pre><code>IF (RSI &lt; 35) AND (Price &lt;= Lower Bollinger Band) THEN BUY</code></pre>
-</section>
 <section id="exit-logic" class="level3">
 <h3 class="anchored" data-anchor-id="exit-logic">Exit Logic</h3>
 <p>The system generates a SELL signal when ANY of these conditions occur:</p>
@@ -277,9 +272,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="risk-management" class="level3">
 <h3 class="anchored" data-anchor-id="risk-management">Risk Management</h3>
 <ul>
-<li>Position Size: 2% of portfolio per trade</li>
+<li>Position Size: dynamic 10 %-25 % (risk = 1.2 % of equity, sized by ATR-based stop-distance and clamped 10-25 %)</li>
 <li>Stop Loss: Entry Price - (2.0 × ATR)</li>
 <li>Take Profit: Entry Price + (5.0 × ATR)</li>
+<li>Stop‑loss will trail to breakeven and +1×ATR as the trade moves in favour.</li>
 </ul>
 </section>
 <section id="optimization-results" class="level3">
@@ -325,21 +321,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The “Buy Low Sell High” strategy is designed to identify temporary price dips in uptrending markets, entering long positions when prices are oversold according to technical indicators, and exiting based on predefined conditions.</p>
 <section id="entry-conditions" class="level4">
 <h4 class="anchored" data-anchor-id="entry-conditions">Entry Conditions</h4>
-<p>For a trade entry signal to be generated, ALL of the following conditions must be met simultaneously:</p>
+<p>A buy signal is generated when <strong>any</strong> of the following four conditions is satisfied:</p>
 <ol type="1">
-<li><p><strong>Oversold Condition</strong>: The 14-period Relative Strength Index (RSI) must fall below the optimized threshold value (35 in our optimal configuration), indicating a temporary oversold condition.</p></li>
-<li><p><strong>Price at Support</strong>: The closing price must touch or fall below the lower Bollinger Band (20-period, 2 standard deviations), confirming price is at a statistical support level.</p></li>
+<li>lower‑band oversold: RSI &lt; rsi_threshold and close ≤ lower Bollinger Band × 1.05</li>
+<li>middle‑band pullback: close ≤ middle Bollinger Band × 1.05</li>
+<li>extreme RSI oversold: RSI &lt; 30</li>
+<li>SMA20 pullback: close ≤ SMA20 ×0.98</li>
 </ol>
-<p>When all conditions are satisfied, the system: - Generates a BUY signal - Sets entry price at the current closing price - Calculates position size at 2% of the portfolio value - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry logic from generate_signals() function</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&lt;</span> rsi_threshold <span class="kw">and</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'BB_Lower'</span>]):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate buy signal and set parameters</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    entry_price <span class="op">=</span> df_signals.iloc[i][<span class="st">'Close'</span>]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    atr_value <span class="op">=</span> df_signals.iloc[i][<span class="st">'ATR'</span>]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Stop_Loss'</span>)] <span class="op">=</span> entry_price <span class="op">-</span> <span class="fl">2.0</span> <span class="op">*</span> atr_value</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Take_Profit'</span>)] <span class="op">=</span> entry_price <span class="op">+</span> <span class="fl">5.0</span> <span class="op">*</span> atr_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When any conditions are satisfied, the system: - Generates a BUY signal - Sets entry price at the current closing price - Risks 1.2% of equity (position size clamps to 10‑25% based on ATR distance) - Establishes dynamic stop-loss and take-profit levels based on the Average True Range (ATR)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry logic from generate_signals() function</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&lt;</span> rsi_threshold <span class="kw">and</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'BB_Lower'</span>]):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate buy signal and set parameters</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    entry_price <span class="op">=</span> df_signals.iloc[i][<span class="st">'Close'</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    atr_value <span class="op">=</span> df_signals.iloc[i][<span class="st">'ATR'</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Stop_Loss'</span>)] <span class="op">=</span> entry_price <span class="op">-</span> <span class="fl">2.0</span> <span class="op">*</span> atr_value</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Take_Profit'</span>)] <span class="op">=</span> entry_price <span class="op">+</span> <span class="fl">5.0</span> <span class="op">*</span> atr_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exit-conditions" class="level4">
 <h4 class="anchored" data-anchor-id="exit-conditions">Exit Conditions</h4>
@@ -350,19 +348,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Take-Profit Triggered</strong>: If price rises above the calculated take-profit level (Entry Price + ATR × Take Multiplier).</p></li>
 <li><p><strong>Trend Reversal</strong>: If price closes below the 50-day Simple Moving Average (SMA50), suggesting the shorter-term trend may be reversing.</p></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exit logic from generate_signals() function</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&gt;</span> <span class="dv">70</span>:</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: RSI overbought</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Low'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'Stop_Loss'</span>]:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Stop-loss triggered</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'High'</span>] <span class="op">&gt;=</span> df_signals.iloc[i][<span class="st">'Take_Profit'</span>]:</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Take-profit triggered</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;</span> df_signals.iloc[i][<span class="st">'SMA50'</span>]:</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Close below SMA50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exit logic from generate_signals() function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'RSI'</span>] <span class="op">&gt;</span> <span class="dv">70</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: RSI overbought</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Low'</span>] <span class="op">&lt;=</span> df_signals.iloc[i][<span class="st">'Stop_Loss'</span>]:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Stop-loss triggered</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'High'</span>] <span class="op">&gt;=</span> df_signals.iloc[i][<span class="st">'Take_Profit'</span>]:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Take-profit triggered</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> df_signals.iloc[i][<span class="st">'Signal'</span>] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> df_signals.iloc[i][<span class="st">'Close'</span>] <span class="op">&lt;</span> df_signals.iloc[i][<span class="st">'SMA50'</span>]:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    df_signals.iloc[i, df_signals.columns.get_loc(<span class="st">'Signal'</span>)] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exit: Close below SMA50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="position-sizing-and-risk-management" class="level4">
 <h4 class="anchored" data-anchor-id="position-sizing-and-risk-management">Position Sizing and Risk Management</h4>
@@ -374,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="parameter-optimization-process" class="level4">
 <h4 class="anchored" data-anchor-id="parameter-optimization-process">Parameter Optimization Process</h4>
-<p>The strategy employs grid-search optimization across three key parameters: - <strong>RSI Threshold</strong>: Tested values of 30, 35, 40, and 45 - <strong>ATR Stop Multiplier</strong>: Tested values of 1.5, 2.0, 2.5, and 3.0 - <strong>ATR Take Multiplier</strong>: Tested values of 3.0, 4.0, and 5.0</p>
+<p>The strategy employs grid-search optimization across three key parameters: - <strong>RSI Threshold</strong>: Tested values of 35,40,45,50,55 - <strong>ATR Stop Multiplier</strong>: Tested values of 1.5, 2.0,and 2.5 - <strong>ATR Take Multiplier</strong>: Tested values of 3.0, 4.0, and 5.0</p>
 <p>Each parameter combination is evaluated based on: - Sharpe Ratio (primary optimization metric) - Total Return - Maximum Drawdown - Win Rate - Number of Trades</p>
 <p>The optimal parameter combination (RSI=35, Stop=2.0×ATR, Take=5.0×ATR) was selected based on maximizing the Sharpe Ratio, which balances return against risk.</p>
 
