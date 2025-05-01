@@ -1424,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 ::: {.callout-note}
 ### Key Findings
-The "Buy Low Sell High" strategy using RSI=35 as the entry signal produced a solid positive return of 12.88% over the 24-month testing period, significantly outperforming our previous configuration. The strategy demonstrated excellent risk management with a maximum drawdown of only 2.37%.
+The "Buy Low Sell High"  strategy using RSI=35 as the entry signal produced a solid positive return of 12.88% over the 24-month testing period, significantly outperforming our previous configuration. The strategy demonstrated excellent risk management with a maximum drawdown of only 2.37%.
 
 Our analysis of exit reasons revealed that RSI Overbought exits were the most profitable, yielding an average profit of $295.84 per trade compared to $64.34 for SMA Breakdown exits. This suggests that allowing trades to run until overbought conditions occur may be more profitable than exiting based on moving average breakdowns.
 :::
