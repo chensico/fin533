@@ -34,9 +34,24 @@ format:
   </a>
 </div>
 
+<div style="text-align:center;margin-bottom:1.5rem;">
+  <a href="https://youtu.be/AonmGeAM0cQ"
+     target="_blank"
+     class="btn btn-primary"
+     style="text-decoration:none;background-color:#ff0000;color:white;padding:8px 16px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;">
+    <!-- YouTube 图标（SVG）-->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+         viewBox="0 0 16 16" style="margin-right:8px;">
+      <path d="M15.634 4.684a1.954 1.954 0 0 0-1.37-1.381C12.8 3 8 3 8 3s-4.8 0-6.264.303A1.954 1.954 0 0 0 .366 4.684 20.401 20.401 0 0 0 0 8a20.4 20.4 0 0 0 .366 3.316 1.954 1.954 0 0 0 1.37 1.381C3.2 13 8 13 8 13s4.8 0 6.264-.303a1.954 1.954 0 0 0 1.37-1.381A20.4 20.4 0 0 0 16 8a20.401 20.401 0 0 0-.366-3.316zM6.4 10.4V5.6L10.4 8 6.4 10.4z"/>
+    </svg>
+    Watch Demo Video
+  </a>
+</div>
+
+
 ## Our Trading Philosophy
 
-Our research is based on a key market principle: **prices typically return to their average after extreme movements**. Our "Buy Low / Sell High" strategy captures these reversion opportunities using a structured, evidence-based approach.
+Our strategy is based on a straightforward market insight: after significant price swings, assets often return to their average levels. This “Buy Low, Sell High” approach helps us spot these opportunities in a clear and practical way.
 
 ### Market Inefficiencies We Target
 
