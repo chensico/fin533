@@ -873,7 +873,7 @@ $$\text{Take Profit} = \text{Entry Price} + \text{ATR} \times \text{Take Multipl
 | Unknown | 97 | 43.7% | <span class="positive-value">54.6%</span> | <span class="positive-value">$4.57</span> | <span class="positive-value">$443.65</span> | <span class="positive-value">0.0%</span> |
 
 ::: {.callout-tip}
-## Detailed Trade Analysis
+##  Detailed Trade Analysis
 - Total Trades: 222
 - Win Rate: 55.41%
 - Average Profit: <span class="positive-value">$58.04</span>
